@@ -1,5 +1,5 @@
-import 'account.dart';
 import 'meter_point_meter.dart';
+import 'register.dart';
 
 class ElectricityMeterPointMeter extends MeterPointMeter {
   List<Register>? registers;
