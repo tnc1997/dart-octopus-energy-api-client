@@ -1,6 +1,7 @@
 export 'src/accounts/models/agreement.dart';
 export 'src/accounts/models/electricity_meter_point_meter.dart';
 export 'src/accounts/models/gas_meter_point_meter.dart';
+export 'src/accounts/models/meter_point.dart';
 export 'src/accounts/models/meter_point_meter.dart';
 export 'src/accounts/models/register.dart';
 export 'src/common/constants/uri_constants.dart';
