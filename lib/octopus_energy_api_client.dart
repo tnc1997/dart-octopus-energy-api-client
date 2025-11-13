@@ -5,6 +5,7 @@ export 'src/accounts/models/gas_meter_point.dart';
 export 'src/accounts/models/gas_meter_point_meter.dart';
 export 'src/accounts/models/meter_point.dart';
 export 'src/accounts/models/meter_point_meter.dart';
+export 'src/accounts/models/property.dart';
 export 'src/accounts/models/register.dart';
 export 'src/common/constants/uri_constants.dart';
 export 'src/common/exceptions/octopus_energy_api_client_exception.dart';
