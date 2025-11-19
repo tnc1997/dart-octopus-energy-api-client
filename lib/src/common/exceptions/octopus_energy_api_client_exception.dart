@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 class OctopusEnergyApiClientException implements Exception {
@@ -25,13 +27,13 @@ class OctopusEnergyApiClientException implements Exception {
     http.Response response,
   ) {
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      if (response.body.isNotEmpty) {
+      if (response.headers['content-type'] == 'application/json') {
         throw OctopusEnergyApiClientException(
-          message: response.body,
+          message: json.decode(response.body)['detail'],
         );
-      } else {
-        throw OctopusEnergyApiClientException();
       }
+
+      throw OctopusEnergyApiClientException();
     } else {
       return response;
     }
