@@ -1,4 +1,5 @@
 export 'src/accounts/models/account.dart';
+export 'src/accounts/models/address.dart';
 export 'src/accounts/models/agreement.dart';
 export 'src/accounts/models/electricity_meter_point.dart';
 export 'src/accounts/models/electricity_meter_point_meter.dart';
