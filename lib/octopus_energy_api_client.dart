@@ -1,5 +1,6 @@
 export 'src/accounts/enums/account_source.dart';
 export 'src/accounts/enums/account_type.dart';
+export 'src/accounts/enums/bespoke_payment_method.dart';
 export 'src/accounts/models/account.dart';
 export 'src/accounts/models/address.dart';
 export 'src/accounts/models/affiliate.dart';
