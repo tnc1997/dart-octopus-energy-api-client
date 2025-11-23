@@ -1,3 +1,4 @@
+export 'src/accounts/enums/account_type.dart';
 export 'src/accounts/models/account.dart';
 export 'src/accounts/models/address.dart';
 export 'src/accounts/models/affiliate.dart';
