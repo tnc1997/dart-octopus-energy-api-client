@@ -19,6 +19,7 @@ export 'src/accounts/models/bespoke_tariff_rates.dart';
 export 'src/accounts/models/billing_options.dart';
 export 'src/accounts/models/business.dart';
 export 'src/accounts/models/credit_score_data.dart';
+export 'src/accounts/models/deposit.dart';
 export 'src/accounts/models/electricity_meter_point.dart';
 export 'src/accounts/models/electricity_meter_point_meter.dart';
 export 'src/accounts/models/gas_meter_point.dart';
