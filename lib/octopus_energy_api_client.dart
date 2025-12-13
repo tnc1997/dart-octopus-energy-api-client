@@ -29,6 +29,7 @@ export 'src/accounts/models/meter_point_meter.dart';
 export 'src/accounts/models/payment.dart';
 export 'src/accounts/models/property.dart';
 export 'src/accounts/models/psr.dart';
+export 'src/accounts/models/quote.dart';
 export 'src/accounts/models/register.dart';
 export 'src/accounts/services/accounts_service.dart';
 export 'src/common/clients/api_key_client.dart';
