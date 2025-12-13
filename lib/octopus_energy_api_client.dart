@@ -13,6 +13,7 @@ export 'src/accounts/models/account.dart';
 export 'src/accounts/models/address.dart';
 export 'src/accounts/models/affiliate.dart';
 export 'src/accounts/models/agreement.dart';
+export 'src/accounts/models/bespoke_electricity_unit_rate.dart';
 export 'src/accounts/models/electricity_meter_point.dart';
 export 'src/accounts/models/electricity_meter_point_meter.dart';
 export 'src/accounts/models/gas_meter_point.dart';
