@@ -9,59 +9,59 @@ import 'meter_point.dart';
 import 'quote.dart';
 
 class ElectricityMeterPoint extends MeterPoint<ElectricityMeterPointMeter> {
-  Address? address;
-  List<BespokePpsTariffRates>? bespokePpsTariffRates;
-  BespokeTariffRates? bespokeTariffRates;
   int? consumptionDay;
   int? consumptionNight;
   int? consumptionOffPeak;
-  String? currentSupplierName;
-  String? currentSupplierTariff;
   ExportDetails? exportDetails;
-  int? fixedTpiFee;
-  bool? hasSmartMeter;
   bool? isExport;
   bool? isHalfHourly;
-  MeterType? meterType;
   String? mpan;
-  DateTime? preferredSsd;
   int? profileClass;
-  Quote? quote;
-  int? quotedProductId;
-  String? standingChargeUplift;
-  String? tariffCode;
-  String? unitRateUplift;
 
   ElectricityMeterPoint({
-    this.address,
+    Address? address,
     List<Agreement>? agreements,
-    this.bespokePpsTariffRates,
-    this.bespokeTariffRates,
+    List<BespokePpsTariffRates>? bespokePpsTariffRates,
+    BespokeTariffRates? bespokeTariffRates,
     this.consumptionDay,
     this.consumptionNight,
     this.consumptionOffPeak,
     int? consumptionStandard,
-    this.currentSupplierName,
-    this.currentSupplierTariff,
+    String? currentSupplierName,
+    String? currentSupplierTariff,
     this.exportDetails,
-    this.fixedTpiFee,
-    this.hasSmartMeter,
+    int? fixedTpiFee,
+    bool? hasSmartMeter,
     this.isExport,
     this.isHalfHourly,
-    this.meterType,
     List<ElectricityMeterPointMeter>? meters,
+    MeterType? meterType,
     this.mpan,
-    this.preferredSsd,
+    DateTime? preferredSsd,
     this.profileClass,
-    this.quote,
-    this.quotedProductId,
-    this.standingChargeUplift,
-    this.tariffCode,
-    this.unitRateUplift,
+    Quote? quote,
+    int? quotedProductId,
+    String? standingChargeUplift,
+    String? tariffCode,
+    String? unitRateUplift,
   }) : super(
+          address: address,
           agreements: agreements,
+          bespokePpsTariffRates: bespokePpsTariffRates,
+          bespokeTariffRates: bespokeTariffRates,
           consumptionStandard: consumptionStandard,
+          currentSupplierName: currentSupplierName,
+          currentSupplierTariff: currentSupplierTariff,
+          fixedTpiFee: fixedTpiFee,
+          hasSmartMeter: hasSmartMeter,
           meters: meters,
+          meterType: meterType,
+          preferredSsd: preferredSsd,
+          quote: quote,
+          quotedProductId: quotedProductId,
+          standingChargeUplift: standingChargeUplift,
+          tariffCode: tariffCode,
+          unitRateUplift: unitRateUplift,
         );
 
   factory ElectricityMeterPoint.fromJson(
