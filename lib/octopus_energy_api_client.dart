@@ -9,6 +9,7 @@ export 'src/accounts/enums/installation_technology_type.dart';
 export 'src/accounts/enums/meter_type.dart';
 export 'src/accounts/enums/payment_method.dart';
 export 'src/accounts/enums/sales_channel.dart';
+export 'src/accounts/enums/smart_meter_interest.dart';
 export 'src/accounts/enums/smart_onboarding_product_type.dart';
 export 'src/accounts/models/account.dart';
 export 'src/accounts/models/address.dart';
