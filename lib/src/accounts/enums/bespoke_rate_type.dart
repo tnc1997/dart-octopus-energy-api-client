@@ -12,7 +12,9 @@ enum BespokeRateType {
   winterOffPeak,
   winterPeak;
 
-  factory BespokeRateType.fromJson(String json) {
+  factory BespokeRateType.fromJson(
+    String json,
+  ) {
     switch (json) {
       case 'CAPACITY_MARKET':
         return BespokeRateType.capacityMarket;

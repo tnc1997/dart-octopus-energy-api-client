@@ -94,8 +94,7 @@ class Create {
           Address.fromJson(json['billing_address'] as Map<String, dynamic>),
       billingOptions: json['billing_options'] != null
           ? BillingOptions.fromJson(
-              json['billing_options'] as Map<String, dynamic>,
-            )
+              json['billing_options'] as Map<String, dynamic>)
           : null,
       brandCode: json['brand_code'] != null
           ? BrandCode.fromJson(json['brand_code'] as String)
