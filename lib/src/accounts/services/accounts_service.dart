@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import '../../common/constants/uri_constants.dart';
 import '../../common/exceptions/octopus_energy_api_client_exception.dart';
 import '../models/account.dart';
+import '../models/create.dart';
+import '../models/success_response.dart';
 
 class AccountsService {
   final http.Client _client;
@@ -12,6 +14,26 @@ class AccountsService {
   const AccountsService({
     required http.Client client,
   }) : _client = client;
+
+  /// WARNING: This endpoint is only available to partner organisations.
+  Future<SuccessResponse> createAccount(
+    Create create,
+  ) async {
+    final response = await _client.post(
+      Uri.https(
+        authority,
+        '/v1/accounts/',
+      ),
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: json.encode(create.toJson()),
+    );
+
+    OctopusEnergyApiClientException.checkIsSuccessStatusCode(response);
+
+    return SuccessResponse.fromJson(json.decode(response.body));
+  }
 
   /// Retrieve the details of an account.
   Future<Account> getAccount(
