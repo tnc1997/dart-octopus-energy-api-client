@@ -22,6 +22,7 @@ export 'src/accounts/models/bespoke_pps_tariff_rates.dart';
 export 'src/accounts/models/bespoke_tariff_rates.dart';
 export 'src/accounts/models/billing_options.dart';
 export 'src/accounts/models/business.dart';
+export 'src/accounts/models/business_tariff_renewal.dart';
 export 'src/accounts/models/business_tariff_renewal_agreement.dart';
 export 'src/accounts/models/business_tariff_renewal_bespoke_register_rate.dart';
 export 'src/accounts/models/business_tariff_renewal_bespoke_tariff_rate.dart';
