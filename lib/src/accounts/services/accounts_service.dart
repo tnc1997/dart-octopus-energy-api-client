@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import '../../common/constants/uri_constants.dart';
 import '../../common/exceptions/octopus_energy_api_client_exception.dart';
 import '../models/account.dart';
+import '../models/agreements_created.dart';
+import '../models/business_tariff_renewal.dart';
 import '../models/create.dart';
 import '../models/success_response.dart';
 
@@ -49,5 +51,28 @@ class AccountsService {
     OctopusEnergyApiClientException.checkIsSuccessStatusCode(response);
 
     return Account.fromJson(json.decode(response.body));
+  }
+
+  /// This end-point allows a new agreement to be created for an existing
+  /// account. It is restricted to business accounts.
+  /// WARNING: This endpoint is only available to partner organisations.
+  Future<AgreementsCreated> renewBusinessTariff(
+    String accountNumber,
+    BusinessTariffRenewal renewal,
+  ) async {
+    final response = await _client.post(
+      Uri.https(
+        authority,
+        '/v1/accounts/$accountNumber/tariff-renewal/',
+      ),
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: json.encode(renewal.toJson()),
+    );
+
+    OctopusEnergyApiClientException.checkIsSuccessStatusCode(response);
+
+    return AgreementsCreated.fromJson(json.decode(response.body));
   }
 }
