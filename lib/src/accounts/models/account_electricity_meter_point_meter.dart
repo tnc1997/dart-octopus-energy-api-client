@@ -1,20 +1,20 @@
-import 'meter_point_meter.dart';
+import 'account_meter_point_meter.dart';
 import 'account_register.dart';
 
-class ElectricityMeterPointMeter extends MeterPointMeter {
+class AccountElectricityMeterPointMeter extends AccountMeterPointMeter {
   List<AccountRegister>? registers;
 
-  ElectricityMeterPointMeter({
+  AccountElectricityMeterPointMeter({
     this.registers,
     required String serialNumber,
   }) : super(
           serialNumber: serialNumber,
         );
 
-  factory ElectricityMeterPointMeter.fromJson(
+  factory AccountElectricityMeterPointMeter.fromJson(
     Map<String, dynamic> json,
   ) {
-    return ElectricityMeterPointMeter(
+    return AccountElectricityMeterPointMeter(
       registers: (json['registers'] as List<dynamic>?)
           ?.map((e) => AccountRegister.fromJson(e as Map<String, dynamic>))
           .toList(),
