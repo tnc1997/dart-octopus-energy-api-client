@@ -1,8 +1,8 @@
 import 'meter_point_meter.dart';
-import 'register.dart';
+import 'account_register.dart';
 
 class ElectricityMeterPointMeter extends MeterPointMeter {
-  List<Register>? registers;
+  List<AccountRegister>? registers;
 
   ElectricityMeterPointMeter({
     this.registers,
@@ -16,7 +16,7 @@ class ElectricityMeterPointMeter extends MeterPointMeter {
   ) {
     return ElectricityMeterPointMeter(
       registers: (json['registers'] as List<dynamic>?)
-          ?.map((e) => Register.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => AccountRegister.fromJson(e as Map<String, dynamic>))
           .toList(),
       serialNumber: json['serial_number'] as String,
     );

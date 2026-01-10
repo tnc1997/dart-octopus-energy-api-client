@@ -1,19 +1,19 @@
-class Register {
-  String id;
+class AccountRegister {
+  String identifier;
   bool? isSettlementRegister;
   String? rate;
 
-  Register({
-    required this.id,
+  AccountRegister({
+    required this.identifier,
     this.isSettlementRegister,
     this.rate,
   });
 
-  factory Register.fromJson(
+  factory AccountRegister.fromJson(
     Map<String, dynamic> json,
   ) {
-    return Register(
-      id: json['identifier'] as String,
+    return AccountRegister(
+      identifier: json['identifier'] as String,
       isSettlementRegister: json['is_settlement_register'] as bool?,
       rate: json['rate'] as String?,
     );
@@ -21,7 +21,7 @@ class Register {
 
   Map<String, dynamic> toJson() {
     return {
-      'identifier': id,
+      'identifier': identifier,
       'is_settlement_register': isSettlementRegister,
       'rate': rate,
     };
