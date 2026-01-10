@@ -1,8 +1,8 @@
-import 'property.dart';
+import 'account_property.dart';
 
 class Account {
   String number;
-  List<Property>? properties;
+  List<AccountProperty>? properties;
 
   Account({
     required this.number,
@@ -15,7 +15,7 @@ class Account {
     return Account(
       number: json['number'] as String,
       properties: (json['properties'] as List<dynamic>?)
-          ?.map((e) => Property.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => AccountProperty.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
   }
