@@ -2,44 +2,46 @@ import '../enums/meter_type.dart';
 import 'address.dart';
 import 'bespoke_pps_tariff_rates.dart';
 import 'bespoke_tariff_rates.dart';
+import 'meter_point.dart';
 import 'quote.dart';
 
-class GasMeterPoint {
-  Address? address;
-  List<BespokePpsTariffRates>? bespokePpsTariffRates;
-  BespokeTariffRates? bespokeTariffRates;
-  int consumptionStandard;
-  String? currentSupplierName;
-  String? currentSupplierTariff;
-  int? fixedTpiFee;
-  bool? hasSmartMeter;
-  MeterType? meterType;
+class GasMeterPoint extends MeterPoint {
   String? mprn;
-  DateTime? preferredSsd;
-  Quote quote;
-  int? quotedProductId;
-  String? standingChargeUplift;
-  String? tariffCode;
-  String? unitRateUplift;
 
   GasMeterPoint({
-    this.address,
-    this.bespokePpsTariffRates,
-    this.bespokeTariffRates,
-    required this.consumptionStandard,
-    this.currentSupplierName,
-    this.currentSupplierTariff,
-    this.fixedTpiFee,
-    this.hasSmartMeter,
-    this.meterType,
+    Address? address,
+    List<BespokePpsTariffRates>? bespokePpsTariffRates,
+    BespokeTariffRates? bespokeTariffRates,
+    required int? consumptionStandard,
+    String? currentSupplierName,
+    String? currentSupplierTariff,
+    int? fixedTpiFee,
+    bool? hasSmartMeter,
+    MeterType? meterType,
     this.mprn,
-    this.preferredSsd,
-    required this.quote,
-    this.quotedProductId,
-    this.standingChargeUplift,
-    this.tariffCode,
-    this.unitRateUplift,
-  });
+    DateTime? preferredSsd,
+    required Quote quote,
+    int? quotedProductId,
+    String? standingChargeUplift,
+    String? tariffCode,
+    String? unitRateUplift,
+  }) : super(
+          address: address,
+          bespokePpsTariffRates: bespokePpsTariffRates,
+          bespokeTariffRates: bespokeTariffRates,
+          consumptionStandard: consumptionStandard,
+          currentSupplierName: currentSupplierName,
+          currentSupplierTariff: currentSupplierTariff,
+          fixedTpiFee: fixedTpiFee,
+          hasSmartMeter: hasSmartMeter,
+          meterType: meterType,
+          preferredSsd: preferredSsd,
+          quote: quote,
+          quotedProductId: quotedProductId,
+          standingChargeUplift: standingChargeUplift,
+          tariffCode: tariffCode,
+          unitRateUplift: unitRateUplift,
+        );
 
   factory GasMeterPoint.fromJson(
     Map<String, dynamic> json,
@@ -77,6 +79,7 @@ class GasMeterPoint {
     );
   }
 
+  @override
   Map<String, dynamic> toJson() {
     return {
       'address': address?.toJson(),

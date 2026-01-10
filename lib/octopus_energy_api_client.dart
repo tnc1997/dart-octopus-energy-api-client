@@ -44,6 +44,7 @@ export 'src/accounts/models/export_details.dart';
 export 'src/accounts/models/gas_meter_point.dart';
 export 'src/accounts/models/installation.dart';
 export 'src/accounts/models/metadata.dart';
+export 'src/accounts/models/meter_point.dart';
 export 'src/accounts/models/payment.dart';
 export 'src/accounts/models/psr.dart';
 export 'src/accounts/models/quote.dart';

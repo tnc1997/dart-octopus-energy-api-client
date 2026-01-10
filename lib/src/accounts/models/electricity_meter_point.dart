@@ -3,54 +3,56 @@ import 'address.dart';
 import 'bespoke_pps_tariff_rates.dart';
 import 'bespoke_tariff_rates.dart';
 import 'export_details.dart';
+import 'meter_point.dart';
 import 'quote.dart';
 
-class ElectricityMeterPoint {
-  Address? address;
-  List<BespokePpsTariffRates>? bespokePpsTariffRates;
-  BespokeTariffRates? bespokeTariffRates;
+class ElectricityMeterPoint extends MeterPoint {
   int? consumptionDay;
   int? consumptionNight;
   int? consumptionOffPeak;
-  int? consumptionStandard;
-  String? currentSupplierName;
-  String? currentSupplierTariff;
   ExportDetails? exportDetails;
-  int? fixedTpiFee;
-  bool? hasSmartMeter;
   bool? isHalfHourly;
-  MeterType? meterType;
   String? mpan;
-  DateTime? preferredSsd;
-  Quote quote;
-  int? quotedProductId;
-  String? standingChargeUplift;
-  String? tariffCode;
-  String? unitRateUplift;
 
   ElectricityMeterPoint({
-    this.address,
-    this.bespokePpsTariffRates,
-    this.bespokeTariffRates,
+    Address? address,
+    List<BespokePpsTariffRates>? bespokePpsTariffRates,
+    BespokeTariffRates? bespokeTariffRates,
     this.consumptionDay,
     this.consumptionNight,
     this.consumptionOffPeak,
-    this.consumptionStandard,
-    this.currentSupplierName,
-    this.currentSupplierTariff,
+    int? consumptionStandard,
+    String? currentSupplierName,
+    String? currentSupplierTariff,
     this.exportDetails,
-    this.fixedTpiFee,
-    this.hasSmartMeter,
+    int? fixedTpiFee,
+    bool? hasSmartMeter,
     this.isHalfHourly,
-    this.meterType,
+    MeterType? meterType,
     this.mpan,
-    this.preferredSsd,
-    required this.quote,
-    this.quotedProductId,
-    this.standingChargeUplift,
-    this.tariffCode,
-    this.unitRateUplift,
-  });
+    DateTime? preferredSsd,
+    required Quote quote,
+    int? quotedProductId,
+    String? standingChargeUplift,
+    String? tariffCode,
+    String? unitRateUplift,
+  }) : super(
+          address: address,
+          bespokePpsTariffRates: bespokePpsTariffRates,
+          bespokeTariffRates: bespokeTariffRates,
+          consumptionStandard: consumptionStandard,
+          currentSupplierName: currentSupplierName,
+          currentSupplierTariff: currentSupplierTariff,
+          fixedTpiFee: fixedTpiFee,
+          hasSmartMeter: hasSmartMeter,
+          meterType: meterType,
+          preferredSsd: preferredSsd,
+          quote: quote,
+          quotedProductId: quotedProductId,
+          standingChargeUplift: standingChargeUplift,
+          tariffCode: tariffCode,
+          unitRateUplift: unitRateUplift,
+        );
 
   factory ElectricityMeterPoint.fromJson(
     Map<String, dynamic> json,
@@ -96,6 +98,7 @@ class ElectricityMeterPoint {
     );
   }
 
+  @override
   Map<String, dynamic> toJson() {
     return {
       'address': address?.toJson(),
