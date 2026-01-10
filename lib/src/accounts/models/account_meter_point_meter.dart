@@ -1,7 +1,7 @@
-abstract class MeterPointMeter {
+abstract class AccountMeterPointMeter {
   String serialNumber;
 
-  MeterPointMeter({
+  AccountMeterPointMeter({
     required this.serialNumber,
   });
 
