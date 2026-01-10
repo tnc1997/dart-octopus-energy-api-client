@@ -14,6 +14,7 @@ export 'src/accounts/enums/smart_meter_read_permission.dart';
 export 'src/accounts/enums/smart_onboarding_product_type.dart';
 export 'src/accounts/models/account.dart';
 export 'src/accounts/models/account_agreement.dart';
+export 'src/accounts/models/account_electricity_meter_point.dart';
 export 'src/accounts/models/account_electricity_meter_point_meter.dart';
 export 'src/accounts/models/account_meter_point.dart';
 export 'src/accounts/models/account_meter_point_meter.dart';
