@@ -13,6 +13,7 @@ export 'src/accounts/enums/smart_meter_interest.dart';
 export 'src/accounts/enums/smart_meter_read_permission.dart';
 export 'src/accounts/enums/smart_onboarding_product_type.dart';
 export 'src/accounts/models/account.dart';
+export 'src/accounts/models/account_agreement.dart';
 export 'src/accounts/models/account_register.dart';
 export 'src/accounts/models/address.dart';
 export 'src/accounts/models/affiliate.dart';
