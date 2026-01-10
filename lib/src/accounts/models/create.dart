@@ -114,8 +114,8 @@ class Create {
           ?.map((e) => GasMeterPoint.fromJson(e as Map<String, dynamic>))
           .toList(),
       isChangeOfTenancy: json['is_change_of_tenancy'] as bool,
-      metadata: (json['metadata'] as List<dynamic>)
-          .map((e) => Metadata.fromJson(e as Map<String, dynamic>))
+      metadata: (json['metadata'] as List<dynamic>?)
+          ?.map((e) => Metadata.fromJson(e as Map<String, dynamic>))
           .toList(),
       payment: json['payment'] != null
           ? Payment.fromJson(json['payment'] as Map<String, dynamic>)
