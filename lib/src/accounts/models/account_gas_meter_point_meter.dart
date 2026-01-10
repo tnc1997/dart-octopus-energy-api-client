@@ -1,16 +1,16 @@
-import 'meter_point_meter.dart';
+import 'account_meter_point_meter.dart';
 
-class GasMeterPointMeter extends MeterPointMeter {
-  GasMeterPointMeter({
+class AccountGasMeterPointMeter extends AccountMeterPointMeter {
+  AccountGasMeterPointMeter({
     required String serialNumber,
   }) : super(
           serialNumber: serialNumber,
         );
 
-  factory GasMeterPointMeter.fromJson(
+  factory AccountGasMeterPointMeter.fromJson(
     Map<String, dynamic> json,
   ) {
-    return GasMeterPointMeter(
+    return AccountGasMeterPointMeter(
       serialNumber: json['serial_number'] as String,
     );
   }
