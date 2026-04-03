@@ -12,7 +12,7 @@ class GasMeterPoint extends MeterPoint {
     Address? address,
     List<BespokePpsTariffRates>? bespokePpsTariffRates,
     BespokeTariffRates? bespokeTariffRates,
-    required int? consumptionStandard,
+    int? consumptionStandard,
     String? currentSupplierName,
     String? currentSupplierTariff,
     int? fixedTpiFee,
@@ -59,7 +59,7 @@ class GasMeterPoint extends MeterPoint {
           ? BespokeTariffRates.fromJson(
               json['bespoke_tariff_rates'] as Map<String, dynamic>)
           : null,
-      consumptionStandard: (json['consumption_standard'] as num).toInt(),
+      consumptionStandard: (json['consumption_standard'] as num?)?.toInt(),
       currentSupplierName: json['current_supplier_name'] as String?,
       currentSupplierTariff: json['current_supplier_tariff'] as String?,
       fixedTpiFee: (json['fixed_tpi_fee'] as num?)?.toInt(),
