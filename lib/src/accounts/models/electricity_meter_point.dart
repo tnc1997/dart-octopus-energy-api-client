@@ -11,8 +11,10 @@ class ElectricityMeterPoint extends MeterPoint {
   int? consumptionNight;
   int? consumptionOffPeak;
   ExportDetails? exportDetails;
+  String? gsp;
   bool? isHalfHourly;
   String? mpan;
+  int? profileClass;
 
   ElectricityMeterPoint({
     Address? address,
@@ -26,11 +28,13 @@ class ElectricityMeterPoint extends MeterPoint {
     String? currentSupplierTariff,
     this.exportDetails,
     int? fixedTpiFee,
+    this.gsp,
     bool? hasSmartMeter,
     this.isHalfHourly,
     MeterType? meterType,
     this.mpan,
     DateTime? preferredSsd,
+    this.profileClass,
     required Quote quote,
     int? quotedProductId,
     String? standingChargeUplift,
@@ -81,6 +85,7 @@ class ElectricityMeterPoint extends MeterPoint {
               json['export_details'] as Map<String, dynamic>)
           : null,
       fixedTpiFee: (json['fixed_tpi_fee'] as num?)?.toInt(),
+      gsp: json['gsp'] as String?,
       hasSmartMeter: json['has_smart_meter'] as bool?,
       isHalfHourly: json['is_half_hourly'] as bool?,
       meterType: json['meter_type'] != null
@@ -90,6 +95,7 @@ class ElectricityMeterPoint extends MeterPoint {
       preferredSsd: json['preferred_ssd'] != null
           ? DateTime.parse(json['preferred_ssd'] as String)
           : null,
+      profileClass: (json['profile_class'] as num?)?.toInt(),
       quote: Quote.fromJson(json['quote'] as Map<String, dynamic>),
       quotedProductId: (json['quoted_product_id'] as num?)?.toInt(),
       standingChargeUplift: json['standing_charge_uplift'] as String?,
@@ -113,11 +119,13 @@ class ElectricityMeterPoint extends MeterPoint {
       'current_supplier_tariff': currentSupplierTariff,
       'export_details': exportDetails?.toJson(),
       'fixed_tpi_fee': fixedTpiFee,
+      'gsp': gsp,
       'has_smart_meter': hasSmartMeter,
       'is_half_hourly': isHalfHourly,
       'meter_type': meterType?.toJson(),
       'mpan': mpan,
       'preferred_ssd': preferredSsd?.toIso8601String(),
+      'profile_class': profileClass,
       'quote': quote.toJson(),
       'quoted_product_id': quotedProductId,
       'standing_charge_uplift': standingChargeUplift,
