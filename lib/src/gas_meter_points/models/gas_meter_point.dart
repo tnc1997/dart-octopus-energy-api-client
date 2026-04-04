@@ -1,9 +1,9 @@
-import '../enums/meter_type.dart';
-import 'address.dart';
-import 'bespoke_pps_tariff_rates.dart';
-import 'bespoke_tariff_rates.dart';
-import 'meter_point.dart';
-import 'quote.dart';
+import '../../common/enums/meter_type.dart';
+import '../../common/models/address.dart';
+import '../../common/models/bespoke_pps_tariff_rates.dart';
+import '../../common/models/bespoke_tariff_rates.dart';
+import '../../common/models/meter_point.dart';
+import '../../common/models/quote.dart';
 
 class GasMeterPoint extends MeterPoint {
   String? mprn;
