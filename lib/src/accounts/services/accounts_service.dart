@@ -53,9 +53,7 @@ class AccountsService {
     return Account.fromJson(json.decode(response.body));
   }
 
-  /// This end-point allows a new agreement to be created for an existing
-  /// account. It is restricted to business accounts.
-  /// WARNING: This endpoint is only available to partner organisations.
+  /// This end-point allows a new agreement to be created for an existing account. It is restricted to business accounts. WARNING: This endpoint is only available to partner organisations.
   Future<AgreementsCreated> renewBusinessTariff(
     String accountNumber,
     BusinessTariffRenewal renewal,
