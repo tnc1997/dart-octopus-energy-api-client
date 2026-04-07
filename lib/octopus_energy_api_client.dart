@@ -58,4 +58,5 @@ export 'src/common/models/quote.dart';
 export 'src/electricity_meter_points/models/electricity_meter_point.dart';
 export 'src/electricity_meter_points/services/electricity_meter_points_service.dart';
 export 'src/gas_meter_points/models/gas_meter_point.dart';
+export 'src/gas_meter_points/services/gas_meter_points_service.dart';
 export 'src/octopus_energy_api_client_base.dart';
