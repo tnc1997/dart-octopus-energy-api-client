@@ -62,4 +62,5 @@ export 'src/gas_meter_points/services/gas_meter_points_service.dart';
 export 'src/industry/models/grid_supply_point.dart';
 export 'src/industry/models/paginated_grid_supply_point_list.dart';
 export 'src/industry/services/industry_service.dart';
+export 'src/ivr_support/services/ivr_support_service.dart';
 export 'src/octopus_energy_api_client_base.dart';
