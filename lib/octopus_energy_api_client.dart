@@ -52,6 +52,7 @@ export 'src/common/models/bespoke_electricity_unit_rate.dart';
 export 'src/common/models/bespoke_pps_tariff_rates.dart';
 export 'src/common/models/bespoke_tariff_rates.dart';
 export 'src/common/models/consumption.dart';
+export 'src/common/models/link.dart';
 export 'src/common/models/meter_point.dart';
 export 'src/common/models/paginated_consumption_list.dart';
 export 'src/common/models/quote.dart';
