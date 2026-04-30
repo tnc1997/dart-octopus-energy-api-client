@@ -69,4 +69,5 @@ export 'src/products/models/eco_7_electricity_tariff.dart';
 export 'src/products/models/gas_tariff.dart';
 export 'src/products/models/historical_charge.dart';
 export 'src/products/models/paginated_historical_charge_list.dart';
+export 'src/products/models/sample_consumption.dart';
 export 'src/products/models/standard_electricity_tariff.dart';
