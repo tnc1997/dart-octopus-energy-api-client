@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import '../../common/constants/uri_constants.dart';
 import '../../common/exceptions/octopus_energy_api_client_exception.dart';
 import '../models/paginated_products_list.dart';
+import '../models/product.dart';
 
 class ProductsService {
   final http.Client _client;
@@ -30,7 +31,8 @@ class ProductsService {
         authority,
         '/v1/products/',
         {
-          if (availableAt != null) 'available_at': availableAt.toIso8601String(),
+          if (availableAt != null)
+            'available_at': availableAt.toIso8601String(),
           if (brand != null) 'brand': brand,
           if (isBusiness != null) 'is_business': isBusiness.toString(),
           if (isGreen != null) 'is_green': isGreen.toString(),
@@ -46,5 +48,26 @@ class ProductsService {
     OctopusEnergyApiClientException.checkIsSuccessStatusCode(response);
 
     return PaginatedProductsList.fromJson(json.decode(response.body));
+  }
+
+  /// Retrieve the details of a product (including all its tariffs) for a particular point in time.
+  Future<Product> retrieveProduct(
+    String productCode, {
+    DateTime? tariffsActiveAt,
+  }) async {
+    final response = await _client.get(
+      Uri.https(
+        authority,
+        '/v1/products/$productCode/',
+        {
+          if (tariffsActiveAt != null)
+            'tariffs_active_at': tariffsActiveAt.toIso8601String(),
+        },
+      ),
+    );
+
+    OctopusEnergyApiClientException.checkIsSuccessStatusCode(response);
+
+    return Product.fromJson(json.decode(response.body));
   }
 }
