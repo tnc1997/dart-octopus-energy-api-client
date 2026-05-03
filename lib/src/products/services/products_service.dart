@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 import '../../common/constants/uri_constants.dart';
 import '../../common/exceptions/octopus_energy_api_client_exception.dart';
+import '../models/paginated_historical_charge_list.dart';
 import '../models/paginated_products_list.dart';
 import '../models/product.dart';
 
@@ -13,6 +14,23 @@ class ProductsService {
   const ProductsService({
     required http.Client client,
   }) : _client = client;
+
+  Future<PaginatedHistoricalChargeList> listElectricityTariffDayUnitRates(
+    String productCode,
+    String tariffCode, {
+    int? page,
+    int? pageSize,
+    DateTime? periodFrom,
+    DateTime? periodTo,
+  }) {
+    return _listTariffUnitRates(
+      '/v1/products/$productCode/electricity-tariffs/$tariffCode/day-unit-rates/',
+      page: page,
+      pageSize: pageSize,
+      periodFrom: periodFrom,
+      periodTo: periodTo,
+    );
+  }
 
   /// Return a list of energy products. By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
   Future<PaginatedProductsList> listProducts({
@@ -69,5 +87,30 @@ class ProductsService {
     OctopusEnergyApiClientException.checkIsSuccessStatusCode(response);
 
     return Product.fromJson(json.decode(response.body));
+  }
+
+  Future<PaginatedHistoricalChargeList> _listTariffUnitRates(
+    String path, {
+    int? page,
+    int? pageSize,
+    DateTime? periodFrom,
+    DateTime? periodTo,
+  }) async {
+    final response = await _client.get(
+      Uri.https(
+        authority,
+        path,
+        {
+          if (page != null) 'page': page.toString(),
+          if (pageSize != null) 'page_size': pageSize.toString(),
+          if (periodFrom != null) 'period_from': periodFrom.toIso8601String(),
+          if (periodTo != null) 'period_to': periodTo.toIso8601String(),
+        },
+      ),
+    );
+
+    OctopusEnergyApiClientException.checkIsSuccessStatusCode(response);
+
+    return PaginatedHistoricalChargeList.fromJson(json.decode(response.body));
   }
 }
