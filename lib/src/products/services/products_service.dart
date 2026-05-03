@@ -49,6 +49,23 @@ class ProductsService {
     );
   }
 
+  Future<PaginatedHistoricalChargeList> listElectricityTariffStandardUnitRates(
+    String productCode,
+    String tariffCode, {
+    int? page,
+    int? pageSize,
+    DateTime? periodFrom,
+    DateTime? periodTo,
+  }) {
+    return _listTariffUnitRates(
+      '/v1/products/$productCode/electricity-tariffs/$tariffCode/standard-unit-rates/',
+      page: page,
+      pageSize: pageSize,
+      periodFrom: periodFrom,
+      periodTo: periodTo,
+    );
+  }
+
   /// Return a list of energy products. By default, results will be public energy products but if the authenticated organisations will also see products available to their organisation.
   Future<PaginatedProductsList> listProducts({
     DateTime? availableAt,
