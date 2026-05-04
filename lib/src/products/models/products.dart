@@ -1,5 +1,5 @@
-import '../../common/enums/direction.dart';
 import '../../common/models/link.dart';
+import '../enums/direction.dart';
 
 class Products {
   DateTime availableFrom;
