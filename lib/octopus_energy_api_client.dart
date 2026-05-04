@@ -78,5 +78,6 @@ export 'src/products/models/sample_quotes.dart';
 export 'src/products/models/standard_electricity_tariff.dart';
 export 'src/products/services/products_service.dart';
 export 'src/quotes/models/emails.dart';
+export 'src/quotes/models/quote_created.dart';
 export 'src/quotes/models/quote_product.dart';
 export 'src/quotes/models/quote_til.dart';
