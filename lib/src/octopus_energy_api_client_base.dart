@@ -7,6 +7,7 @@ import 'industry/services/industry_service.dart';
 import 'ivr_support/services/ivr_support_service.dart';
 import 'products/services/products_service.dart';
 import 'quotes/services/quotes_service.dart';
+import 'voice/services/voice_service.dart';
 
 class OctopusEnergyApiClient {
   final http.Client _client;
@@ -18,6 +19,7 @@ class OctopusEnergyApiClient {
   IvrSupportService? _ivrSupport;
   ProductsService? _products;
   QuotesService? _quotes;
+  VoiceService? _voice;
 
   OctopusEnergyApiClient({
     http.Client? client,
@@ -61,6 +63,12 @@ class OctopusEnergyApiClient {
 
   QuotesService get quotes {
     return _quotes ??= QuotesService(
+      client: _client,
+    );
+  }
+
+  VoiceService get voice {
+    return _voice ??= VoiceService(
       client: _client,
     );
   }
