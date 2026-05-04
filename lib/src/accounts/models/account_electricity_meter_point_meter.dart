@@ -6,10 +6,8 @@ class AccountElectricityMeterPointMeter extends AccountMeterPointMeter {
 
   AccountElectricityMeterPointMeter({
     this.registers,
-    required String serialNumber,
-  }) : super(
-          serialNumber: serialNumber,
-        );
+    required super.serialNumber,
+  });
 
   factory AccountElectricityMeterPointMeter.fromJson(
     Map<String, dynamic> json,

@@ -7,15 +7,11 @@ class AccountGasMeterPoint
   String mprn;
 
   AccountGasMeterPoint({
-    List<AccountAgreement>? agreements,
-    int? consumptionStandard,
-    List<AccountGasMeterPointMeter>? meters,
+    super.agreements,
+    super.consumptionStandard,
+    super.meters,
     required this.mprn,
-  }) : super(
-          agreements: agreements,
-          consumptionStandard: consumptionStandard,
-          meters: meters,
-        );
+  });
 
   factory AccountGasMeterPoint.fromJson(
     Map<String, dynamic> json,

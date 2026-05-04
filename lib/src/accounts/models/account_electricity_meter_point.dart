@@ -9,17 +9,13 @@ class AccountElectricityMeterPoint
   int? profileClass;
 
   AccountElectricityMeterPoint({
-    List<AccountAgreement>? agreements,
-    int? consumptionStandard,
+    super.agreements,
+    super.consumptionStandard,
     this.isExport,
-    List<AccountElectricityMeterPointMeter>? meters,
+    super.meters,
     required this.mpan,
     this.profileClass,
-  }) : super(
-          agreements: agreements,
-          consumptionStandard: consumptionStandard,
-          meters: meters,
-        );
+  });
 
   factory AccountElectricityMeterPoint.fromJson(
     Map<String, dynamic> json,
