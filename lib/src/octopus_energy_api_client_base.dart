@@ -5,6 +5,7 @@ import 'electricity_meter_points/services/electricity_meter_points_service.dart'
 import 'gas_meter_points/services/gas_meter_points_service.dart';
 import 'industry/services/industry_service.dart';
 import 'ivr_support/services/ivr_support_service.dart';
+import 'products/services/products_service.dart';
 
 class OctopusEnergyApiClient {
   final http.Client _client;
@@ -14,6 +15,7 @@ class OctopusEnergyApiClient {
   GasMeterPointsService? _gasMeterPoints;
   IndustryService? _industry;
   IvrSupportService? _ivrSupport;
+  ProductsService? _products;
 
   OctopusEnergyApiClient({
     http.Client? client,
@@ -45,6 +47,12 @@ class OctopusEnergyApiClient {
 
   IvrSupportService get ivrSupport {
     return _ivrSupport ??= IvrSupportService(
+      client: _client,
+    );
+  }
+
+  ProductsService get products {
+    return _products ??= ProductsService(
       client: _client,
     );
   }
