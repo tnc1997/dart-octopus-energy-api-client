@@ -82,3 +82,4 @@ export 'src/quotes/models/quote_created.dart';
 export 'src/quotes/models/quote_product.dart';
 export 'src/quotes/models/quote_til.dart';
 export 'src/quotes/services/quotes_service.dart';
+export 'src/voice/services/voice_service.dart';
