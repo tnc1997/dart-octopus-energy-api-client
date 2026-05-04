@@ -1,20 +1,20 @@
-import '../../common/models/address.dart';
+import 'address.dart';
 import '../../electricity_meter_points/models/electricity_meter_point.dart';
 import '../../gas_meter_points/models/gas_meter_point.dart';
-import '../enums/account_source.dart';
-import '../enums/account_type.dart';
-import '../enums/brand_code.dart';
-import '../enums/sales_channel.dart';
-import '../enums/smart_meter_interest.dart';
-import '../enums/smart_meter_read_permission.dart';
-import '../enums/smart_onboarding_product_type.dart';
-import 'affiliate.dart';
-import 'billing_options.dart';
-import 'business.dart';
-import 'deposit.dart';
-import 'metadata.dart';
-import 'payment.dart';
-import 'user.dart';
+import '../../accounts/enums/account_source.dart';
+import '../../accounts/enums/account_type.dart';
+import '../../accounts/enums/brand_code.dart';
+import '../../accounts/enums/sales_channel.dart';
+import '../../accounts/enums/smart_meter_interest.dart';
+import '../../accounts/enums/smart_meter_read_permission.dart';
+import '../../accounts/enums/smart_onboarding_product_type.dart';
+import '../../accounts/models/affiliate.dart';
+import '../../accounts/models/billing_options.dart';
+import '../../accounts/models/business.dart';
+import '../../accounts/models/deposit.dart';
+import '../../accounts/models/metadata.dart';
+import '../../accounts/models/payment.dart';
+import '../../accounts/models/user.dart';
 
 class Create {
   String? accountReference;
