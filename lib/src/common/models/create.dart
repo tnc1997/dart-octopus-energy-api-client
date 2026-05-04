@@ -1,6 +1,3 @@
-import 'address.dart';
-import '../../electricity_meter_points/models/electricity_meter_point.dart';
-import '../../gas_meter_points/models/gas_meter_point.dart';
 import '../../accounts/enums/account_source.dart';
 import '../../accounts/enums/account_type.dart';
 import '../../accounts/enums/brand_code.dart';
@@ -15,6 +12,9 @@ import '../../accounts/models/deposit.dart';
 import '../../accounts/models/metadata.dart';
 import '../../accounts/models/payment.dart';
 import '../../accounts/models/user.dart';
+import '../../electricity_meter_points/models/electricity_meter_point.dart';
+import '../../gas_meter_points/models/gas_meter_point.dart';
+import 'address.dart';
 
 class Create {
   String? accountReference;
