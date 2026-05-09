@@ -30,6 +30,7 @@ class BusinessTariffRenewalCommission {
     return {
       'affiliate_link_subdomain': affiliateLinkSubdomain,
       'affiliate_organisation_name': affiliateOrganisationName,
+      'fixed_tpi_fee': fixedTpiFee,
       'standing_charge_uplift': standingChargeUplift,
       'unit_rate_uplift': unitRateUplift,
     };
