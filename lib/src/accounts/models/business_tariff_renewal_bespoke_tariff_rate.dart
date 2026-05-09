@@ -30,7 +30,7 @@ class BusinessTariffRenewalBespokeTariffRate {
   Map<String, dynamic> toJson() {
     return {
       'meter_serial_number': meterSerialNumber,
-      'registers': registers!.map((e) => e.toJson()).toList(),
+      'registers': registers?.map((e) => e.toJson()).toList(),
       'standing_charge': standingCharge,
       'unit_rate': unitRate,
     };

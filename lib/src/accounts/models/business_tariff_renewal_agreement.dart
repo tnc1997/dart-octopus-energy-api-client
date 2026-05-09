@@ -42,8 +42,8 @@ class BusinessTariffRenewalAgreement {
   Map<String, dynamic> toJson() {
     return {
       'bespoke_tariff_rates':
-          bespokeTariffRates!.map((e) => e.toJson()).toList(),
-      'commission': commission!.toJson(),
+          bespokeTariffRates?.map((e) => e.toJson()).toList(),
+      'commission': commission?.toJson(),
       'mpxn': mpxn,
       'tariff_code': tariffCode,
       'valid_from_date': validFromDate.toIso8601String(),
