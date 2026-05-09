@@ -15,14 +15,16 @@ class SampleQuotes {
     Map<String, dynamic> json,
   ) {
     return SampleQuotes(
-      dualFuelDualRate: (json['dualFuelDualRate'] as Map<String, dynamic>)
+      dualFuelDualRate: (json['dual_fuel_dual_rate'] as Map<String, dynamic>)
           .map((k, e) => MapEntry(k, (e as num).toDouble())),
-      dualFuelSingleRate: (json['dualFuelSingleRate'] as Map<String, dynamic>)
-          .map((k, e) => MapEntry(k, (e as num).toDouble())),
-      electricityDualRate: (json['electricityDualRate'] as Map<String, dynamic>)
-          .map((k, e) => MapEntry(k, (e as num).toDouble())),
+      dualFuelSingleRate:
+          (json['dual_fuel_single_rate'] as Map<String, dynamic>)
+              .map((k, e) => MapEntry(k, (e as num).toDouble())),
+      electricityDualRate:
+          (json['electricity_dual_rate'] as Map<String, dynamic>)
+              .map((k, e) => MapEntry(k, (e as num).toDouble())),
       electricitySingleRate:
-          (json['electricitySingleRate'] as Map<String, dynamic>)
+          (json['electricity_single_rate'] as Map<String, dynamic>)
               .map((k, e) => MapEntry(k, (e as num).toDouble())),
     );
   }

@@ -58,16 +58,17 @@ class Product {
     Map<String, dynamic> json,
   ) {
     return Product(
-      availableFrom: DateTime.parse(json['availableFrom'] as String),
-      availableTo: json['availableTo'] != null
-          ? DateTime.parse(json['availableTo'] as String)
+      availableFrom: DateTime.parse(json['available_from'] as String),
+      availableTo: json['available_to'] != null
+          ? DateTime.parse(json['available_to'] as String)
           : null,
       brand: json['brand'] as String,
       code: json['code'] as String,
       description: json['description'] as String,
-      displayName: json['displayName'] as String,
+      displayName: json['display_name'] as String,
       dualRegisterElectricityTariffs:
-          (json['dualRegisterElectricityTariffs'] as Map<String, dynamic>).map(
+          (json['dual_register_electricity_tariffs'] as Map<String, dynamic>)
+              .map(
         (k, e) => MapEntry(
             k,
             (e as Map<String, dynamic>).map(
@@ -75,22 +76,22 @@ class Product {
                   k, Eco7ElectricityTariff.fromJson(e as Map<String, dynamic>)),
             )),
       ),
-      fullName: json['fullName'] as String,
-      isBusiness: json['isBusiness'] as bool?,
-      isGreen: json['isGreen'] as bool?,
-      isPrepay: json['isPrepay'] as bool?,
-      isRestricted: json['isRestricted'] as bool,
-      isTracker: json['isTracker'] as bool?,
-      isVariable: json['isVariable'] as bool?,
+      fullName: json['full_name'] as String,
+      isBusiness: json['is_business'] as bool?,
+      isGreen: json['is_green'] as bool?,
+      isPrepay: json['is_prepay'] as bool?,
+      isRestricted: json['is_restricted'] as bool,
+      isTracker: json['is_tracker'] as bool?,
+      isVariable: json['is_variable'] as bool?,
       links: (json['links'] as List<dynamic>)
           .map((e) => Link.fromJson(e as Map<String, dynamic>))
           .toList(),
       sampleConsumption: SampleConsumption.fromJson(
-          json['sampleConsumption'] as Map<String, dynamic>),
+          json['sample_consumption'] as Map<String, dynamic>),
       sampleQuotes:
-          SampleQuotes.fromJson(json['sampleQuotes'] as Map<String, dynamic>),
+          SampleQuotes.fromJson(json['sample_quotes'] as Map<String, dynamic>),
       singleRegisterElectricityTariffs:
-          (json['singleRegisterElectricityTariffs'] as Map<String, dynamic>)
+          (json['single_register_electricity_tariffs'] as Map<String, dynamic>)
               .map(
         (k, e) => MapEntry(
             k,
@@ -102,7 +103,7 @@ class Product {
             )),
       ),
       singleRegisterGasTariffs:
-          (json['singleRegisterGasTariffs'] as Map<String, dynamic>).map(
+          (json['single_register_gas_tariffs'] as Map<String, dynamic>).map(
         (k, e) => MapEntry(
             k,
             (e as Map<String, dynamic>).map(
@@ -110,7 +111,7 @@ class Product {
                   MapEntry(k, GasTariff.fromJson(e as Map<String, dynamic>)),
             )),
       ),
-      tariffsActiveAt: DateTime.parse(json['tariffsActiveAt'] as String),
+      tariffsActiveAt: DateTime.parse(json['tariffs_active_at'] as String),
       term: (json['term'] as num?)?.toInt(),
     );
   }
@@ -126,7 +127,7 @@ class Product {
       'dual_register_electricity_tariffs': dualRegisterElectricityTariffs.map(
         (k, e) => MapEntry(
           k,
-          e.map((k2, e) => MapEntry(k2, e.toJson())),
+          e.map((k, e) => MapEntry(k, e.toJson())),
         ),
       ),
       'full_name': fullName,
