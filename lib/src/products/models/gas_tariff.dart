@@ -10,10 +10,10 @@ class GasTariff {
   List<Link> links;
   double onlineDiscountExcVat;
   double onlineDiscountIncVat;
-  double standingChargeExcVat;
-  double standingChargeIncVat;
-  double standardUnitRateExcVat;
-  double standardUnitRateIncVat;
+  double? standingChargeExcVat;
+  double? standingChargeIncVat;
+  double? standardUnitRateExcVat;
+  double? standardUnitRateIncVat;
 
   GasTariff({
     required this.code,
@@ -25,10 +25,10 @@ class GasTariff {
     required this.links,
     required this.onlineDiscountExcVat,
     required this.onlineDiscountIncVat,
-    required this.standingChargeExcVat,
-    required this.standingChargeIncVat,
-    required this.standardUnitRateExcVat,
-    required this.standardUnitRateIncVat,
+    this.standingChargeExcVat,
+    this.standingChargeIncVat,
+    this.standardUnitRateExcVat,
+    this.standardUnitRateIncVat,
   });
 
   factory GasTariff.fromJson(
@@ -48,12 +48,12 @@ class GasTariff {
           .toList(),
       onlineDiscountExcVat: (json['online_discount_exc_vat'] as num).toDouble(),
       onlineDiscountIncVat: (json['online_discount_inc_vat'] as num).toDouble(),
-      standingChargeExcVat: (json['standing_charge_exc_vat'] as num).toDouble(),
-      standingChargeIncVat: (json['standing_charge_inc_vat'] as num).toDouble(),
+      standingChargeExcVat: (json['standing_charge_exc_vat'] as num?)?.toDouble(),
+      standingChargeIncVat: (json['standing_charge_inc_vat'] as num?)?.toDouble(),
       standardUnitRateExcVat:
-          (json['standard_unit_rate_exc_vat'] as num).toDouble(),
+          (json['standard_unit_rate_exc_vat'] as num?)?.toDouble(),
       standardUnitRateIncVat:
-          (json['standard_unit_rate_inc_vat'] as num).toDouble(),
+          (json['standard_unit_rate_inc_vat'] as num?)?.toDouble(),
     );
   }
 

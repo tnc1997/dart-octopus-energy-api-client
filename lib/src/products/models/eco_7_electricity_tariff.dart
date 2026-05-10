@@ -2,37 +2,37 @@ import '../../common/models/link.dart';
 
 class Eco7ElectricityTariff {
   String code;
-  double dayUnitRateExcVat;
-  double dayUnitRateIncVat;
+  double? dayUnitRateExcVat;
+  double? dayUnitRateIncVat;
   double dualFuelDiscountExcVat;
   double dualFuelDiscountIncVat;
   double exitFeesExcVat;
   double exitFeesIncVat;
   String exitFeesType;
   List<Link> links;
-  double nightUnitRateExcVat;
-  double nightUnitRateIncVat;
+  double? nightUnitRateExcVat;
+  double? nightUnitRateIncVat;
   double onlineDiscountExcVat;
   double onlineDiscountIncVat;
-  double standingChargeExcVat;
-  double standingChargeIncVat;
+  double? standingChargeExcVat;
+  double? standingChargeIncVat;
 
   Eco7ElectricityTariff({
     required this.code,
-    required this.dayUnitRateExcVat,
-    required this.dayUnitRateIncVat,
+    this.dayUnitRateExcVat,
+    this.dayUnitRateIncVat,
     required this.dualFuelDiscountExcVat,
     required this.dualFuelDiscountIncVat,
     required this.exitFeesExcVat,
     required this.exitFeesIncVat,
     required this.exitFeesType,
     required this.links,
-    required this.nightUnitRateExcVat,
-    required this.nightUnitRateIncVat,
+    this.nightUnitRateExcVat,
+    this.nightUnitRateIncVat,
     required this.onlineDiscountExcVat,
     required this.onlineDiscountIncVat,
-    required this.standingChargeExcVat,
-    required this.standingChargeIncVat,
+    this.standingChargeExcVat,
+    this.standingChargeIncVat,
   });
 
   factory Eco7ElectricityTariff.fromJson(
@@ -40,8 +40,8 @@ class Eco7ElectricityTariff {
   ) {
     return Eco7ElectricityTariff(
       code: json['code'] as String,
-      dayUnitRateExcVat: (json['day_unit_rate_exc_vat'] as num).toDouble(),
-      dayUnitRateIncVat: (json['day_unit_rate_inc_vat'] as num).toDouble(),
+      dayUnitRateExcVat: (json['day_unit_rate_exc_vat'] as num?)?.toDouble(),
+      dayUnitRateIncVat: (json['day_unit_rate_inc_vat'] as num?)?.toDouble(),
       dualFuelDiscountExcVat:
           (json['dual_fuel_discount_exc_vat'] as num).toDouble(),
       dualFuelDiscountIncVat:
@@ -52,12 +52,12 @@ class Eco7ElectricityTariff {
       links: (json['links'] as List<dynamic>)
           .map((e) => Link.fromJson(e as Map<String, dynamic>))
           .toList(),
-      nightUnitRateExcVat: (json['night_unit_rate_exc_vat'] as num).toDouble(),
-      nightUnitRateIncVat: (json['night_unit_rate_inc_vat'] as num).toDouble(),
+      nightUnitRateExcVat: (json['night_unit_rate_exc_vat'] as num?)?.toDouble(),
+      nightUnitRateIncVat: (json['night_unit_rate_inc_vat'] as num?)?.toDouble(),
       onlineDiscountExcVat: (json['online_discount_exc_vat'] as num).toDouble(),
       onlineDiscountIncVat: (json['online_discount_inc_vat'] as num).toDouble(),
-      standingChargeExcVat: (json['standing_charge_exc_vat'] as num).toDouble(),
-      standingChargeIncVat: (json['standing_charge_inc_vat'] as num).toDouble(),
+      standingChargeExcVat: (json['standing_charge_exc_vat'] as num?)?.toDouble(),
+      standingChargeIncVat: (json['standing_charge_inc_vat'] as num?)?.toDouble(),
     );
   }
 
