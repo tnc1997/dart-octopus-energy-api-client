@@ -48,8 +48,10 @@ class GasTariff {
           .toList(),
       onlineDiscountExcVat: (json['online_discount_exc_vat'] as num).toDouble(),
       onlineDiscountIncVat: (json['online_discount_inc_vat'] as num).toDouble(),
-      standingChargeExcVat: (json['standing_charge_exc_vat'] as num?)?.toDouble(),
-      standingChargeIncVat: (json['standing_charge_inc_vat'] as num?)?.toDouble(),
+      standingChargeExcVat:
+          (json['standing_charge_exc_vat'] as num?)?.toDouble(),
+      standingChargeIncVat:
+          (json['standing_charge_inc_vat'] as num?)?.toDouble(),
       standardUnitRateExcVat:
           (json['standard_unit_rate_exc_vat'] as num?)?.toDouble(),
       standardUnitRateIncVat:

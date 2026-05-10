@@ -52,12 +52,16 @@ class Eco7ElectricityTariff {
       links: (json['links'] as List<dynamic>)
           .map((e) => Link.fromJson(e as Map<String, dynamic>))
           .toList(),
-      nightUnitRateExcVat: (json['night_unit_rate_exc_vat'] as num?)?.toDouble(),
-      nightUnitRateIncVat: (json['night_unit_rate_inc_vat'] as num?)?.toDouble(),
+      nightUnitRateExcVat:
+          (json['night_unit_rate_exc_vat'] as num?)?.toDouble(),
+      nightUnitRateIncVat:
+          (json['night_unit_rate_inc_vat'] as num?)?.toDouble(),
       onlineDiscountExcVat: (json['online_discount_exc_vat'] as num).toDouble(),
       onlineDiscountIncVat: (json['online_discount_inc_vat'] as num).toDouble(),
-      standingChargeExcVat: (json['standing_charge_exc_vat'] as num?)?.toDouble(),
-      standingChargeIncVat: (json['standing_charge_inc_vat'] as num?)?.toDouble(),
+      standingChargeExcVat:
+          (json['standing_charge_exc_vat'] as num?)?.toDouble(),
+      standingChargeIncVat:
+          (json['standing_charge_inc_vat'] as num?)?.toDouble(),
     );
   }
 
