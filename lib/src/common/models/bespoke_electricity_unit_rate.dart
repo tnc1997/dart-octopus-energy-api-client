@@ -4,12 +4,12 @@ import '../enums/bespoke_rate_type.dart';
 class BespokeElectricityUnitRate {
   BespokePaymentMethod? paymentMethod;
   BespokeRateType? rateType;
-  String? unitRate;
+  double unitRate;
 
   BespokeElectricityUnitRate({
     this.paymentMethod,
     this.rateType,
-    this.unitRate,
+    required this.unitRate,
   });
 
   factory BespokeElectricityUnitRate.fromJson(
@@ -22,7 +22,7 @@ class BespokeElectricityUnitRate {
       rateType: json['rate_type'] != null
           ? BespokeRateType.fromJson(json['rate_type'] as String)
           : null,
-      unitRate: json['unit_rate'] as String?,
+      unitRate: double.parse(json['unit_rate'] as String),
     );
   }
 
@@ -30,7 +30,7 @@ class BespokeElectricityUnitRate {
     return {
       'payment_method': paymentMethod?.toJson(),
       'rate_type': rateType?.toJson(),
-      'unit_rate': unitRate,
+      'unit_rate': unitRate.toString(),
     };
   }
 }

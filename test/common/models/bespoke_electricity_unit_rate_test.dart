@@ -31,7 +31,7 @@ void main() {
 
               expect(
                 result.unitRate,
-                json['unit_rate'],
+                10.5,
               );
             },
           );
@@ -39,7 +39,9 @@ void main() {
           test(
             'should return model from json with null values',
             () {
-              final json = {};
+              final json = {
+                'unit_rate': '10.5',
+              };
 
               final result = BespokeElectricityUnitRate.fromJson(json);
 
@@ -55,7 +57,7 @@ void main() {
 
               expect(
                 result.unitRate,
-                isNull,
+                10.5,
               );
             },
           );
@@ -71,24 +73,24 @@ void main() {
               final model = BespokeElectricityUnitRate(
                 paymentMethod: BespokePaymentMethod.dd,
                 rateType: BespokeRateType.standard,
-                unitRate: '10.5',
+                unitRate: 10.5,
               );
 
               final result = model.toJson();
 
               expect(
                 result['payment_method'],
-                model.paymentMethod?.toJson(),
+                'DD',
               );
 
               expect(
                 result['rate_type'],
-                model.rateType?.toJson(),
+                'STANDARD',
               );
 
               expect(
                 result['unit_rate'],
-                model.unitRate,
+                '10.5',
               );
             },
           );
@@ -96,7 +98,9 @@ void main() {
           test(
             'should serialize model with null values to json',
             () {
-              final model = BespokeElectricityUnitRate();
+              final model = BespokeElectricityUnitRate(
+                unitRate: 10.5,
+              );
 
               final result = model.toJson();
 
@@ -112,7 +116,7 @@ void main() {
 
               expect(
                 result['unit_rate'],
-                isNull,
+                '10.5',
               );
             },
           );
