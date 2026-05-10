@@ -1,39 +1,37 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Client for Octopus Energy API
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages). 
+A client for accessing the Octopus Energy API.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages). 
--->
+Please note that Client for Octopus Energy API is unofficial and not endorsed by Octopus Energy.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Getting Started
 
-## Features
+1. Add this package to your application.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+   ```shell
+   dart pub add octopus_energy_api_client
+   ```
 
-## Getting started
+1. Create a variable to store your API key.
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+   ```dart
+   final apiKey = 'sk_test_abc';
+   ```
 
-## Usage
+1. Obtain an HTTP client using your API key.
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+   ```dart
+   final client = clientViaApiKey(apiKey);
+   ```
 
-```dart
-const like = 'sample';
-```
+1. Create an API client using the HTTP client.
 
-## Additional information
+   ```dart
+   final api = OctopusEnergyApiClient(client: client);
+   ```
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+1. Fetch data from the Octopus Energy API using the API client.
+
+   ```dart
+   final result = await api.accounts.getAccount('1234567890');
+   ```
