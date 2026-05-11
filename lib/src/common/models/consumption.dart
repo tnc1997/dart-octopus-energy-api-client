@@ -1,3 +1,5 @@
+import '../utils/decimal_utils.dart';
+
 class Consumption {
   double consumption;
   DateTime intervalEnd;
@@ -13,7 +15,7 @@ class Consumption {
     Map<String, dynamic> json,
   ) {
     return Consumption(
-      consumption: (json['consumption'] as num).toDouble(),
+      consumption: parseDecimal(json['consumption'] as String),
       intervalEnd: DateTime.parse(json['interval_end'] as String),
       intervalStart: DateTime.parse(json['interval_start'] as String),
     );
@@ -21,7 +23,7 @@ class Consumption {
 
   Map<String, dynamic> toJson() {
     return {
-      'consumption': consumption,
+      'consumption': consumption.toString(),
       'interval_end': intervalEnd.toIso8601String(),
       'interval_start': intervalStart.toIso8601String(),
     };

@@ -71,16 +71,6 @@ void main() {
       );
 
       test(
-        'should return null when value is null',
-        () {
-          expect(
-            parseDecimal(null),
-            isNull,
-          );
-        },
-      );
-
-      test(
         'should throw FormatException when value is an invalid string',
         () {
           expect(
@@ -103,6 +93,11 @@ void main() {
       test(
         'should throw FormatException when value is of unsupported type',
         () {
+          expect(
+            () => parseDecimal(null),
+            throwsA(isA<FormatException>()),
+          );
+
           expect(
             () => parseDecimal(true),
             throwsA(isA<FormatException>()),

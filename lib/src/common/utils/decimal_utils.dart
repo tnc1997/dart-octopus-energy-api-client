@@ -1,10 +1,6 @@
-double? parseDecimal(
+double parseDecimal(
   dynamic value,
 ) {
-  if (value == null) {
-    return null;
-  }
-
   if (value is num) {
     return value.toDouble();
   }

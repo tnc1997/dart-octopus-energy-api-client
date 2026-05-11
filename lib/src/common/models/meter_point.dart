@@ -17,9 +17,9 @@ abstract class MeterPoint {
   DateTime? preferredSsd;
   Quote quote;
   int? quotedProductId;
-  String? standingChargeUplift;
+  double? standingChargeUplift;
   String? tariffCode;
-  String? unitRateUplift;
+  double? unitRateUplift;
 
   MeterPoint({
     this.address,
@@ -54,9 +54,9 @@ abstract class MeterPoint {
       'preferred_ssd': preferredSsd?.toIso8601String(),
       'quote': quote.toJson(),
       'quoted_product_id': quotedProductId,
-      'standing_charge_uplift': standingChargeUplift,
+      'standing_charge_uplift': standingChargeUplift?.toString(),
       'tariff_code': tariffCode,
-      'unit_rate_uplift': unitRateUplift,
+      'unit_rate_uplift': unitRateUplift?.toString(),
     };
   }
 }

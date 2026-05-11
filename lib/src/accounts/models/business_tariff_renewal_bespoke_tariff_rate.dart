@@ -1,10 +1,11 @@
+import '../../common/utils/decimal_utils.dart';
 import 'business_tariff_renewal_bespoke_register_rate.dart';
 
 class BusinessTariffRenewalBespokeTariffRate {
   String meterSerialNumber;
   List<BusinessTariffRenewalBespokeRegisterRate>? registers;
-  String standingCharge;
-  String? unitRate;
+  double standingCharge;
+  double? unitRate;
 
   BusinessTariffRenewalBespokeTariffRate({
     required this.meterSerialNumber,
@@ -22,8 +23,10 @@ class BusinessTariffRenewalBespokeTariffRate {
           ?.map((e) => BusinessTariffRenewalBespokeRegisterRate.fromJson(
               e as Map<String, dynamic>))
           .toList(),
-      standingCharge: json['standing_charge'] as String,
-      unitRate: json['unit_rate'] as String?,
+      standingCharge: parseDecimal(json['standing_charge'] as String),
+      unitRate: json['unit_rate'] != null
+          ? parseDecimal(json['unit_rate'] as String)
+          : null,
     );
   }
 
@@ -31,8 +34,8 @@ class BusinessTariffRenewalBespokeTariffRate {
     return {
       'meter_serial_number': meterSerialNumber,
       'registers': registers?.map((e) => e.toJson()).toList(),
-      'standing_charge': standingCharge,
-      'unit_rate': unitRate,
+      'standing_charge': standingCharge.toString(),
+      'unit_rate': unitRate?.toString(),
     };
   }
 }

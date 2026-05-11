@@ -5,6 +5,7 @@ import '../../common/models/bespoke_pps_tariff_rates.dart';
 import '../../common/models/bespoke_tariff_rates.dart';
 import '../../common/models/meter_point.dart';
 import '../../common/models/quote.dart';
+import '../../common/utils/decimal_utils.dart';
 
 class ElectricityMeterPoint extends MeterPoint {
   int? consumptionDay;
@@ -82,9 +83,13 @@ class ElectricityMeterPoint extends MeterPoint {
       profileClass: (json['profile_class'] as num?)?.toInt(),
       quote: Quote.fromJson(json['quote'] as Map<String, dynamic>),
       quotedProductId: (json['quoted_product_id'] as num?)?.toInt(),
-      standingChargeUplift: json['standing_charge_uplift'] as String?,
+      standingChargeUplift: json['standing_charge_uplift'] != null
+          ? parseDecimal(json['standing_charge_uplift'] as String)
+          : null,
       tariffCode: json['tariff_code'] as String?,
-      unitRateUplift: json['unit_rate_uplift'] as String?,
+      unitRateUplift: json['unit_rate_uplift'] != null
+          ? parseDecimal(json['unit_rate_uplift'] as String)
+          : null,
     );
   }
 
@@ -112,9 +117,9 @@ class ElectricityMeterPoint extends MeterPoint {
       'profile_class': profileClass,
       'quote': quote.toJson(),
       'quoted_product_id': quotedProductId,
-      'standing_charge_uplift': standingChargeUplift,
+      'standing_charge_uplift': standingChargeUplift?.toString(),
       'tariff_code': tariffCode,
-      'unit_rate_uplift': unitRateUplift,
+      'unit_rate_uplift': unitRateUplift?.toString(),
     };
   }
 }

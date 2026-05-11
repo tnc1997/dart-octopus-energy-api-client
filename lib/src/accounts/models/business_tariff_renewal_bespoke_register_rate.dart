@@ -1,11 +1,12 @@
 import '../../common/enums/bespoke_payment_method.dart';
 import '../../common/enums/bespoke_rate_type.dart';
+import '../../common/utils/decimal_utils.dart';
 
 class BusinessTariffRenewalBespokeRegisterRate {
   BespokePaymentMethod? paymentMethod;
   BespokeRateType? rateType;
   String? registerIdentifier;
-  String unitRate;
+  double unitRate;
 
   BusinessTariffRenewalBespokeRegisterRate({
     this.paymentMethod,
@@ -24,7 +25,7 @@ class BusinessTariffRenewalBespokeRegisterRate {
           ? BespokeRateType.fromJson(json['rate_type'] as String)
           : null,
       registerIdentifier: json['register_identifier'] as String?,
-      unitRate: json['unit_rate'] as String,
+      unitRate: parseDecimal(json['unit_rate'] as String),
     );
   }
 
@@ -33,7 +34,7 @@ class BusinessTariffRenewalBespokeRegisterRate {
       'payment_method': paymentMethod?.toJson(),
       'rate_type': rateType?.toJson(),
       'register_identifier': registerIdentifier,
-      'unit_rate': unitRate,
+      'unit_rate': unitRate.toString(),
     };
   }
 }
