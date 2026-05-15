@@ -5,7 +5,6 @@ import '../../common/models/bespoke_pps_tariff_rates.dart';
 import '../../common/models/bespoke_tariff_rates.dart';
 import '../../common/models/meter_point.dart';
 import '../../common/models/quote.dart';
-import '../../common/utils/decimal_utils.dart';
 
 class ElectricityMeterPoint extends MeterPoint {
   int? consumptionDay;

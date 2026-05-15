@@ -1,6 +1,5 @@
 import '../../common/enums/bespoke_payment_method.dart';
 import '../../common/enums/bespoke_rate_type.dart';
-import '../../common/utils/decimal_utils.dart';
 
 class BusinessTariffRenewalBespokeRegisterRate {
   BespokePaymentMethod? paymentMethod;

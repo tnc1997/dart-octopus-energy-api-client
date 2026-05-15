@@ -1,5 +1,3 @@
-import '../../common/utils/decimal_utils.dart';
-
 class BusinessTariffRenewalCommission {
   String affiliateOrganisationName;
   String? affiliateLinkSubdomain;

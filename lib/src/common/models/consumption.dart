@@ -1,5 +1,3 @@
-import '../utils/decimal_utils.dart';
-
 class Consumption {
   double consumption;
   DateTime intervalEnd;
