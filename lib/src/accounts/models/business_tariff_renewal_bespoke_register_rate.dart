@@ -25,7 +25,7 @@ class BusinessTariffRenewalBespokeRegisterRate {
           ? BespokeRateType.fromJson(json['rate_type'] as String)
           : null,
       registerIdentifier: json['register_identifier'] as String?,
-      unitRate: parseDecimal(json['unit_rate'] as String),
+      unitRate: double.parse(json['unit_rate'] as String),
     );
   }
 

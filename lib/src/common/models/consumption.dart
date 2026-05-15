@@ -15,7 +15,7 @@ class Consumption {
     Map<String, dynamic> json,
   ) {
     return Consumption(
-      consumption: parseDecimal(json['consumption'] as String),
+      consumption: double.parse(json['consumption'] as String),
       intervalEnd: DateTime.parse(json['interval_end'] as String),
       intervalStart: DateTime.parse(json['interval_start'] as String),
     );

@@ -23,9 +23,9 @@ class BusinessTariffRenewalBespokeTariffRate {
           ?.map((e) => BusinessTariffRenewalBespokeRegisterRate.fromJson(
               e as Map<String, dynamic>))
           .toList(),
-      standingCharge: parseDecimal(json['standing_charge'] as String),
+      standingCharge: double.parse(json['standing_charge'] as String),
       unitRate: json['unit_rate'] != null
-          ? parseDecimal(json['unit_rate'] as String)
+          ? double.parse(json['unit_rate'] as String)
           : null,
     );
   }

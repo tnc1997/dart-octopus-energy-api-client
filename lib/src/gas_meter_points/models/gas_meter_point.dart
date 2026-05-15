@@ -59,11 +59,11 @@ class GasMeterPoint extends MeterPoint {
       quote: Quote.fromJson(json['quote'] as Map<String, dynamic>),
       quotedProductId: (json['quoted_product_id'] as num?)?.toInt(),
       standingChargeUplift: json['standing_charge_uplift'] != null
-          ? parseDecimal(json['standing_charge_uplift'] as String)
+          ? double.parse(json['standing_charge_uplift'] as String)
           : null,
       tariffCode: json['tariff_code'] as String?,
       unitRateUplift: json['unit_rate_uplift'] != null
-          ? parseDecimal(json['unit_rate_uplift'] as String)
+          ? double.parse(json['unit_rate_uplift'] as String)
           : null,
     );
   }

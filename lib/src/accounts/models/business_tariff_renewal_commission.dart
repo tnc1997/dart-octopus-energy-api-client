@@ -23,9 +23,9 @@ class BusinessTariffRenewalCommission {
       affiliateLinkSubdomain: json['affiliate_link_subdomain'] as String?,
       fixedTpiFee: (json['fixed_tpi_fee'] as num?)?.toInt(),
       standingChargeUplift: json['standing_charge_uplift'] != null
-          ? parseDecimal(json['standing_charge_uplift'] as String)
+          ? double.parse(json['standing_charge_uplift'] as String)
           : null,
-      unitRateUplift: parseDecimal(json['unit_rate_uplift'] as String),
+      unitRateUplift: double.parse(json['unit_rate_uplift'] as String),
     );
   }
 
