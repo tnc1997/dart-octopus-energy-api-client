@@ -11,11 +11,11 @@ void main() {
           test(
             'should return model from json',
             () {
-              final intervalStart = DateTime.parse('1970-01-01T00:00:00Z');
-              final intervalEnd = DateTime.parse('1970-01-01T00:30:00Z');
+              final intervalStart = DateTime.parse('1970-01-01T00:00:00.000Z');
+              final intervalEnd = DateTime.parse('1970-01-01T00:30:00.000Z');
 
               final json = {
-                'consumption': 0.5,
+                'consumption': '0.5',
                 'interval_end': intervalEnd.toIso8601String(),
                 'interval_start': intervalStart.toIso8601String(),
               };
@@ -47,8 +47,8 @@ void main() {
           test(
             'should serialize model to json',
             () {
-              final intervalStart = DateTime.parse('1970-01-01T00:00:00Z');
-              final intervalEnd = DateTime.parse('1970-01-01T00:30:00Z');
+              final intervalStart = DateTime.parse('1970-01-01T00:00:00.000Z');
+              final intervalEnd = DateTime.parse('1970-01-01T00:30:00.000Z');
 
               final model = Consumption(
                 consumption: 0.5,
@@ -60,7 +60,7 @@ void main() {
 
               expect(
                 result['consumption'],
-                0.5,
+                '0.5',
               );
 
               expect(
