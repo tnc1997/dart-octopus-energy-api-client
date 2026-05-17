@@ -25,37 +25,37 @@ void main() {
 
               expect(
                 result.addressLine1,
-                json['address_line_1'],
+                '742 Evergreen Terrace',
               );
 
               expect(
                 result.addressLine2,
-                json['address_line_2'],
+                'Springfield Address Line 2',
               );
 
               expect(
                 result.addressLine3,
-                json['address_line_3'],
+                'Springfield Address Line 3',
               );
 
               expect(
                 result.county,
-                json['county'],
+                'Springfield County',
               );
 
               expect(
                 result.deliveryPointIdentifier,
-                json['delivery_point_identifier'],
+                '1234567890',
               );
 
               expect(
                 result.postcode,
-                json['postcode'],
+                'AB1 2CD',
               );
 
               expect(
                 result.town,
-                json['town'],
+                'Springfield Town',
               );
             },
           );
@@ -72,7 +72,7 @@ void main() {
 
               expect(
                 result.addressLine1,
-                json['address_line_1'],
+                '742 Evergreen Terrace',
               );
 
               expect(
@@ -97,7 +97,7 @@ void main() {
 
               expect(
                 result.postcode,
-                json['postcode'],
+                'AB1 2CD',
               );
 
               expect(
@@ -129,37 +129,37 @@ void main() {
 
               expect(
                 result['address_line_1'],
-                model.addressLine1,
+                '742 Evergreen Terrace',
               );
 
               expect(
                 result['address_line_2'],
-                model.addressLine2,
+                'Springfield Address Line 2',
               );
 
               expect(
                 result['address_line_3'],
-                model.addressLine3,
+                'Springfield Address Line 3',
               );
 
               expect(
                 result['county'],
-                model.county,
+                'Springfield County',
               );
 
               expect(
                 result['delivery_point_identifier'],
-                model.deliveryPointIdentifier,
+                '1234567890',
               );
 
               expect(
                 result['postcode'],
-                model.postcode,
+                'AB1 2CD',
               );
 
               expect(
                 result['town'],
-                model.town,
+                'Springfield Town',
               );
             },
           );
@@ -176,7 +176,7 @@ void main() {
 
               expect(
                 result['address_line_1'],
-                model.addressLine1,
+                '742 Evergreen Terrace',
               );
 
               expect(
@@ -201,7 +201,7 @@ void main() {
 
               expect(
                 result['postcode'],
-                model.postcode,
+                'AB1 2CD',
               );
 
               expect(
