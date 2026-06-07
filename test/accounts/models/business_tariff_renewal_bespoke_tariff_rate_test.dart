@@ -12,14 +12,15 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'meter_serial_number': '12L3456789',
+                'meter_serial_number': 'Z16N389556',
                 'registers': [
                   {
-                    'unit_rate': '0.35',
+                    'register_identifier': '7',
+                    'unit_rate': '22.4',
                   }
                 ],
-                'standing_charge': '0.50',
-                'unit_rate': '0.40',
+                'standing_charge': '3.25',
+                'unit_rate': '15.6',
               };
 
               final result =
@@ -27,22 +28,26 @@ void main() {
 
               expect(
                 result.meterSerialNumber,
-                '12L3456789',
+                'Z16N389556',
               );
 
               expect(
                 result.registers,
-                hasLength(1),
+                isA<List<BusinessTariffRenewalBespokeRegisterRate>>().having(
+                  (registers) => registers.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.standingCharge,
-                0.50,
+                3.25,
               );
 
               expect(
                 result.unitRate,
-                0.40,
+                15.6,
               );
             },
           );
@@ -51,8 +56,8 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'meter_serial_number': '12L3456789',
-                'standing_charge': '0.50',
+                'meter_serial_number': 'GA1244364577',
+                'standing_charge': '3.25',
               };
 
               final result =
@@ -60,7 +65,7 @@ void main() {
 
               expect(
                 result.meterSerialNumber,
-                '12L3456789',
+                'GA1244364577',
               );
 
               expect(
@@ -70,7 +75,7 @@ void main() {
 
               expect(
                 result.standingCharge,
-                0.50,
+                3.25,
               );
 
               expect(
@@ -89,36 +94,41 @@ void main() {
             'should serialize model to json',
             () {
               final model = BusinessTariffRenewalBespokeTariffRate(
-                meterSerialNumber: '12L3456789',
+                meterSerialNumber: 'Z16N389556',
                 registers: [
                   BusinessTariffRenewalBespokeRegisterRate(
-                    unitRate: 0.35,
+                    registerIdentifier: '7',
+                    unitRate: 22.4,
                   ),
                 ],
-                standingCharge: 0.50,
-                unitRate: 0.40,
+                standingCharge: 3.25,
+                unitRate: 15.6,
               );
 
               final result = model.toJson();
 
               expect(
                 result['meter_serial_number'],
-                '12L3456789',
+                'Z16N389556',
               );
 
               expect(
                 result['registers'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (registers) => registers.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['standing_charge'],
-                '0.5',
+                '3.25',
               );
 
               expect(
                 result['unit_rate'],
-                '0.4',
+                '15.6',
               );
             },
           );
@@ -127,15 +137,15 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = BusinessTariffRenewalBespokeTariffRate(
-                meterSerialNumber: '12L3456789',
-                standingCharge: 0.50,
+                meterSerialNumber: 'GA1244364577',
+                standingCharge: 3.25,
               );
 
               final result = model.toJson();
 
               expect(
                 result['meter_serial_number'],
-                '12L3456789',
+                'GA1244364577',
               );
 
               expect(
@@ -145,7 +155,7 @@ void main() {
 
               expect(
                 result['standing_charge'],
-                '0.5',
+                '3.25',
               );
 
               expect(

@@ -12,12 +12,12 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'annual_turnover': 1000000,
+                'annual_turnover': 575000,
                 'business_type': 'LIMITED',
-                'head_count': 50,
-                'is_ccl_exempt': false,
+                'head_count': 25,
+                'is_ccl_exempt': true,
                 'is_vat_exempt': false,
-                'name': 'Octopus Energy Ltd',
+                'name': 'Acme Corporation Limited',
                 'number': '09263424',
               };
 
@@ -25,7 +25,7 @@ void main() {
 
               expect(
                 result.annualTurnover,
-                1000000,
+                575000,
               );
 
               expect(
@@ -35,12 +35,12 @@ void main() {
 
               expect(
                 result.headCount,
-                50,
+                25,
               );
 
               expect(
                 result.isCclExempt,
-                isFalse,
+                isTrue,
               );
 
               expect(
@@ -50,7 +50,7 @@ void main() {
 
               expect(
                 result.name,
-                'Octopus Energy Ltd',
+                'Acme Corporation Limited',
               );
 
               expect(
@@ -65,9 +65,9 @@ void main() {
             () {
               final json = {
                 'business_type': 'LIMITED',
-                'is_ccl_exempt': false,
+                'is_ccl_exempt': true,
                 'is_vat_exempt': false,
-                'name': 'Octopus Energy Ltd',
+                'name': 'Acme Corporation Limited',
               };
 
               final result = Business.fromJson(json);
@@ -89,7 +89,7 @@ void main() {
 
               expect(
                 result.isCclExempt,
-                isFalse,
+                isTrue,
               );
 
               expect(
@@ -99,7 +99,7 @@ void main() {
 
               expect(
                 result.name,
-                'Octopus Energy Ltd',
+                'Acme Corporation Limited',
               );
 
               expect(
@@ -118,12 +118,12 @@ void main() {
             'should serialize model to json',
             () {
               final model = Business(
-                annualTurnover: 1000000,
+                annualTurnover: 575000,
                 businessType: BusinessType.limited,
-                headCount: 50,
-                isCclExempt: false,
+                headCount: 25,
+                isCclExempt: true,
                 isVatExempt: false,
-                name: 'Octopus Energy Ltd',
+                name: 'Acme Corporation Limited',
                 number: '09263424',
               );
 
@@ -131,7 +131,7 @@ void main() {
 
               expect(
                 result['annual_turnover'],
-                1000000,
+                575000,
               );
 
               expect(
@@ -141,12 +141,12 @@ void main() {
 
               expect(
                 result['head_count'],
-                50,
+                25,
               );
 
               expect(
                 result['is_ccl_exempt'],
-                isFalse,
+                isTrue,
               );
 
               expect(
@@ -156,7 +156,7 @@ void main() {
 
               expect(
                 result['name'],
-                'Octopus Energy Ltd',
+                'Acme Corporation Limited',
               );
 
               expect(
@@ -171,9 +171,9 @@ void main() {
             () {
               final model = Business(
                 businessType: BusinessType.limited,
-                isCclExempt: false,
+                isCclExempt: true,
                 isVatExempt: false,
-                name: 'Octopus Energy Ltd',
+                name: 'Acme Corporation Limited',
               );
 
               final result = model.toJson();
@@ -195,7 +195,7 @@ void main() {
 
               expect(
                 result['is_ccl_exempt'],
-                isFalse,
+                isTrue,
               );
 
               expect(
@@ -205,7 +205,7 @@ void main() {
 
               expect(
                 result['name'],
-                'Octopus Energy Ltd',
+                'Acme Corporation Limited',
               );
 
               expect(

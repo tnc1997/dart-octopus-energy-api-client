@@ -31,7 +31,11 @@ void main() {
 
               expect(
                 result.registers,
-                hasLength(1),
+                isA<List<AccountRegister>>().having(
+                  (registers) => registers.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -85,7 +89,11 @@ void main() {
 
               expect(
                 result['registers'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (registers) => registers.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );

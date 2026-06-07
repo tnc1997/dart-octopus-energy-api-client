@@ -12,18 +12,18 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'affiliate_organisation_name': 'Affiliate Org',
+                'affiliate_organisation_name': 'Some Partner',
                 'affiliate_link_subdomain': 'affiliate',
                 'fixed_tpi_fee': 100,
                 'standing_charge_uplift': '0.05',
-                'unit_rate_uplift': '0.01',
+                'unit_rate_uplift': '1.00',
               };
 
               final result = BusinessTariffRenewalCommission.fromJson(json);
 
               expect(
                 result.affiliateOrganisationName,
-                'Affiliate Org',
+                'Some Partner',
               );
 
               expect(
@@ -43,7 +43,7 @@ void main() {
 
               expect(
                 result.unitRateUplift,
-                0.01,
+                1.0,
               );
             },
           );
@@ -52,15 +52,15 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'affiliate_organisation_name': 'Affiliate Org',
-                'unit_rate_uplift': '0.01',
+                'affiliate_organisation_name': 'Some Partner',
+                'unit_rate_uplift': '1.00',
               };
 
               final result = BusinessTariffRenewalCommission.fromJson(json);
 
               expect(
                 result.affiliateOrganisationName,
-                'Affiliate Org',
+                'Some Partner',
               );
 
               expect(
@@ -80,7 +80,7 @@ void main() {
 
               expect(
                 result.unitRateUplift,
-                0.01,
+                1.0,
               );
             },
           );
@@ -94,18 +94,18 @@ void main() {
             'should serialize model to json',
             () {
               final model = BusinessTariffRenewalCommission(
-                affiliateOrganisationName: 'Affiliate Org',
+                affiliateOrganisationName: 'Some Partner',
                 affiliateLinkSubdomain: 'affiliate',
                 fixedTpiFee: 100,
                 standingChargeUplift: 0.05,
-                unitRateUplift: 0.01,
+                unitRateUplift: 1.00,
               );
 
               final result = model.toJson();
 
               expect(
                 result['affiliate_organisation_name'],
-                'Affiliate Org',
+                'Some Partner',
               );
 
               expect(
@@ -125,7 +125,7 @@ void main() {
 
               expect(
                 result['unit_rate_uplift'],
-                '0.01',
+                '1.0',
               );
             },
           );
@@ -134,15 +134,15 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = BusinessTariffRenewalCommission(
-                affiliateOrganisationName: 'Affiliate Org',
-                unitRateUplift: 0.01,
+                affiliateOrganisationName: 'Some Partner',
+                unitRateUplift: 1.00,
               );
 
               final result = model.toJson();
 
               expect(
                 result['affiliate_organisation_name'],
-                'Affiliate Org',
+                'Some Partner',
               );
 
               expect(
@@ -162,7 +162,7 @@ void main() {
 
               expect(
                 result['unit_rate_uplift'],
-                '0.01',
+                '1.0',
               );
             },
           );

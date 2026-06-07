@@ -12,57 +12,65 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'address_line_1': '742 Evergreen Terrace',
-                'address_line_2': 'Springfield Address Line 2',
-                'address_line_3': 'Springfield Address Line 3',
-                'county': 'Springfield County',
+                'address_line_1': '87 Doveys Close',
+                'address_line_2': 'Address Line 2',
+                'address_line_3': 'Address Line 3',
+                'county': 'Hampshire',
                 'electricity_meter_points': [
                   {
-                    'mpan': '1234567890123',
+                    'mpan': '2000024512368',
                   }
                 ],
                 'gas_meter_points': [
                   {
-                    'mprn': '1234567890',
+                    'mprn': '3016362107',
                   }
                 ],
                 'id': 12345,
                 'moved_in_at': '1970-01-01T00:00:00.000Z',
                 'moved_out_at': '1970-12-31T23:59:59.000Z',
-                'postcode': 'AB1 2CD',
-                'town': 'Springfield Town',
+                'postcode': 'BH24 4BP',
+                'town': 'Ringwood',
               };
 
               final result = AccountProperty.fromJson(json);
 
               expect(
                 result.addressLine1,
-                '742 Evergreen Terrace',
+                '87 Doveys Close',
               );
 
               expect(
                 result.addressLine2,
-                'Springfield Address Line 2',
+                'Address Line 2',
               );
 
               expect(
                 result.addressLine3,
-                'Springfield Address Line 3',
+                'Address Line 3',
               );
 
               expect(
                 result.county,
-                'Springfield County',
+                'Hampshire',
               );
 
               expect(
                 result.electricityMeterPoints,
-                hasLength(1),
+                isA<List<AccountElectricityMeterPoint>>().having(
+                  (electricityMeterPoints) => electricityMeterPoints.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.gasMeterPoints,
-                hasLength(1),
+                isA<List<AccountGasMeterPoint>>().having(
+                  (gasMeterPoints) => gasMeterPoints.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -82,12 +90,12 @@ void main() {
 
               expect(
                 result.postcode,
-                'AB1 2CD',
+                'BH24 4BP',
               );
 
               expect(
                 result.town,
-                'Springfield Town',
+                'Ringwood',
               );
             },
           );
@@ -168,57 +176,65 @@ void main() {
             'should serialize model to json',
             () {
               final model = AccountProperty(
-                addressLine1: '742 Evergreen Terrace',
-                addressLine2: 'Springfield Address Line 2',
-                addressLine3: 'Springfield Address Line 3',
-                county: 'Springfield County',
+                addressLine1: '87 Doveys Close',
+                addressLine2: 'Address Line 2',
+                addressLine3: 'Address Line 3',
+                county: 'Hampshire',
                 electricityMeterPoints: [
                   AccountElectricityMeterPoint(
-                    mpan: '1234567890123',
+                    mpan: '2000024512368',
                   ),
                 ],
                 gasMeterPoints: [
                   AccountGasMeterPoint(
-                    mprn: '1234567890',
+                    mprn: '3016362107',
                   ),
                 ],
                 id: 12345,
                 movedInAt: DateTime.parse('1970-01-01T00:00:00.000Z'),
                 movedOutAt: DateTime.parse('1970-12-31T23:59:59.000Z'),
-                postcode: 'AB1 2CD',
-                town: 'Springfield Town',
+                postcode: 'BH24 4BP',
+                town: 'Ringwood',
               );
 
               final result = model.toJson();
 
               expect(
                 result['address_line_1'],
-                '742 Evergreen Terrace',
+                '87 Doveys Close',
               );
 
               expect(
                 result['address_line_2'],
-                'Springfield Address Line 2',
+                'Address Line 2',
               );
 
               expect(
                 result['address_line_3'],
-                'Springfield Address Line 3',
+                'Address Line 3',
               );
 
               expect(
                 result['county'],
-                'Springfield County',
+                'Hampshire',
               );
 
               expect(
                 result['electricity_meter_points'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (electricityMeterPoints) => electricityMeterPoints.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['gas_meter_points'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (gasMeterPoints) => gasMeterPoints.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -238,12 +254,12 @@ void main() {
 
               expect(
                 result['postcode'],
-                'AB1 2CD',
+                'BH24 4BP',
               );
 
               expect(
                 result['town'],
-                'Springfield Town',
+                'Ringwood',
               );
             },
           );

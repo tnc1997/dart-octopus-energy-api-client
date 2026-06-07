@@ -13,48 +13,49 @@ void main() {
             () {
               final json = {
                 'credit_score_data': {
+                  'risk_bracket': 'LOW',
                   'score': 700,
                 },
-                'date_of_birth': '1990-01-01T00:00:00.000Z',
-                'email': 'homer.simpson@example.com',
-                'family_name': 'Simpson',
-                'given_name': 'Homer',
+                'date_of_birth': '1966-01-01',
+                'email': 'chris@example.com',
+                'family_name': 'Johnson',
+                'given_name': 'Chris',
                 'label': 'Home',
-                'landline': '0123456789',
-                'mobile': '07777777777',
+                'landline': '02084459876',
+                'mobile': '07742628216',
                 'opted_in_for_marketing': true,
-                'opted_in_to_third_parties': true,
+                'opted_in_to_third_parties': false,
                 'psr': {
                   'requires_signup': true,
                 },
-                'title': 'Mr',
+                'title': 'Dr',
               };
 
               final result = User.fromJson(json);
 
               expect(
                 result.creditScoreData,
-                isNotNull,
+                isA<CreditScoreData>(),
               );
 
               expect(
                 result.dateOfBirth,
-                DateTime.parse('1990-01-01T00:00:00.000Z'),
+                DateTime.parse('1966-01-01'),
               );
 
               expect(
                 result.email,
-                'homer.simpson@example.com',
+                'chris@example.com',
               );
 
               expect(
                 result.familyName,
-                'Simpson',
+                'Johnson',
               );
 
               expect(
                 result.givenName,
-                'Homer',
+                'Chris',
               );
 
               expect(
@@ -64,12 +65,12 @@ void main() {
 
               expect(
                 result.landline,
-                '0123456789',
+                '02084459876',
               );
 
               expect(
                 result.mobile,
-                '07777777777',
+                '07742628216',
               );
 
               expect(
@@ -79,17 +80,17 @@ void main() {
 
               expect(
                 result.optedInToThirdParties,
-                isTrue,
+                isFalse,
               );
 
               expect(
                 result.psr,
-                isNotNull,
+                isA<Psr>(),
               );
 
               expect(
                 result.title,
-                'Mr',
+                'Dr',
               );
             },
           );
@@ -98,10 +99,10 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'email': 'homer.simpson@example.com',
-                'family_name': 'Simpson',
-                'given_name': 'Homer',
-                'opted_in_for_marketing': true,
+                'email': 'chris@example.com',
+                'family_name': 'Johnson',
+                'given_name': 'Chris',
+                'opted_in_for_marketing': false,
               };
 
               final result = User.fromJson(json);
@@ -118,17 +119,17 @@ void main() {
 
               expect(
                 result.email,
-                'homer.simpson@example.com',
+                'chris@example.com',
               );
 
               expect(
                 result.familyName,
-                'Simpson',
+                'Johnson',
               );
 
               expect(
                 result.givenName,
-                'Homer',
+                'Chris',
               );
 
               expect(
@@ -148,7 +149,7 @@ void main() {
 
               expect(
                 result.optedInForMarketing,
-                isTrue,
+                isFalse,
               );
 
               expect(
@@ -178,48 +179,49 @@ void main() {
             () {
               final model = User(
                 creditScoreData: CreditScoreData(
+                  riskBracket: CreditRiskBracket.low,
                   score: 700,
                 ),
-                dateOfBirth: DateTime.parse('1990-01-01T00:00:00.000Z'),
-                email: 'homer.simpson@example.com',
-                familyName: 'Simpson',
-                givenName: 'Homer',
+                dateOfBirth: DateTime.parse('1966-01-01'),
+                email: 'chris@example.com',
+                familyName: 'Johnson',
+                givenName: 'Chris',
                 label: 'Home',
-                landline: '0123456789',
-                mobile: '07777777777',
+                landline: '02084459876',
+                mobile: '07742628216',
                 optedInForMarketing: true,
-                optedInToThirdParties: true,
+                optedInToThirdParties: false,
                 psr: Psr(
                   requiresSignup: true,
                 ),
-                title: 'Mr',
+                title: 'Dr',
               );
 
               final result = model.toJson();
 
               expect(
                 result['credit_score_data'],
-                isNotNull,
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
                 result['date_of_birth'],
-                '1990-01-01T00:00:00.000Z',
+                '1966-01-01T00:00:00.000',
               );
 
               expect(
                 result['email'],
-                'homer.simpson@example.com',
+                'chris@example.com',
               );
 
               expect(
                 result['family_name'],
-                'Simpson',
+                'Johnson',
               );
 
               expect(
                 result['given_name'],
-                'Homer',
+                'Chris',
               );
 
               expect(
@@ -229,12 +231,12 @@ void main() {
 
               expect(
                 result['landline'],
-                '0123456789',
+                '02084459876',
               );
 
               expect(
                 result['mobile'],
-                '07777777777',
+                '07742628216',
               );
 
               expect(
@@ -244,17 +246,17 @@ void main() {
 
               expect(
                 result['opted_in_to_third_parties'],
-                true,
+                false,
               );
 
               expect(
                 result['psr'],
-                isNotNull,
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
                 result['title'],
-                'Mr',
+                'Dr',
               );
             },
           );
@@ -263,10 +265,10 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = User(
-                email: 'homer.simpson@example.com',
-                familyName: 'Simpson',
-                givenName: 'Homer',
-                optedInForMarketing: true,
+                email: 'chris@example.com',
+                familyName: 'Johnson',
+                givenName: 'Chris',
+                optedInForMarketing: false,
               );
 
               final result = model.toJson();
@@ -283,17 +285,17 @@ void main() {
 
               expect(
                 result['email'],
-                'homer.simpson@example.com',
+                'chris@example.com',
               );
 
               expect(
                 result['family_name'],
-                'Simpson',
+                'Johnson',
               );
 
               expect(
                 result['given_name'],
-                'Homer',
+                'Chris',
               );
 
               expect(
@@ -313,7 +315,7 @@ void main() {
 
               expect(
                 result['opted_in_for_marketing'],
-                isTrue,
+                isFalse,
               );
 
               expect(

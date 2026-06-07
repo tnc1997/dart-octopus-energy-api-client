@@ -17,11 +17,13 @@ void main() {
                   {
                     'capacity_in_kw': '4.0',
                     'estimated_annual_generation_in_kwh': '3500.0',
+                    'fit_id': 'FIT123',
+                    'rego_id': 'REGO456',
                     'technology_type': 'Solar',
                   }
                 ],
-                'site_contact_email': 'homer.simpson@example.com',
-                'site_contact_name': 'Homer Simpson',
+                'site_contact_email': 'chris@example.com',
+                'site_contact_name': 'Chris Johnson',
                 'site_contact_phone': '0123456789',
               };
 
@@ -34,17 +36,21 @@ void main() {
 
               expect(
                 result.installations,
-                hasLength(1),
+                isA<List<Installation>>().having(
+                  (installations) => installations.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.siteContactEmail,
-                'homer.simpson@example.com',
+                'chris@example.com',
               );
 
               expect(
                 result.siteContactName,
-                'Homer Simpson',
+                'Chris Johnson',
               );
 
               expect(
@@ -102,11 +108,13 @@ void main() {
                   Installation(
                     capacityInKw: 4.0,
                     estimatedAnnualGenerationInKwh: 3500.0,
+                    fitId: 'FIT123',
+                    regoId: 'REGO456',
                     technologyType: InstallationTechnologyType.solar,
                   ),
                 ],
-                siteContactEmail: 'homer.simpson@example.com',
-                siteContactName: 'Homer Simpson',
+                siteContactEmail: 'chris@example.com',
+                siteContactName: 'Chris Johnson',
                 siteContactPhone: '0123456789',
               );
 
@@ -119,17 +127,21 @@ void main() {
 
               expect(
                 result['installations'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (installations) => installations.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['site_contact_email'],
-                'homer.simpson@example.com',
+                'chris@example.com',
               );
 
               expect(
                 result['site_contact_name'],
-                'Homer Simpson',
+                'Chris Johnson',
               );
 
               expect(

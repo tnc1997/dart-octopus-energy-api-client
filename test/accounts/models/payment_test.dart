@@ -12,19 +12,19 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'account_name': 'Homer Simpson',
+                'account_name': 'Chris Johnson',
                 'account_number': '12345678',
-                'account_sort_code': '12-34-56',
+                'account_sort_code': '111111',
                 'delay_days': 3,
                 'method': 'MONTHLY_DIRECT_DEBIT',
-                'payment_day': 15,
+                'payment_day': 1,
               };
 
               final result = Payment.fromJson(json);
 
               expect(
                 result.accountName,
-                'Homer Simpson',
+                'Chris Johnson',
               );
 
               expect(
@@ -34,7 +34,7 @@ void main() {
 
               expect(
                 result.accountSortCode,
-                '12-34-56',
+                '111111',
               );
 
               expect(
@@ -49,7 +49,7 @@ void main() {
 
               expect(
                 result.paymentDay,
-                15,
+                1,
               );
             },
           );
@@ -104,19 +104,19 @@ void main() {
             'should serialize model to json',
             () {
               final model = Payment(
-                accountName: 'Homer Simpson',
+                accountName: 'Chris Johnson',
                 accountNumber: '12345678',
-                accountSortCode: '12-34-56',
+                accountSortCode: '111111',
                 delayDays: 3,
                 method: PaymentMethod.monthlyDirectDebit,
-                paymentDay: 15,
+                paymentDay: 1,
               );
 
               final result = model.toJson();
 
               expect(
                 result['account_name'],
-                'Homer Simpson',
+                'Chris Johnson',
               );
 
               expect(
@@ -126,7 +126,7 @@ void main() {
 
               expect(
                 result['account_sort_code'],
-                '12-34-56',
+                '111111',
               );
 
               expect(
@@ -141,7 +141,7 @@ void main() {
 
               expect(
                 result['payment_day'],
-                15,
+                1,
               );
             },
           );

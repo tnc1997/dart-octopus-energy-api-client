@@ -14,8 +14,8 @@ void main() {
               final json = {
                 'agreements': [
                   {
-                    'tariff_code': 'E-1R-VAR-22-11-01-A',
-                    'valid_from': '2023-01-01T00:00:00.000Z',
+                    'tariff_code': 'E-1R-VAR-17-01-11-A',
+                    'valid_from': '2018-05-16T22:30:00Z',
                   }
                 ],
                 'consumption_standard': 3100,
@@ -25,7 +25,7 @@ void main() {
                     'serial_number': '12L3456789',
                   }
                 ],
-                'mpan': '1234567890123',
+                'mpan': '2000024512368',
                 'profile_class': 1,
               };
 
@@ -33,7 +33,11 @@ void main() {
 
               expect(
                 result.agreements,
-                hasLength(1),
+                isA<List<AccountAgreement>>().having(
+                  (agreements) => agreements.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -48,12 +52,16 @@ void main() {
 
               expect(
                 result.meters,
-                hasLength(1),
+                isA<List<AccountElectricityMeterPointMeter>>().having(
+                  (meters) => meters.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.mpan,
-                '1234567890123',
+                '2000024512368',
               );
 
               expect(
@@ -67,7 +75,7 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'mpan': '1234567890123',
+                'mpan': '2000024512368',
               };
 
               final result = AccountElectricityMeterPoint.fromJson(json);
@@ -94,7 +102,7 @@ void main() {
 
               expect(
                 result.mpan,
-                '1234567890123',
+                '2000024512368',
               );
 
               expect(
@@ -115,8 +123,8 @@ void main() {
               final model = AccountElectricityMeterPoint(
                 agreements: [
                   AccountAgreement(
-                    tariffCode: 'E-1R-VAR-22-11-01-A',
-                    validFrom: DateTime.parse('2023-01-01T00:00:00.000Z'),
+                    tariffCode: 'E-1R-VAR-17-01-11-A',
+                    validFrom: DateTime.parse('2018-05-16T22:30:00Z'),
                   ),
                 ],
                 consumptionStandard: 3100,
@@ -126,7 +134,7 @@ void main() {
                     serialNumber: '12L3456789',
                   ),
                 ],
-                mpan: '1234567890123',
+                mpan: '2000024512368',
                 profileClass: 1,
               );
 
@@ -134,7 +142,11 @@ void main() {
 
               expect(
                 result['agreements'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (agreements) => agreements.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -149,12 +161,16 @@ void main() {
 
               expect(
                 result['meters'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (meters) => meters.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['mpan'],
-                '1234567890123',
+                '2000024512368',
               );
 
               expect(
@@ -168,7 +184,7 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = AccountElectricityMeterPoint(
-                mpan: '1234567890123',
+                mpan: '2000024512368',
               );
 
               final result = model.toJson();
@@ -195,7 +211,7 @@ void main() {
 
               expect(
                 result['mpan'],
-                '1234567890123',
+                '2000024512368',
               );
 
               expect(

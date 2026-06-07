@@ -12,7 +12,7 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'number': 'A-12345678',
+                'number': 'A-12341234',
                 'properties': [
                   {
                     'id': 12345,
@@ -25,12 +25,16 @@ void main() {
 
               expect(
                 result.number,
-                'A-12345678',
+                'A-12341234',
               );
 
               expect(
                 result.properties,
-                hasLength(1),
+                isA<List<AccountProperty>>().having(
+                  (properties) => properties.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -39,14 +43,14 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'number': 'A-12345678',
+                'number': 'A-12341234',
               };
 
               final result = Account.fromJson(json);
 
               expect(
                 result.number,
-                'A-12345678',
+                'A-12341234',
               );
 
               expect(
@@ -65,7 +69,7 @@ void main() {
             'should serialize model to json',
             () {
               final model = Account(
-                number: 'A-12345678',
+                number: 'A-12341234',
                 properties: [
                   AccountProperty(
                     id: 12345,
@@ -78,12 +82,16 @@ void main() {
 
               expect(
                 result['number'],
-                'A-12345678',
+                'A-12341234',
               );
 
               expect(
                 result['properties'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (properties) => properties.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -92,14 +100,14 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = Account(
-                number: 'A-12345678',
+                number: 'A-12341234',
               );
 
               final result = model.toJson();
 
               expect(
                 result['number'],
-                'A-12345678',
+                'A-12341234',
               );
 
               expect(

@@ -12,10 +12,10 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'number': '12345',
+                'number': 'A-12341234',
                 'password_reset': {
-                  'token': 'secret_token',
-                  'user_id': 'user_123',
+                  'token': 'cmlx6w-1232911237f5d13422c154c07',
+                  'user_id': 'user_pk_b64_encoded',
                 },
               };
 
@@ -23,12 +23,12 @@ void main() {
 
               expect(
                 result.number,
-                '12345',
+                'A-12341234',
               );
 
               expect(
                 result.passwordReset,
-                isNotNull,
+                isA<PasswordReset>(),
               );
             },
           );
@@ -37,14 +37,14 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'number': '12345',
+                'number': 'A-12341234',
               };
 
               final result = SuccessResponse.fromJson(json);
 
               expect(
                 result.number,
-                '12345',
+                'A-12341234',
               );
 
               expect(
@@ -63,10 +63,10 @@ void main() {
             'should serialize model to json',
             () {
               final model = SuccessResponse(
-                number: '12345',
+                number: 'A-12341234',
                 passwordReset: PasswordReset(
-                  token: 'secret_token',
-                  userId: 'user_123',
+                  token: 'cmlx6w-1232911237f5d13422c154c07',
+                  userId: 'user_pk_b64_encoded',
                 ),
               );
 
@@ -74,12 +74,12 @@ void main() {
 
               expect(
                 result['number'],
-                '12345',
+                'A-12341234',
               );
 
               expect(
                 result['password_reset'],
-                isNotNull,
+                isA<Map<String, dynamic>>(),
               );
             },
           );
@@ -88,14 +88,14 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = SuccessResponse(
-                number: '12345',
+                number: 'A-12341234',
               );
 
               final result = model.toJson();
 
               expect(
                 result['number'],
-                '12345',
+                'A-12341234',
               );
 
               expect(

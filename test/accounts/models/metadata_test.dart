@@ -12,20 +12,26 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'key': 'test_key',
-                'value': 'test_value',
+                'key': 'metadata_key',
+                'value': {
+                  'melo': 10284,
+                  'some_data': 'some_value',
+                },
               };
 
               final result = Metadata.fromJson(json);
 
               expect(
                 result.key,
-                'test_key',
+                'metadata_key',
               );
 
               expect(
                 result.value,
-                'test_value',
+                {
+                  'melo': 10284,
+                  'some_data': 'some_value',
+                },
               );
             },
           );
@@ -39,20 +45,26 @@ void main() {
             'should serialize model to json',
             () {
               final model = Metadata(
-                key: 'test_key',
-                value: 'test_value',
+                key: 'metadata_key',
+                value: {
+                  'melo': 10284,
+                  'some_data': 'some_value',
+                },
               );
 
               final result = model.toJson();
 
               expect(
                 result['key'],
-                'test_key',
+                'metadata_key',
               );
 
               expect(
                 result['value'],
-                'test_value',
+                {
+                  'melo': 10284,
+                  'some_data': 'some_value',
+                },
               );
             },
           );

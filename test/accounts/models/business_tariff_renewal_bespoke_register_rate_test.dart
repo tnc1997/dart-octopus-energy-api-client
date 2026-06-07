@@ -14,8 +14,8 @@ void main() {
               final json = {
                 'payment_method': 'DD',
                 'rate_type': 'STANDARD',
-                'register_identifier': '01',
-                'unit_rate': '0.35',
+                'register_identifier': '1',
+                'unit_rate': '15.6',
               };
 
               final result =
@@ -33,12 +33,12 @@ void main() {
 
               expect(
                 result.registerIdentifier,
-                '01',
+                '1',
               );
 
               expect(
                 result.unitRate,
-                0.35,
+                15.6,
               );
             },
           );
@@ -47,7 +47,7 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'unit_rate': '0.35',
+                'unit_rate': '15.6',
               };
 
               final result =
@@ -70,7 +70,7 @@ void main() {
 
               expect(
                 result.unitRate,
-                0.35,
+                15.6,
               );
             },
           );
@@ -86,8 +86,8 @@ void main() {
               final model = BusinessTariffRenewalBespokeRegisterRate(
                 paymentMethod: BespokePaymentMethod.dd,
                 rateType: BespokeRateType.standard,
-                registerIdentifier: '01',
-                unitRate: 0.35,
+                registerIdentifier: '1',
+                unitRate: 15.6,
               );
 
               final result = model.toJson();
@@ -104,12 +104,12 @@ void main() {
 
               expect(
                 result['register_identifier'],
-                '01',
+                '1',
               );
 
               expect(
                 result['unit_rate'],
-                '0.35',
+                '15.6',
               );
             },
           );
@@ -118,7 +118,7 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = BusinessTariffRenewalBespokeRegisterRate(
-                unitRate: 0.35,
+                unitRate: 15.6,
               );
 
               final result = model.toJson();
@@ -140,7 +140,7 @@ void main() {
 
               expect(
                 result['unit_rate'],
-                '0.35',
+                '15.6',
               );
             },
           );

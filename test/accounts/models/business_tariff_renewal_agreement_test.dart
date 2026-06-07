@@ -14,50 +14,54 @@ void main() {
               final json = {
                 'bespoke_tariff_rates': [
                   {
-                    'meter_serial_number': '12L3456789',
-                    'standing_charge': '0.50',
+                    'meter_serial_number': 'Z16N389556',
+                    'standing_charge': '3.25',
                   }
                 ],
                 'commission': {
-                  'affiliate_organisation_name': 'Affiliate Org',
-                  'unit_rate_uplift': '0.01',
+                  'affiliate_organisation_name': 'Some Partner',
+                  'unit_rate_uplift': '1.00',
                 },
-                'mpxn': '1234567890',
-                'tariff_code': 'G-1R-VAR-70-01-01-A',
-                'valid_from_date': '1970-01-01T00:00:00.000Z',
-                'valid_to_date': '1970-12-31T23:59:59.000Z',
+                'mpxn': '1013004420117',
+                'tariff_code': 'E-1R-SOME-PRODUCT-J',
+                'valid_from_date': '2019-12-01',
+                'valid_to_date': '2020-12-01',
               };
 
               final result = BusinessTariffRenewalAgreement.fromJson(json);
 
               expect(
                 result.bespokeTariffRates,
-                hasLength(1),
+                isA<List<BusinessTariffRenewalBespokeTariffRate>>().having(
+                  (bespokeTariffRates) => bespokeTariffRates.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.commission,
-                isNotNull,
+                isA<BusinessTariffRenewalCommission>(),
               );
 
               expect(
                 result.mpxn,
-                '1234567890',
+                '1013004420117',
               );
 
               expect(
                 result.tariffCode,
-                'G-1R-VAR-70-01-01-A',
+                'E-1R-SOME-PRODUCT-J',
               );
 
               expect(
                 result.validFromDate,
-                DateTime.parse('1970-01-01T00:00:00.000Z'),
+                DateTime.parse('2019-12-01'),
               );
 
               expect(
                 result.validToDate,
-                DateTime.parse('1970-12-31T23:59:59.000Z'),
+                DateTime.parse('2020-12-01'),
               );
             },
           );
@@ -66,9 +70,9 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'mpxn': '1234567890',
-                'tariff_code': 'G-1R-VAR-70-01-01-A',
-                'valid_from_date': '1970-01-01T00:00:00.000Z',
+                'mpxn': '1013004420117',
+                'tariff_code': 'E-1R-SOME-PRODUCT-J',
+                'valid_from_date': '2019-12-01',
               };
 
               final result = BusinessTariffRenewalAgreement.fromJson(json);
@@ -85,17 +89,17 @@ void main() {
 
               expect(
                 result.mpxn,
-                '1234567890',
+                '1013004420117',
               );
 
               expect(
                 result.tariffCode,
-                'G-1R-VAR-70-01-01-A',
+                'E-1R-SOME-PRODUCT-J',
               );
 
               expect(
                 result.validFromDate,
-                DateTime.parse('1970-01-01T00:00:00.000Z'),
+                DateTime.parse('2019-12-01'),
               );
 
               expect(
@@ -116,50 +120,54 @@ void main() {
               final model = BusinessTariffRenewalAgreement(
                 bespokeTariffRates: [
                   BusinessTariffRenewalBespokeTariffRate(
-                    meterSerialNumber: '12L3456789',
-                    standingCharge: 0.50,
+                    meterSerialNumber: 'Z16N389556',
+                    standingCharge: 3.25,
                   ),
                 ],
                 commission: BusinessTariffRenewalCommission(
-                  affiliateOrganisationName: 'Affiliate Org',
-                  unitRateUplift: 0.01,
+                  affiliateOrganisationName: 'Some Partner',
+                  unitRateUplift: 1.00,
                 ),
-                mpxn: '1234567890',
-                tariffCode: 'G-1R-VAR-70-01-01-A',
-                validFromDate: DateTime.parse('1970-01-01T00:00:00.000Z'),
-                validToDate: DateTime.parse('1970-12-31T23:59:59.000Z'),
+                mpxn: '1013004420117',
+                tariffCode: 'E-1R-SOME-PRODUCT-J',
+                validFromDate: DateTime.parse('2019-12-01'),
+                validToDate: DateTime.parse('2020-12-01'),
               );
 
               final result = model.toJson();
 
               expect(
                 result['bespoke_tariff_rates'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (bespokeTariffRates) => bespokeTariffRates.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['commission'],
-                isNotNull,
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
                 result['mpxn'],
-                '1234567890',
+                '1013004420117',
               );
 
               expect(
                 result['tariff_code'],
-                'G-1R-VAR-70-01-01-A',
+                'E-1R-SOME-PRODUCT-J',
               );
 
               expect(
                 result['valid_from_date'],
-                '1970-01-01T00:00:00.000Z',
+                '2019-12-01T00:00:00.000',
               );
 
               expect(
                 result['valid_to_date'],
-                '1970-12-31T23:59:59.000Z',
+                '2020-12-01T00:00:00.000',
               );
             },
           );
@@ -168,9 +176,9 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = BusinessTariffRenewalAgreement(
-                mpxn: '1234567890',
-                tariffCode: 'G-1R-VAR-70-01-01-A',
-                validFromDate: DateTime.parse('1970-01-01T00:00:00.000Z'),
+                mpxn: '1013004420117',
+                tariffCode: 'E-1R-SOME-PRODUCT-J',
+                validFromDate: DateTime.parse('2019-12-01'),
               );
 
               final result = model.toJson();
@@ -187,17 +195,17 @@ void main() {
 
               expect(
                 result['mpxn'],
-                '1234567890',
+                '1013004420117',
               );
 
               expect(
                 result['tariff_code'],
-                'G-1R-VAR-70-01-01-A',
+                'E-1R-SOME-PRODUCT-J',
               );
 
               expect(
                 result['valid_from_date'],
-                '1970-01-01T00:00:00.000Z',
+                '2019-12-01T00:00:00.000',
               );
 
               expect(

@@ -12,14 +12,14 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'requires_signup': true,
+                'requires_signup': false,
               };
 
               final result = Psr.fromJson(json);
 
               expect(
                 result.requiresSignup,
-                isTrue,
+                isFalse,
               );
             },
           );
@@ -47,14 +47,14 @@ void main() {
             'should serialize model to json',
             () {
               final model = Psr(
-                requiresSignup: true,
+                requiresSignup: false,
               );
 
               final result = model.toJson();
 
               expect(
                 result['requires_signup'],
-                isTrue,
+                isFalse,
               );
             },
           );

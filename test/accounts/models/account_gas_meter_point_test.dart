@@ -14,39 +14,47 @@ void main() {
               final json = {
                 'agreements': [
                   {
-                    'tariff_code': 'G-1R-VAR-22-11-01-A',
-                    'valid_from': '2023-01-01T00:00:00.000Z',
+                    'tariff_code': 'G-1R-VAR-17-01-11-A',
+                    'valid_from': '2018-05-16T22:30:00Z',
                   }
                 ],
-                'consumption_standard': 12000,
+                'consumption_standard': 12500,
                 'meters': [
                   {
                     'serial_number': '12L3456789',
                   }
                 ],
-                'mprn': '1234567890',
+                'mprn': '3016362107',
               };
 
               final result = AccountGasMeterPoint.fromJson(json);
 
               expect(
                 result.agreements,
-                hasLength(1),
+                isA<List<AccountAgreement>>().having(
+                  (agreements) => agreements.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.consumptionStandard,
-                12000,
+                12500,
               );
 
               expect(
                 result.meters,
-                hasLength(1),
+                isA<List<AccountGasMeterPointMeter>>().having(
+                  (meters) => meters.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.mprn,
-                '1234567890',
+                '3016362107',
               );
             },
           );
@@ -55,7 +63,7 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'mprn': '1234567890',
+                'mprn': '3016362107',
               };
 
               final result = AccountGasMeterPoint.fromJson(json);
@@ -77,7 +85,7 @@ void main() {
 
               expect(
                 result.mprn,
-                '1234567890',
+                '3016362107',
               );
             },
           );
@@ -93,39 +101,47 @@ void main() {
               final model = AccountGasMeterPoint(
                 agreements: [
                   AccountAgreement(
-                    tariffCode: 'G-1R-VAR-22-11-01-A',
-                    validFrom: DateTime.parse('2023-01-01T00:00:00.000Z'),
+                    tariffCode: 'G-1R-VAR-17-01-11-A',
+                    validFrom: DateTime.parse('2018-05-16T22:30:00Z'),
                   ),
                 ],
-                consumptionStandard: 12000,
+                consumptionStandard: 12500,
                 meters: [
                   AccountGasMeterPointMeter(
                     serialNumber: '12L3456789',
                   ),
                 ],
-                mprn: '1234567890',
+                mprn: '3016362107',
               );
 
               final result = model.toJson();
 
               expect(
                 result['agreements'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (agreements) => agreements.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['consumption_standard'],
-                12000,
+                12500,
               );
 
               expect(
                 result['meters'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (meters) => meters.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['mprn'],
-                '1234567890',
+                '3016362107',
               );
             },
           );
@@ -134,7 +150,7 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = AccountGasMeterPoint(
-                mprn: '1234567890',
+                mprn: '3016362107',
               );
 
               final result = model.toJson();
@@ -156,7 +172,7 @@ void main() {
 
               expect(
                 result['mprn'],
-                '1234567890',
+                '3016362107',
               );
             },
           );

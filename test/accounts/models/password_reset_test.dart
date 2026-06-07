@@ -12,20 +12,20 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'token': 'secret_token',
-                'user_id': 'user_123',
+                'token': 'cmlx6w-1232911237f5d13422c154c07',
+                'user_id': 'user_pk_b64_encoded',
               };
 
               final result = PasswordReset.fromJson(json);
 
               expect(
                 result.token,
-                'secret_token',
+                'cmlx6w-1232911237f5d13422c154c07',
               );
 
               expect(
                 result.userId,
-                'user_123',
+                'user_pk_b64_encoded',
               );
             },
           );
@@ -39,20 +39,20 @@ void main() {
             'should serialize model to json',
             () {
               final model = PasswordReset(
-                token: 'secret_token',
-                userId: 'user_123',
+                token: 'cmlx6w-1232911237f5d13422c154c07',
+                userId: 'user_pk_b64_encoded',
               );
 
               final result = model.toJson();
 
               expect(
                 result['token'],
-                'secret_token',
+                'cmlx6w-1232911237f5d13422c154c07',
               );
 
               expect(
                 result['user_id'],
-                'user_123',
+                'user_pk_b64_encoded',
               );
             },
           );
