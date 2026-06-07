@@ -13,17 +13,17 @@ void main() {
             () {
               final json = {
                 'address': {
-                  'address_line_1': '742 Evergreen Terrace',
-                  'address_line_2': 'Springfield Address Line 2',
-                  'address_line_3': 'Springfield Address Line 3',
-                  'county': 'Springfield County',
+                  'address_line_1': '87 Doveys Close',
+                  'address_line_2': 'Address Line 2',
+                  'address_line_3': 'Address Line 3',
+                  'county': 'Hampshire',
                   'delivery_point_identifier': '1234567890',
-                  'postcode': 'AB1 2CD',
-                  'town': 'Springfield Town',
+                  'postcode': 'BH24 4BP',
+                  'town': 'Ringwood',
                 },
                 'bespoke_pps_tariff_rates': [
                   {
-                    'payment_method': 'DD',
+                    'payment_method': 'NDD',
                     'standing_charge': '0.1',
                     'unit_rate': '0.2',
                     'unit_rates': [
@@ -40,26 +40,26 @@ void main() {
                   'unit_rate': '0.5',
                   'unit_rates': [
                     {
-                      'payment_method': 'DD',
-                      'rate_type': 'STANDARD',
+                      'payment_method': 'PP',
+                      'rate_type': 'OFF_PEAK',
                       'unit_rate': '0.6',
                     }
                   ],
                 },
-                'consumption_standard': 2000,
-                'current_supplier_name': 'Octopus Energy',
-                'current_supplier_tariff': 'Flexible Octopus',
+                'consumption_standard': 12500,
+                'current_supplier_name': 'SUP',
+                'current_supplier_tariff': 'SUP-123',
                 'fixed_tpi_fee': 100,
-                'has_smart_meter': true,
+                'has_smart_meter': false,
                 'meter_type': 'CREDIT',
-                'mprn': '1234567890',
+                'mprn': '3016362107',
                 'preferred_ssd': '1970-01-01T00:00:00.000Z',
                 'quote': {
-                  'annual_payment': 1000,
+                  'annual_payment': 44961,
                 },
                 'quoted_product_id': 123,
                 'standing_charge_uplift': '0.7',
-                'tariff_code': 'G-1R-VAR-17-01-11-H',
+                'tariff_code': 'G-1R-VAR-17-01-11-A',
                 'unit_rate_uplift': '0.8',
               };
 
@@ -67,32 +67,36 @@ void main() {
 
               expect(
                 result.address,
-                isNotNull,
+                isA<Address>(),
               );
 
               expect(
                 result.bespokePpsTariffRates,
-                hasLength(1),
+                isA<List<BespokePpsTariffRates>>().having(
+                  (bespokePpsTariffRates) => bespokePpsTariffRates.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.bespokeTariffRates,
-                isNotNull,
+                isA<BespokeTariffRates>(),
               );
 
               expect(
                 result.consumptionStandard,
-                2000,
+                12500,
               );
 
               expect(
                 result.currentSupplierName,
-                'Octopus Energy',
+                'SUP',
               );
 
               expect(
                 result.currentSupplierTariff,
-                'Flexible Octopus',
+                'SUP-123',
               );
 
               expect(
@@ -102,7 +106,7 @@ void main() {
 
               expect(
                 result.hasSmartMeter,
-                isTrue,
+                isFalse,
               );
 
               expect(
@@ -112,7 +116,7 @@ void main() {
 
               expect(
                 result.mprn,
-                '1234567890',
+                '3016362107',
               );
 
               expect(
@@ -122,7 +126,7 @@ void main() {
 
               expect(
                 result.quote,
-                isNotNull,
+                isA<Quote>(),
               );
 
               expect(
@@ -137,7 +141,7 @@ void main() {
 
               expect(
                 result.tariffCode,
-                'G-1R-VAR-17-01-11-H',
+                'G-1R-VAR-17-01-11-A',
               );
 
               expect(
@@ -152,7 +156,7 @@ void main() {
             () {
               final json = {
                 'quote': {
-                  'annual_payment': 1000,
+                  'annual_payment': 44961,
                 },
               };
 
@@ -215,7 +219,7 @@ void main() {
 
               expect(
                 result.quote,
-                isNotNull,
+                isA<Quote>(),
               );
 
               expect(
@@ -250,17 +254,17 @@ void main() {
             () {
               final model = GasMeterPoint(
                 address: Address(
-                  addressLine1: '742 Evergreen Terrace',
-                  addressLine2: 'Springfield Address Line 2',
-                  addressLine3: 'Springfield Address Line 3',
-                  county: 'Springfield County',
+                  addressLine1: '87 Doveys Close',
+                  addressLine2: 'Address Line 2',
+                  addressLine3: 'Address Line 3',
+                  county: 'Hampshire',
                   deliveryPointIdentifier: '1234567890',
-                  postcode: 'AB1 2CD',
-                  town: 'Springfield Town',
+                  postcode: 'BH24 4BP',
+                  town: 'Ringwood',
                 ),
                 bespokePpsTariffRates: [
                   BespokePpsTariffRates(
-                    paymentMethod: BespokePaymentMethod.dd,
+                    paymentMethod: BespokePaymentMethod.ndd,
                     standingCharge: 0.1,
                     unitRate: 0.2,
                     unitRates: [
@@ -277,26 +281,26 @@ void main() {
                   unitRate: 0.5,
                   unitRates: [
                     BespokeElectricityUnitRate(
-                      paymentMethod: BespokePaymentMethod.dd,
-                      rateType: BespokeRateType.standard,
+                      paymentMethod: BespokePaymentMethod.pp,
+                      rateType: BespokeRateType.offPeak,
                       unitRate: 0.6,
                     ),
                   ],
                 ),
-                consumptionStandard: 2000,
-                currentSupplierName: 'Octopus Energy',
-                currentSupplierTariff: 'Flexible Octopus',
+                consumptionStandard: 12500,
+                currentSupplierName: 'SUP',
+                currentSupplierTariff: 'SUP-123',
                 fixedTpiFee: 100,
-                hasSmartMeter: true,
+                hasSmartMeter: false,
                 meterType: MeterType.credit,
-                mprn: '1234567890',
+                mprn: '3016362107',
                 preferredSsd: DateTime.parse('1970-01-01T00:00:00.000Z'),
                 quote: Quote(
-                  annualPayment: 1000,
+                  annualPayment: 44961,
                 ),
                 quotedProductId: 123,
                 standingChargeUplift: 0.7,
-                tariffCode: 'G-1R-VAR-17-01-11-H',
+                tariffCode: 'G-1R-VAR-17-01-11-A',
                 unitRateUplift: 0.8,
               );
 
@@ -304,32 +308,36 @@ void main() {
 
               expect(
                 result['address'],
-                isNotNull,
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
                 result['bespoke_pps_tariff_rates'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (bespokePpsTariffRates) => bespokePpsTariffRates.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['bespoke_tariff_rates'],
-                isNotNull,
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
                 result['consumption_standard'],
-                2000,
+                12500,
               );
 
               expect(
                 result['current_supplier_name'],
-                'Octopus Energy',
+                'SUP',
               );
 
               expect(
                 result['current_supplier_tariff'],
-                'Flexible Octopus',
+                'SUP-123',
               );
 
               expect(
@@ -339,7 +347,7 @@ void main() {
 
               expect(
                 result['has_smart_meter'],
-                isTrue,
+                isFalse,
               );
 
               expect(
@@ -349,7 +357,7 @@ void main() {
 
               expect(
                 result['mprn'],
-                '1234567890',
+                '3016362107',
               );
 
               expect(
@@ -359,7 +367,7 @@ void main() {
 
               expect(
                 result['quote'],
-                isNotNull,
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
@@ -374,7 +382,7 @@ void main() {
 
               expect(
                 result['tariff_code'],
-                'G-1R-VAR-17-01-11-H',
+                'G-1R-VAR-17-01-11-A',
               );
 
               expect(
@@ -389,7 +397,7 @@ void main() {
             () {
               final model = GasMeterPoint(
                 quote: Quote(
-                  annualPayment: 1000,
+                  annualPayment: 44961,
                 ),
               );
 
@@ -452,7 +460,7 @@ void main() {
 
               expect(
                 result['quote'],
-                isNotNull,
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
