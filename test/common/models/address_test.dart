@@ -12,35 +12,35 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'address_line_1': '742 Evergreen Terrace',
-                'address_line_2': 'Springfield Address Line 2',
-                'address_line_3': 'Springfield Address Line 3',
-                'county': 'Springfield County',
+                'address_line_1': '87 Doveys Close',
+                'address_line_2': 'Address Line 2',
+                'address_line_3': 'Address Line 3',
+                'county': 'Hampshire',
                 'delivery_point_identifier': '1234567890',
-                'postcode': 'AB1 2CD',
-                'town': 'Springfield Town',
+                'postcode': 'BH24 4BP',
+                'town': 'Ringwood',
               };
 
               final result = Address.fromJson(json);
 
               expect(
                 result.addressLine1,
-                '742 Evergreen Terrace',
+                '87 Doveys Close',
               );
 
               expect(
                 result.addressLine2,
-                'Springfield Address Line 2',
+                'Address Line 2',
               );
 
               expect(
                 result.addressLine3,
-                'Springfield Address Line 3',
+                'Address Line 3',
               );
 
               expect(
                 result.county,
-                'Springfield County',
+                'Hampshire',
               );
 
               expect(
@@ -50,12 +50,12 @@ void main() {
 
               expect(
                 result.postcode,
-                'AB1 2CD',
+                'BH24 4BP',
               );
 
               expect(
                 result.town,
-                'Springfield Town',
+                'Ringwood',
               );
             },
           );
@@ -64,15 +64,15 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'address_line_1': '742 Evergreen Terrace',
-                'postcode': 'AB1 2CD',
+                'address_line_1': '87 Doveys Close',
+                'postcode': 'BH24 4BP',
               };
 
               final result = Address.fromJson(json);
 
               expect(
                 result.addressLine1,
-                '742 Evergreen Terrace',
+                '87 Doveys Close',
               );
 
               expect(
@@ -97,7 +97,7 @@ void main() {
 
               expect(
                 result.postcode,
-                'AB1 2CD',
+                'BH24 4BP',
               );
 
               expect(
@@ -116,35 +116,35 @@ void main() {
             'should serialize model to json',
             () {
               final model = Address(
-                addressLine1: '742 Evergreen Terrace',
-                addressLine2: 'Springfield Address Line 2',
-                addressLine3: 'Springfield Address Line 3',
-                county: 'Springfield County',
+                addressLine1: '87 Doveys Close',
+                addressLine2: 'Address Line 2',
+                addressLine3: 'Address Line 3',
+                county: 'Hampshire',
                 deliveryPointIdentifier: '1234567890',
-                postcode: 'AB1 2CD',
-                town: 'Springfield Town',
+                postcode: 'BH24 4BP',
+                town: 'Ringwood',
               );
 
               final result = model.toJson();
 
               expect(
                 result['address_line_1'],
-                '742 Evergreen Terrace',
+                '87 Doveys Close',
               );
 
               expect(
                 result['address_line_2'],
-                'Springfield Address Line 2',
+                'Address Line 2',
               );
 
               expect(
                 result['address_line_3'],
-                'Springfield Address Line 3',
+                'Address Line 3',
               );
 
               expect(
                 result['county'],
-                'Springfield County',
+                'Hampshire',
               );
 
               expect(
@@ -154,12 +154,12 @@ void main() {
 
               expect(
                 result['postcode'],
-                'AB1 2CD',
+                'BH24 4BP',
               );
 
               expect(
                 result['town'],
-                'Springfield Town',
+                'Ringwood',
               );
             },
           );
@@ -168,15 +168,15 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = Address(
-                addressLine1: '742 Evergreen Terrace',
-                postcode: 'AB1 2CD',
+                addressLine1: '87 Doveys Close',
+                postcode: 'BH24 4BP',
               );
 
               final result = model.toJson();
 
               expect(
                 result['address_line_1'],
-                '742 Evergreen Terrace',
+                '87 Doveys Close',
               );
 
               expect(
@@ -201,7 +201,7 @@ void main() {
 
               expect(
                 result['postcode'],
-                'AB1 2CD',
+                'BH24 4BP',
               );
 
               expect(

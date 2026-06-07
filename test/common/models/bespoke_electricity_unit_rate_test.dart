@@ -14,7 +14,7 @@ void main() {
               final json = {
                 'payment_method': 'DD',
                 'rate_type': 'STANDARD',
-                'unit_rate': '10.5',
+                'unit_rate': '12.6',
               };
 
               final result = BespokeElectricityUnitRate.fromJson(json);
@@ -31,7 +31,7 @@ void main() {
 
               expect(
                 result.unitRate,
-                10.5,
+                12.6,
               );
             },
           );
@@ -40,7 +40,7 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'unit_rate': '10.5',
+                'unit_rate': '12.6',
               };
 
               final result = BespokeElectricityUnitRate.fromJson(json);
@@ -57,7 +57,7 @@ void main() {
 
               expect(
                 result.unitRate,
-                10.5,
+                12.6,
               );
             },
           );
@@ -73,7 +73,7 @@ void main() {
               final model = BespokeElectricityUnitRate(
                 paymentMethod: BespokePaymentMethod.dd,
                 rateType: BespokeRateType.standard,
-                unitRate: 10.5,
+                unitRate: 12.6,
               );
 
               final result = model.toJson();
@@ -90,7 +90,7 @@ void main() {
 
               expect(
                 result['unit_rate'],
-                '10.5',
+                '12.6',
               );
             },
           );
@@ -99,7 +99,7 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = BespokeElectricityUnitRate(
-                unitRate: 10.5,
+                unitRate: 12.6,
               );
 
               final result = model.toJson();
@@ -116,7 +116,7 @@ void main() {
 
               expect(
                 result['unit_rate'],
-                '10.5',
+                '12.6',
               );
             },
           );

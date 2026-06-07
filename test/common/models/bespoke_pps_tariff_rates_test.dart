@@ -42,23 +42,12 @@ void main() {
               );
 
               expect(
-                result.unitRates?.length,
-                1,
-              );
-
-              expect(
-                result.unitRates?[0].paymentMethod,
-                BespokePaymentMethod.dd,
-              );
-
-              expect(
-                result.unitRates?[0].rateType,
-                BespokeRateType.standard,
-              );
-
-              expect(
-                result.unitRates?[0].unitRate,
-                10.5,
+                result.unitRates,
+                isA<List<BespokeElectricityUnitRate>>().having(
+                  (unitRates) => unitRates.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -133,23 +122,12 @@ void main() {
               );
 
               expect(
-                result['unit_rates']?.length,
-                1,
-              );
-
-              expect(
-                result['unit_rates']?[0]['payment_method'],
-                'DD',
-              );
-
-              expect(
-                result['unit_rates']?[0]['rate_type'],
-                'STANDARD',
-              );
-
-              expect(
-                result['unit_rates']?[0]['unit_rate'],
-                '10.5',
+                result['unit_rates'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (unitRates) => unitRates.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );

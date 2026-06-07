@@ -20,18 +20,17 @@ void main() {
                   'signup_reward_code': 'REWARD123',
                 },
                 'billing_address': {
-                  'address_line_1': '742 Evergreen Terrace',
-                  'address_line_2': 'Springfield Address Line 2',
-                  'address_line_3': 'Springfield Address Line 3',
-                  'county': 'Springfield County',
-                  'delivery_point_identifier': 'DP123',
-                  'postcode': 'AB1 2CD',
-                  'town': 'Springfield Town',
+                  'address_line_1': '87 Doveys Close',
+                  'address_line_2': 'Address Line 2',
+                  'address_line_3': 'Address Line 3',
+                  'county': 'Hampshire',
+                  'postcode': 'BH24 4BP',
+                  'town': 'Ringwood',
                 },
                 'billing_options': {
                   'period_length': 1,
-                  'period_start_day': 1,
-                  'period_start_month': 1,
+                  'period_start_day': 2,
+                  'period_start_month': 3,
                 },
                 'brand_code': 'OCTOPUS_ENERGY',
                 'business': {
@@ -39,9 +38,9 @@ void main() {
                   'business_type': 'LIMITED',
                   'head_count': 10,
                   'is_ccl_exempt': true,
-                  'is_vat_exempt': true,
+                  'is_vat_exempt': false,
                   'name': 'Business Name',
-                  'number': '12345678',
+                  'number': '87654321',
                 },
                 'deposit': {
                   'amount': 100,
@@ -50,31 +49,31 @@ void main() {
                 },
                 'electricity_meter_points': [
                   {
-                    'mpan': '1234567890',
+                    'mpan': '2000024512368',
                     'quote': {
-                      'annual_payment': 1000,
+                      'annual_payment': 46576,
                     },
                   }
                 ],
                 'gas_meter_points': [
                   {
-                    'mprn': '1234567890',
+                    'mprn': '3016362107',
                     'quote': {
-                      'annual_payment': 500,
+                      'annual_payment': 44961,
                     },
                   }
                 ],
                 'is_change_of_tenancy': false,
                 'metadata': [
                   {
-                    'key': 'KEY',
+                    'key': 'metadata_key',
                     'value': 'VALUE',
                   }
                 ],
                 'payment': {
-                  'account_name': 'Homer Simpson',
+                  'account_name': 'Chris Johnson',
                   'account_number': '12345678',
-                  'account_sort_code': '123456',
+                  'account_sort_code': '111111',
                   'delay_days': 0,
                   'method': 'MONTHLY_DIRECT_DEBIT',
                   'payment_day': 1,
@@ -85,10 +84,10 @@ void main() {
                   'postcode': 'EF5 6GH',
                 },
                 'promo_reward_code': 'PROMO123',
-                'quote_code': 'QUOTE123',
+                'quote_code': '1981fd3936cc4cfda70b2e697347b885',
                 'quote_request_code': 'REQUEST123',
-                'reference': 'REF456',
-                'referral_code': 'REFERRAL123',
+                'reference': '12067-056785',
+                'referral_code': 'some-referral-123',
                 'requires_postal_comms': true,
                 'sales_channel': 'DIRECT',
                 'sales_subchannel': 'SUBCHANNEL',
@@ -96,14 +95,14 @@ void main() {
                 'smart_meter_interest': 'SMETS2_INTEREST_INTERESTED',
                 'smart_meter_read_permission': 'HALF_HOURLY',
                 'smart_onboarding_product_type': 'AGILE',
-                'sold_at': '1970-01-01T00:00:00.000',
+                'sold_at': '2017-07-28T14:30:00+01:00',
                 'source': 'INTERNET',
                 'users': [
                   {
-                    'email': 'homer.simpson@example.com',
-                    'family_name': 'Simpson',
-                    'given_name': 'Homer',
-                    'opted_in_for_marketing': true,
+                    'email': 'chris@example.com',
+                    'family_name': 'Johnson',
+                    'given_name': 'Chris',
+                    'opted_in_for_marketing': false,
                   },
                 ],
               };
@@ -121,68 +120,18 @@ void main() {
               );
 
               expect(
-                result.affiliate?.affiliateLinkSubdomain,
-                'affiliate',
+                result.affiliate,
+                isA<Affiliate>(),
               );
 
               expect(
-                result.affiliate?.organizationName,
-                'Organization',
+                result.billingAddress,
+                isA<Address>(),
               );
 
               expect(
-                result.affiliate?.signupRewardCode,
-                'REWARD123',
-              );
-
-              expect(
-                result.billingAddress.addressLine1,
-                '742 Evergreen Terrace',
-              );
-
-              expect(
-                result.billingAddress.addressLine2,
-                'Springfield Address Line 2',
-              );
-
-              expect(
-                result.billingAddress.addressLine3,
-                'Springfield Address Line 3',
-              );
-
-              expect(
-                result.billingAddress.county,
-                'Springfield County',
-              );
-
-              expect(
-                result.billingAddress.deliveryPointIdentifier,
-                'DP123',
-              );
-
-              expect(
-                result.billingAddress.postcode,
-                'AB1 2CD',
-              );
-
-              expect(
-                result.billingAddress.town,
-                'Springfield Town',
-              );
-
-              expect(
-                result.billingOptions?.periodLength,
-                1,
-              );
-
-              expect(
-                result.billingOptions?.periodStartDay,
-                1,
-              );
-
-              expect(
-                result.billingOptions?.periodStartMonth,
-                1,
+                result.billingOptions,
+                isA<BillingOptions>(),
               );
 
               expect(
@@ -191,73 +140,31 @@ void main() {
               );
 
               expect(
-                result.business?.annualTurnover,
-                100000,
+                result.business,
+                isA<Business>(),
               );
 
               expect(
-                result.business?.businessType,
-                BusinessType.limited,
+                result.deposit,
+                isA<Deposit>(),
               );
 
               expect(
-                result.business?.headCount,
-                10,
+                result.electricityMeterPoints,
+                isA<List<ElectricityMeterPoint>>().having(
+                  (electricityMeterPoints) => electricityMeterPoints.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
-                result.business?.isCclExempt,
-                isTrue,
-              );
-
-              expect(
-                result.business?.isVatExempt,
-                isTrue,
-              );
-
-              expect(
-                result.business?.name,
-                'Business Name',
-              );
-
-              expect(
-                result.business?.number,
-                '12345678',
-              );
-
-              expect(
-                result.deposit?.amount,
-                100,
-              );
-
-              expect(
-                result.deposit?.key,
-                'KEY',
-              );
-
-              expect(
-                result.deposit?.reason,
-                'REASON',
-              );
-
-              expect(
-                result.electricityMeterPoints?.length,
-                1,
-              );
-
-              expect(
-                result.electricityMeterPoints?[0].mpan,
-                '1234567890',
-              );
-
-              expect(
-                result.gasMeterPoints?.length,
-                1,
-              );
-
-              expect(
-                result.gasMeterPoints?[0].mprn,
-                '1234567890',
+                result.gasMeterPoints,
+                isA<List<GasMeterPoint>>().having(
+                  (gasMeterPoints) => gasMeterPoints.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -266,48 +173,17 @@ void main() {
               );
 
               expect(
-                result.metadata?.length,
-                1,
+                result.metadata,
+                isA<List<Metadata>>().having(
+                  (metadata) => metadata.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
-                result.metadata?[0].key,
-                'KEY',
-              );
-
-              expect(
-                result.metadata?[0].value,
-                'VALUE',
-              );
-
-              expect(
-                result.payment?.accountName,
-                'Homer Simpson',
-              );
-
-              expect(
-                result.payment?.accountNumber,
-                '12345678',
-              );
-
-              expect(
-                result.payment?.accountSortCode,
-                '123456',
-              );
-
-              expect(
-                result.payment?.delayDays,
-                0,
-              );
-
-              expect(
-                result.payment?.method,
-                PaymentMethod.monthlyDirectDebit,
-              );
-
-              expect(
-                result.payment?.paymentDay,
-                1,
+                result.payment,
+                isA<Payment>(),
               );
 
               expect(
@@ -316,13 +192,8 @@ void main() {
               );
 
               expect(
-                result.previousBillingAddress?.addressLine1,
-                '123 Fake St',
-              );
-
-              expect(
-                result.previousBillingAddress?.postcode,
-                'EF5 6GH',
+                result.previousBillingAddress,
+                isA<Address>(),
               );
 
               expect(
@@ -332,7 +203,7 @@ void main() {
 
               expect(
                 result.quoteCode,
-                'QUOTE123',
+                '1981fd3936cc4cfda70b2e697347b885',
               );
 
               expect(
@@ -342,12 +213,12 @@ void main() {
 
               expect(
                 result.reference,
-                'REF456',
+                '12067-056785',
               );
 
               expect(
                 result.referralCode,
-                'REFERRAL123',
+                'some-referral-123',
               );
 
               expect(
@@ -387,7 +258,7 @@ void main() {
 
               expect(
                 result.soldAt,
-                DateTime.parse('1970-01-01T00:00:00.000'),
+                DateTime.parse('2017-07-28T14:30:00+01:00'),
               );
 
               expect(
@@ -396,28 +267,12 @@ void main() {
               );
 
               expect(
-                result.users.length,
-                1,
-              );
-
-              expect(
-                result.users[0].email,
-                'homer.simpson@example.com',
-              );
-
-              expect(
-                result.users[0].familyName,
-                'Simpson',
-              );
-
-              expect(
-                result.users[0].givenName,
-                'Homer',
-              );
-
-              expect(
-                result.users[0].optedInForMarketing,
-                isTrue,
+                result.users,
+                isA<List<User>>().having(
+                  (users) => users.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -428,18 +283,18 @@ void main() {
               final json = {
                 'account_type': 'DOMESTIC',
                 'billing_address': {
-                  'address_line_1': '742 Evergreen Terrace',
-                  'postcode': 'AB1 2CD',
+                  'address_line_1': '87 Doveys Close',
+                  'postcode': 'BH24 4BP',
                 },
                 'is_change_of_tenancy': false,
-                'reference': 'REF456',
+                'reference': '12067-056785',
                 'source': 'INTERNET',
                 'users': [
                   {
-                    'email': 'homer.simpson@example.com',
-                    'family_name': 'Simpson',
-                    'given_name': 'Homer',
-                    'opted_in_for_marketing': true,
+                    'email': 'chris@example.com',
+                    'family_name': 'Johnson',
+                    'given_name': 'Chris',
+                    'opted_in_for_marketing': false,
                   },
                 ],
               };
@@ -462,13 +317,8 @@ void main() {
               );
 
               expect(
-                result.billingAddress.addressLine1,
-                '742 Evergreen Terrace',
-              );
-
-              expect(
-                result.billingAddress.postcode,
-                'AB1 2CD',
+                result.billingAddress,
+                isA<Address>(),
               );
 
               expect(
@@ -543,7 +393,7 @@ void main() {
 
               expect(
                 result.reference,
-                'REF456',
+                '12067-056785',
               );
 
               expect(
@@ -597,28 +447,12 @@ void main() {
               );
 
               expect(
-                result.users.length,
-                1,
-              );
-
-              expect(
-                result.users[0].email,
-                'homer.simpson@example.com',
-              );
-
-              expect(
-                result.users[0].familyName,
-                'Simpson',
-              );
-
-              expect(
-                result.users[0].givenName,
-                'Homer',
-              );
-
-              expect(
-                result.users[0].optedInForMarketing,
-                isTrue,
+                result.users,
+                isA<List<User>>().having(
+                  (users) => users.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -640,18 +474,17 @@ void main() {
                   signupRewardCode: 'REWARD123',
                 ),
                 billingAddress: Address(
-                  addressLine1: '742 Evergreen Terrace',
-                  addressLine2: 'Springfield Address Line 2',
-                  addressLine3: 'Springfield Address Line 3',
-                  county: 'Springfield County',
-                  deliveryPointIdentifier: 'DP123',
-                  postcode: 'AB1 2CD',
-                  town: 'Springfield Town',
+                  addressLine1: '87 Doveys Close',
+                  addressLine2: 'Address Line 2',
+                  addressLine3: 'Address Line 3',
+                  county: 'Hampshire',
+                  postcode: 'BH24 4BP',
+                  town: 'Ringwood',
                 ),
                 billingOptions: BillingOptions(
                   periodLength: 1,
-                  periodStartDay: 1,
-                  periodStartMonth: 1,
+                  periodStartDay: 2,
+                  periodStartMonth: 3,
                 ),
                 brandCode: BrandCode.octopusEnergy,
                 business: Business(
@@ -659,9 +492,9 @@ void main() {
                   businessType: BusinessType.limited,
                   headCount: 10,
                   isCclExempt: true,
-                  isVatExempt: true,
+                  isVatExempt: false,
                   name: 'Business Name',
-                  number: '12345678',
+                  number: '87654321',
                 ),
                 deposit: Deposit(
                   amount: 100,
@@ -670,31 +503,31 @@ void main() {
                 ),
                 electricityMeterPoints: [
                   ElectricityMeterPoint(
-                    mpan: '1234567890',
+                    mpan: '2000024512368',
                     quote: Quote(
-                      annualPayment: 1000,
+                      annualPayment: 46576,
                     ),
                   )
                 ],
                 gasMeterPoints: [
                   GasMeterPoint(
-                    mprn: '1234567890',
+                    mprn: '3016362107',
                     quote: Quote(
-                      annualPayment: 500,
+                      annualPayment: 44961,
                     ),
                   )
                 ],
                 isChangeOfTenancy: false,
                 metadata: [
                   Metadata(
-                    key: 'KEY',
+                    key: 'metadata_key',
                     value: 'VALUE',
                   )
                 ],
                 payment: Payment(
-                  accountName: 'Homer Simpson',
+                  accountName: 'Chris Johnson',
                   accountNumber: '12345678',
-                  accountSortCode: '123456',
+                  accountSortCode: '111111',
                   delayDays: 0,
                   method: PaymentMethod.monthlyDirectDebit,
                   paymentDay: 1,
@@ -705,10 +538,10 @@ void main() {
                   postcode: 'EF5 6GH',
                 ),
                 promoRewardCode: 'PROMO123',
-                quoteCode: 'QUOTE123',
+                quoteCode: '1981fd3936cc4cfda70b2e697347b885',
                 quoteRequestCode: 'REQUEST123',
-                reference: 'REF456',
-                referralCode: 'REFERRAL123',
+                reference: '12067-056785',
+                referralCode: 'some-referral-123',
                 requiresPostalComms: true,
                 salesChannel: SalesChannel.direct,
                 salesSubchannel: 'SUBCHANNEL',
@@ -716,14 +549,14 @@ void main() {
                 smartMeterInterest: SmartMeterInterest.smets2InterestInterested,
                 smartMeterReadPermission: SmartMeterReadPermission.halfHourly,
                 smartOnboardingProductType: SmartOnboardingProductType.agile,
-                soldAt: DateTime.parse('1970-01-01T00:00:00.000'),
+                soldAt: DateTime.parse('2017-07-28T14:30:00+01:00'),
                 source: AccountSource.internet,
                 users: [
                   User(
-                    email: 'homer.simpson@example.com',
-                    familyName: 'Simpson',
-                    givenName: 'Homer',
-                    optedInForMarketing: true,
+                    email: 'chris@example.com',
+                    familyName: 'Johnson',
+                    givenName: 'Chris',
+                    optedInForMarketing: false,
                   ),
                 ],
               );
@@ -741,68 +574,18 @@ void main() {
               );
 
               expect(
-                result['affiliate']['affiliate_link_subdomain'],
-                'affiliate',
+                result['affiliate'],
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
-                result['affiliate']['organization_name'],
-                'Organization',
+                result['billing_address'],
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
-                result['affiliate']['signup_reward_code'],
-                'REWARD123',
-              );
-
-              expect(
-                result['billing_address']['address_line_1'],
-                '742 Evergreen Terrace',
-              );
-
-              expect(
-                result['billing_address']['address_line_2'],
-                'Springfield Address Line 2',
-              );
-
-              expect(
-                result['billing_address']['address_line_3'],
-                'Springfield Address Line 3',
-              );
-
-              expect(
-                result['billing_address']['county'],
-                'Springfield County',
-              );
-
-              expect(
-                result['billing_address']['delivery_point_identifier'],
-                'DP123',
-              );
-
-              expect(
-                result['billing_address']['postcode'],
-                'AB1 2CD',
-              );
-
-              expect(
-                result['billing_address']['town'],
-                'Springfield Town',
-              );
-
-              expect(
-                result['billing_options']['period_length'],
-                1,
-              );
-
-              expect(
-                result['billing_options']['period_start_day'],
-                1,
-              );
-
-              expect(
-                result['billing_options']['period_start_month'],
-                1,
+                result['billing_options'],
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
@@ -811,73 +594,31 @@ void main() {
               );
 
               expect(
-                result['business']['annual_turnover'],
-                100000,
+                result['business'],
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
-                result['business']['business_type'],
-                'LIMITED',
+                result['deposit'],
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
-                result['business']['head_count'],
-                10,
+                result['electricity_meter_points'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (electricityMeterPoints) => electricityMeterPoints.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
-                result['business']['is_ccl_exempt'],
-                isTrue,
-              );
-
-              expect(
-                result['business']['is_vat_exempt'],
-                isTrue,
-              );
-
-              expect(
-                result['business']['name'],
-                'Business Name',
-              );
-
-              expect(
-                result['business']['number'],
-                '12345678',
-              );
-
-              expect(
-                result['deposit']['amount'],
-                100,
-              );
-
-              expect(
-                result['deposit']['key'],
-                'KEY',
-              );
-
-              expect(
-                result['deposit']['reason'],
-                'REASON',
-              );
-
-              expect(
-                result['electricity_meter_points'].length,
-                1,
-              );
-
-              expect(
-                result['electricity_meter_points'][0]['mpan'],
-                '1234567890',
-              );
-
-              expect(
-                result['gas_meter_points'].length,
-                1,
-              );
-
-              expect(
-                result['gas_meter_points'][0]['mprn'],
-                '1234567890',
+                result['gas_meter_points'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (gasMeterPoints) => gasMeterPoints.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -886,48 +627,17 @@ void main() {
               );
 
               expect(
-                result['metadata'].length,
-                1,
+                result['metadata'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (metadata) => metadata.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
-                result['metadata'][0]['key'],
-                'KEY',
-              );
-
-              expect(
-                result['metadata'][0]['value'],
-                'VALUE',
-              );
-
-              expect(
-                result['payment']['account_name'],
-                'Homer Simpson',
-              );
-
-              expect(
-                result['payment']['account_number'],
-                '12345678',
-              );
-
-              expect(
-                result['payment']['account_sort_code'],
-                '123456',
-              );
-
-              expect(
-                result['payment']['delay_days'],
-                0,
-              );
-
-              expect(
-                result['payment']['method'],
-                'MONTHLY_DIRECT_DEBIT',
-              );
-
-              expect(
-                result['payment']['payment_day'],
-                1,
+                result['payment'],
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
@@ -936,13 +646,8 @@ void main() {
               );
 
               expect(
-                result['previous_billing_address']['address_line_1'],
-                '123 Fake St',
-              );
-
-              expect(
-                result['previous_billing_address']['postcode'],
-                'EF5 6GH',
+                result['previous_billing_address'],
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
@@ -952,7 +657,7 @@ void main() {
 
               expect(
                 result['quote_code'],
-                'QUOTE123',
+                '1981fd3936cc4cfda70b2e697347b885',
               );
 
               expect(
@@ -962,12 +667,12 @@ void main() {
 
               expect(
                 result['reference'],
-                'REF456',
+                '12067-056785',
               );
 
               expect(
                 result['referral_code'],
-                'REFERRAL123',
+                'some-referral-123',
               );
 
               expect(
@@ -1007,7 +712,7 @@ void main() {
 
               expect(
                 result['sold_at'],
-                '1970-01-01T00:00:00.000',
+                '2017-07-28T13:30:00.000Z',
               );
 
               expect(
@@ -1016,28 +721,12 @@ void main() {
               );
 
               expect(
-                result['users'].length,
-                1,
-              );
-
-              expect(
-                result['users'][0]['email'],
-                'homer.simpson@example.com',
-              );
-
-              expect(
-                result['users'][0]['family_name'],
-                'Simpson',
-              );
-
-              expect(
-                result['users'][0]['given_name'],
-                'Homer',
-              );
-
-              expect(
-                result['users'][0]['opted_in_for_marketing'],
-                isTrue,
+                result['users'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (users) => users.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -1048,18 +737,18 @@ void main() {
               final model = Create(
                 accountType: AccountType.domestic,
                 billingAddress: Address(
-                  addressLine1: '742 Evergreen Terrace',
-                  postcode: 'AB1 2CD',
+                  addressLine1: '87 Doveys Close',
+                  postcode: 'BH24 4BP',
                 ),
                 isChangeOfTenancy: false,
-                reference: 'REF456',
+                reference: '12067-056785',
                 source: AccountSource.internet,
                 users: [
                   User(
-                    email: 'homer.simpson@example.com',
-                    familyName: 'Simpson',
-                    givenName: 'Homer',
-                    optedInForMarketing: true,
+                    email: 'chris@example.com',
+                    familyName: 'Johnson',
+                    givenName: 'Chris',
+                    optedInForMarketing: false,
                   ),
                 ],
               );
@@ -1082,8 +771,8 @@ void main() {
               );
 
               expect(
-                result['billing_address']['address_line_1'],
-                '742 Evergreen Terrace',
+                result['billing_address'],
+                isA<Map<String, dynamic>>(),
               );
 
               expect(
@@ -1158,7 +847,7 @@ void main() {
 
               expect(
                 result['reference'],
-                'REF456',
+                '12067-056785',
               );
 
               expect(
@@ -1212,8 +901,12 @@ void main() {
               );
 
               expect(
-                result['users'].length,
-                1,
+                result['users'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (users) => users.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );

@@ -12,14 +12,14 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'annual_payment': 1500,
+                'annual_payment': 46576,
               };
 
               final result = Quote.fromJson(json);
 
               expect(
                 result.annualPayment,
-                1500,
+                46576,
               );
             },
           );
@@ -33,14 +33,14 @@ void main() {
             'should serialize model to json',
             () {
               final model = Quote(
-                annualPayment: 1500,
+                annualPayment: 46576,
               );
 
               final result = model.toJson();
 
               expect(
                 result['annual_payment'],
-                1500,
+                46576,
               );
             },
           );

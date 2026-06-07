@@ -11,30 +11,27 @@ void main() {
           test(
             'should return model from json',
             () {
-              final intervalStart = DateTime.parse('1970-01-01T00:00:00.000Z');
-              final intervalEnd = DateTime.parse('1970-01-01T00:30:00.000Z');
-
               final json = {
-                'consumption': '0.5',
-                'interval_end': intervalEnd.toIso8601String(),
-                'interval_start': intervalStart.toIso8601String(),
+                'consumption': '0.063',
+                'interval_end': '2018-05-19T00:00:00.000Z',
+                'interval_start': '2018-05-18T23:30:00.000Z',
               };
 
               final result = Consumption.fromJson(json);
 
               expect(
                 result.consumption,
-                0.5,
+                0.063,
               );
 
               expect(
                 result.intervalEnd,
-                intervalEnd,
+                DateTime.parse('2018-05-19T01:00:00+0100'),
               );
 
               expect(
                 result.intervalStart,
-                intervalStart,
+                DateTime.parse('2018-05-19T00:30:00+0100'),
               );
             },
           );
@@ -47,30 +44,27 @@ void main() {
           test(
             'should serialize model to json',
             () {
-              final intervalStart = DateTime.parse('1970-01-01T00:00:00.000Z');
-              final intervalEnd = DateTime.parse('1970-01-01T00:30:00.000Z');
-
               final model = Consumption(
-                consumption: 0.5,
-                intervalEnd: intervalEnd,
-                intervalStart: intervalStart,
+                consumption: 0.063,
+                intervalEnd: DateTime.parse('2018-05-19T01:00:00+0100'),
+                intervalStart: DateTime.parse('2018-05-19T00:30:00+0100'),
               );
 
               final result = model.toJson();
 
               expect(
                 result['consumption'],
-                '0.5',
+                '0.063',
               );
 
               expect(
                 result['interval_end'],
-                '1970-01-01T00:30:00.000Z',
+                '2018-05-19T00:00:00.000Z',
               );
 
               expect(
                 result['interval_start'],
-                '1970-01-01T00:00:00.000Z',
+                '2018-05-18T23:30:00.000Z',
               );
             },
           );

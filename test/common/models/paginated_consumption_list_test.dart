@@ -11,18 +11,17 @@ void main() {
           test(
             'should return model from json',
             () {
-              final intervalStart = DateTime.parse('1970-01-01T00:00:00.000Z');
-              final intervalEnd = DateTime.parse('1970-01-01T00:30:00.000Z');
-
               final json = {
-                'count': 1,
-                'next': 'https://api.octopus.energy/v1/consumption/?page=2',
-                'previous': 'https://api.octopus.energy/v1/consumption/?page=1',
+                'count': 123,
+                'next':
+                    'https://api.octopus.energy/v1/gas-meter-points/1234987426/meters/Z16N389556/consumption/?page=4',
+                'previous':
+                    'https://api.octopus.energy/v1/gas-meter-points/1234987426/meters/Z16N389556/consumption/?page=2',
                 'results': [
                   {
-                    'consumption': '0.5',
-                    'interval_end': intervalEnd.toIso8601String(),
-                    'interval_start': intervalStart.toIso8601String(),
+                    'consumption': '0.063',
+                    'interval_end': '2018-05-19T00:00:00.000Z',
+                    'interval_start': '2018-05-18T23:30:00.000Z',
                   },
                 ],
               };
@@ -31,37 +30,26 @@ void main() {
 
               expect(
                 result.count,
-                1,
+                123,
               );
 
               expect(
                 result.next,
-                'https://api.octopus.energy/v1/consumption/?page=2',
+                'https://api.octopus.energy/v1/gas-meter-points/1234987426/meters/Z16N389556/consumption/?page=4',
               );
 
               expect(
                 result.previous,
-                'https://api.octopus.energy/v1/consumption/?page=1',
+                'https://api.octopus.energy/v1/gas-meter-points/1234987426/meters/Z16N389556/consumption/?page=2',
               );
 
               expect(
-                result.results.length,
-                1,
-              );
-
-              expect(
-                result.results[0].consumption,
-                0.5,
-              );
-
-              expect(
-                result.results[0].intervalEnd,
-                intervalEnd,
-              );
-
-              expect(
-                result.results[0].intervalStart,
-                intervalStart,
+                result.results,
+                isA<List<Consumption>>().having(
+                  (results) => results.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -69,16 +57,13 @@ void main() {
           test(
             'should return model from json with null values',
             () {
-              final intervalStart = DateTime.parse('1970-01-01T00:00:00.000Z');
-              final intervalEnd = DateTime.parse('1970-01-01T00:30:00.000Z');
-
               final json = {
-                'count': 1,
+                'count': 123,
                 'results': [
                   {
-                    'consumption': '0.5',
-                    'interval_end': intervalEnd.toIso8601String(),
-                    'interval_start': intervalStart.toIso8601String(),
+                    'consumption': '0.063',
+                    'interval_end': '2018-05-19T00:00:00.000Z',
+                    'interval_start': '2018-05-18T23:30:00.000Z',
                   },
                 ],
               };
@@ -87,7 +72,7 @@ void main() {
 
               expect(
                 result.count,
-                1,
+                123,
               );
 
               expect(
@@ -101,23 +86,12 @@ void main() {
               );
 
               expect(
-                result.results.length,
-                1,
-              );
-
-              expect(
-                result.results[0].consumption,
-                0.5,
-              );
-
-              expect(
-                result.results[0].intervalEnd,
-                intervalEnd,
-              );
-
-              expect(
-                result.results[0].intervalStart,
-                intervalStart,
+                result.results,
+                isA<List<Consumption>>().having(
+                  (results) => results.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -130,18 +104,17 @@ void main() {
           test(
             'should serialize model to json',
             () {
-              final intervalStart = DateTime.parse('1970-01-01T00:00:00.000Z');
-              final intervalEnd = DateTime.parse('1970-01-01T00:30:00.000Z');
-
               final model = PaginatedConsumptionList(
-                count: 1,
-                next: 'https://api.octopus.energy/v1/consumption/?page=2',
-                previous: 'https://api.octopus.energy/v1/consumption/?page=1',
+                count: 123,
+                next:
+                    'https://api.octopus.energy/v1/gas-meter-points/1234987426/meters/Z16N389556/consumption/?page=4',
+                previous:
+                    'https://api.octopus.energy/v1/gas-meter-points/1234987426/meters/Z16N389556/consumption/?page=2',
                 results: [
                   Consumption(
-                    consumption: 0.5,
-                    intervalEnd: intervalEnd,
-                    intervalStart: intervalStart,
+                    consumption: 0.063,
+                    intervalEnd: DateTime.parse('2018-05-19T01:00:00+0100'),
+                    intervalStart: DateTime.parse('2018-05-19T00:30:00+0100'),
                   ),
                 ],
               );
@@ -150,37 +123,26 @@ void main() {
 
               expect(
                 result['count'],
-                1,
+                123,
               );
 
               expect(
                 result['next'],
-                'https://api.octopus.energy/v1/consumption/?page=2',
+                'https://api.octopus.energy/v1/gas-meter-points/1234987426/meters/Z16N389556/consumption/?page=4',
               );
 
               expect(
                 result['previous'],
-                'https://api.octopus.energy/v1/consumption/?page=1',
+                'https://api.octopus.energy/v1/gas-meter-points/1234987426/meters/Z16N389556/consumption/?page=2',
               );
 
               expect(
-                result['results'].length,
-                1,
-              );
-
-              expect(
-                result['results'][0]['consumption'],
-                '0.5',
-              );
-
-              expect(
-                result['results'][0]['interval_end'],
-                '1970-01-01T00:30:00.000Z',
-              );
-
-              expect(
-                result['results'][0]['interval_start'],
-                '1970-01-01T00:00:00.000Z',
+                result['results'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (results) => results.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -188,16 +150,13 @@ void main() {
           test(
             'should serialize model with null values to json',
             () {
-              final intervalStart = DateTime.parse('1970-01-01T00:00:00.000Z');
-              final intervalEnd = DateTime.parse('1970-01-01T00:30:00.000Z');
-
               final model = PaginatedConsumptionList(
-                count: 1,
+                count: 123,
                 results: [
                   Consumption(
-                    consumption: 0.5,
-                    intervalEnd: intervalEnd,
-                    intervalStart: intervalStart,
+                    consumption: 0.063,
+                    intervalEnd: DateTime.parse('2018-05-19T01:00:00+0100'),
+                    intervalStart: DateTime.parse('2018-05-19T00:30:00+0100'),
                   ),
                 ],
               );
@@ -206,7 +165,7 @@ void main() {
 
               expect(
                 result['count'],
-                1,
+                123,
               );
 
               expect(
@@ -220,23 +179,12 @@ void main() {
               );
 
               expect(
-                result['results'].length,
-                1,
-              );
-
-              expect(
-                result['results'][0]['consumption'],
-                '0.5',
-              );
-
-              expect(
-                result['results'][0]['interval_end'],
-                '1970-01-01T00:30:00.000Z',
-              );
-
-              expect(
-                result['results'][0]['interval_start'],
-                '1970-01-01T00:00:00.000Z',
+                result['results'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (results) => results.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );

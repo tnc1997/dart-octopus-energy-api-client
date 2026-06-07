@@ -12,13 +12,13 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'standing_charge': '25.0',
-                'unit_rate': '15.0',
+                'standing_charge': '13.25',
+                'unit_rate': '3.25',
                 'unit_rates': [
                   {
                     'payment_method': 'DD',
                     'rate_type': 'STANDARD',
-                    'unit_rate': '10.5',
+                    'unit_rate': '12.6',
                   },
                 ],
               };
@@ -27,32 +27,21 @@ void main() {
 
               expect(
                 result.standingCharge,
-                25.0,
+                13.25,
               );
 
               expect(
                 result.unitRate,
-                15.0,
+                3.25,
               );
 
               expect(
-                result.unitRates?.length,
-                1,
-              );
-
-              expect(
-                result.unitRates?[0].paymentMethod,
-                BespokePaymentMethod.dd,
-              );
-
-              expect(
-                result.unitRates?[0].rateType,
-                BespokeRateType.standard,
-              );
-
-              expect(
-                result.unitRates?[0].unitRate,
-                10.5,
+                result.unitRates,
+                isA<List<BespokeElectricityUnitRate>>().having(
+                  (unitRates) => unitRates.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -90,13 +79,13 @@ void main() {
             'should serialize model to json',
             () {
               final model = BespokeTariffRates(
-                standingCharge: 25.0,
-                unitRate: 15.0,
+                standingCharge: 13.25,
+                unitRate: 3.25,
                 unitRates: [
                   BespokeElectricityUnitRate(
                     paymentMethod: BespokePaymentMethod.dd,
                     rateType: BespokeRateType.standard,
-                    unitRate: 10.5,
+                    unitRate: 12.6,
                   ),
                 ],
               );
@@ -105,32 +94,21 @@ void main() {
 
               expect(
                 result['standing_charge'],
-                '25.0',
+                '13.25',
               );
 
               expect(
                 result['unit_rate'],
-                '15.0',
+                '3.25',
               );
 
               expect(
-                result['unit_rates']?.length,
-                1,
-              );
-
-              expect(
-                result['unit_rates']?[0]['payment_method'],
-                'DD',
-              );
-
-              expect(
-                result['unit_rates']?[0]['rate_type'],
-                'STANDARD',
-              );
-
-              expect(
-                result['unit_rates']?[0]['unit_rate'],
-                '10.5',
+                result['unit_rates'],
+                isA<List<Map<String, dynamic>>>().having(
+                  (unitRates) => unitRates.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );

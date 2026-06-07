@@ -12,7 +12,7 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'href': 'https://api.octopus.energy/v1/accounts/123/',
+                'href': 'https://api.octopus.energy/v1/products/VAR-17-01-11/',
                 'method': 'GET',
                 'rel': 'self',
               };
@@ -21,7 +21,7 @@ void main() {
 
               expect(
                 result.href,
-                'https://api.octopus.energy/v1/accounts/123/',
+                'https://api.octopus.energy/v1/products/VAR-17-01-11/',
               );
 
               expect(
@@ -45,7 +45,7 @@ void main() {
             'should serialize model to json',
             () {
               final model = Link(
-                href: 'https://api.octopus.energy/v1/accounts/123/',
+                href: 'https://api.octopus.energy/v1/products/VAR-17-01-11/',
                 method: 'GET',
                 rel: 'self',
               );
@@ -54,7 +54,7 @@ void main() {
 
               expect(
                 result['href'],
-                'https://api.octopus.energy/v1/accounts/123/',
+                'https://api.octopus.energy/v1/products/VAR-17-01-11/',
               );
 
               expect(
