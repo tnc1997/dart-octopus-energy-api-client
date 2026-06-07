@@ -12,14 +12,14 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'group_id': '_H',
+                'group_id': '_A',
               };
 
               final result = GridSupplyPoint.fromJson(json);
 
               expect(
                 result.groupId,
-                '_H',
+                '_A',
               );
             },
           );
@@ -33,14 +33,14 @@ void main() {
             'should serialize model to json',
             () {
               final model = GridSupplyPoint(
-                groupId: '_H',
+                groupId: '_A',
               );
 
               final result = model.toJson();
 
               expect(
                 result['group_id'],
-                '_H',
+                '_A',
               );
             },
           );
