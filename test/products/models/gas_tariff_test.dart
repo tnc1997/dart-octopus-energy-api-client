@@ -12,23 +12,24 @@ void main() {
             'should return model from json',
             () {
               final json = {
-                'code': 'G-1R-SILVER-2017-1-A',
-                'dual_fuel_discount_exc_vat': 4.0,
-                'dual_fuel_discount_inc_vat': 4.1,
-                'exit_fees_exc_vat': 5.0,
-                'exit_fees_inc_vat': 5.1,
+                'code': 'G-1R-VAR-17-01-11-C',
+                'dual_fuel_discount_exc_vat': 8.0,
+                'dual_fuel_discount_inc_vat': 8.1,
+                'exit_fees_exc_vat': 9.0,
+                'exit_fees_inc_vat': 9.1,
                 'exit_fees_type': 'NONE',
                 'links': [
                   {
-                    'href': 'http://example.com',
+                    'href':
+                        'https://api.octopus.energy/v1/products/VAR-17-01-11/gas-tariffs/G-1R-VAR-17-01-11-C/standard-unit-rates/',
                     'method': 'GET',
-                    'rel': 'self',
+                    'rel': 'standard_unit_rates',
                   }
                 ],
-                'online_discount_exc_vat': 6.0,
-                'online_discount_inc_vat': 6.1,
-                'standing_charge_exc_vat': 20.0,
-                'standing_charge_inc_vat': 20.1,
+                'online_discount_exc_vat': 7.0,
+                'online_discount_inc_vat': 7.1,
+                'standing_charge_exc_vat': 22.0,
+                'standing_charge_inc_vat': 22.1,
                 'standard_unit_rate_exc_vat': 3.0,
                 'standard_unit_rate_inc_vat': 3.1,
               };
@@ -37,27 +38,27 @@ void main() {
 
               expect(
                 result.code,
-                'G-1R-SILVER-2017-1-A',
+                'G-1R-VAR-17-01-11-C',
               );
 
               expect(
                 result.dualFuelDiscountExcVat,
-                4.0,
+                8.0,
               );
 
               expect(
                 result.dualFuelDiscountIncVat,
-                4.1,
+                8.1,
               );
 
               expect(
                 result.exitFeesExcVat,
-                5.0,
+                9.0,
               );
 
               expect(
                 result.exitFeesIncVat,
-                5.1,
+                9.1,
               );
 
               expect(
@@ -67,27 +68,31 @@ void main() {
 
               expect(
                 result.links,
-                hasLength(1),
+                isA<List<Link>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.onlineDiscountExcVat,
-                6.0,
+                7.0,
               );
 
               expect(
                 result.onlineDiscountIncVat,
-                6.1,
+                7.1,
               );
 
               expect(
                 result.standingChargeExcVat,
-                20.0,
+                22.0,
               );
 
               expect(
                 result.standingChargeIncVat,
-                20.1,
+                22.1,
               );
 
               expect(
@@ -106,48 +111,49 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'code': 'G-1R-SILVER-2017-1-A',
-                'dual_fuel_discount_exc_vat': 4.0,
-                'dual_fuel_discount_inc_vat': 4.1,
-                'exit_fees_exc_vat': 5.0,
-                'exit_fees_inc_vat': 5.1,
+                'code': 'G-1R-VAR-17-01-11-C',
+                'dual_fuel_discount_exc_vat': 8.0,
+                'dual_fuel_discount_inc_vat': 8.1,
+                'exit_fees_exc_vat': 9.0,
+                'exit_fees_inc_vat': 9.1,
                 'exit_fees_type': 'NONE',
                 'links': [
                   {
-                    'href': 'http://example.com',
+                    'href':
+                        'https://api.octopus.energy/v1/products/VAR-17-01-11/gas-tariffs/G-1R-VAR-17-01-11-C/standard-unit-rates/',
                     'method': 'GET',
-                    'rel': 'self',
+                    'rel': 'standard_unit_rates',
                   }
                 ],
-                'online_discount_exc_vat': 6.0,
-                'online_discount_inc_vat': 6.1,
+                'online_discount_exc_vat': 7.0,
+                'online_discount_inc_vat': 7.1,
               };
 
               final result = GasTariff.fromJson(json);
 
               expect(
                 result.code,
-                'G-1R-SILVER-2017-1-A',
+                'G-1R-VAR-17-01-11-C',
               );
 
               expect(
                 result.dualFuelDiscountExcVat,
-                4.0,
+                8.0,
               );
 
               expect(
                 result.dualFuelDiscountIncVat,
-                4.1,
+                8.1,
               );
 
               expect(
                 result.exitFeesExcVat,
-                5.0,
+                9.0,
               );
 
               expect(
                 result.exitFeesIncVat,
-                5.1,
+                9.1,
               );
 
               expect(
@@ -157,17 +163,21 @@ void main() {
 
               expect(
                 result.links,
-                hasLength(1),
+                isA<List<Link>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result.onlineDiscountExcVat,
-                6.0,
+                7.0,
               );
 
               expect(
                 result.onlineDiscountIncVat,
-                6.1,
+                7.1,
               );
 
               expect(
@@ -201,23 +211,24 @@ void main() {
             'should serialize model to json',
             () {
               final model = GasTariff(
-                code: 'G-1R-SILVER-2017-1-A',
-                dualFuelDiscountExcVat: 4.0,
-                dualFuelDiscountIncVat: 4.1,
-                exitFeesExcVat: 5.0,
-                exitFeesIncVat: 5.1,
+                code: 'G-1R-VAR-17-01-11-C',
+                dualFuelDiscountExcVat: 8.0,
+                dualFuelDiscountIncVat: 8.1,
+                exitFeesExcVat: 9.0,
+                exitFeesIncVat: 9.1,
                 exitFeesType: 'NONE',
                 links: [
                   Link(
-                    href: 'http://example.com',
+                    href:
+                        'https://api.octopus.energy/v1/products/VAR-17-01-11/gas-tariffs/G-1R-VAR-17-01-11-C/standard-unit-rates/',
                     method: 'GET',
-                    rel: 'self',
+                    rel: 'standard_unit_rates',
                   ),
                 ],
-                onlineDiscountExcVat: 6.0,
-                onlineDiscountIncVat: 6.1,
-                standingChargeExcVat: 20.0,
-                standingChargeIncVat: 20.1,
+                onlineDiscountExcVat: 7.0,
+                onlineDiscountIncVat: 7.1,
+                standingChargeExcVat: 22.0,
+                standingChargeIncVat: 22.1,
                 standardUnitRateExcVat: 3.0,
                 standardUnitRateIncVat: 3.1,
               );
@@ -226,27 +237,27 @@ void main() {
 
               expect(
                 result['code'],
-                'G-1R-SILVER-2017-1-A',
+                'G-1R-VAR-17-01-11-C',
               );
 
               expect(
                 result['dual_fuel_discount_exc_vat'],
-                4.0,
+                8.0,
               );
 
               expect(
                 result['dual_fuel_discount_inc_vat'],
-                4.1,
+                8.1,
               );
 
               expect(
                 result['exit_fees_exc_vat'],
-                5.0,
+                9.0,
               );
 
               expect(
                 result['exit_fees_inc_vat'],
-                5.1,
+                9.1,
               );
 
               expect(
@@ -256,27 +267,31 @@ void main() {
 
               expect(
                 result['links'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['online_discount_exc_vat'],
-                6.0,
+                7.0,
               );
 
               expect(
                 result['online_discount_inc_vat'],
-                6.1,
+                7.1,
               );
 
               expect(
                 result['standing_charge_exc_vat'],
-                20.0,
+                22.0,
               );
 
               expect(
                 result['standing_charge_inc_vat'],
-                20.1,
+                22.1,
               );
 
               expect(
@@ -295,48 +310,49 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = GasTariff(
-                code: 'G-1R-SILVER-2017-1-A',
-                dualFuelDiscountExcVat: 4.0,
-                dualFuelDiscountIncVat: 4.1,
-                exitFeesExcVat: 5.0,
-                exitFeesIncVat: 5.1,
+                code: 'G-1R-VAR-17-01-11-C',
+                dualFuelDiscountExcVat: 8.0,
+                dualFuelDiscountIncVat: 8.1,
+                exitFeesExcVat: 9.0,
+                exitFeesIncVat: 9.1,
                 exitFeesType: 'NONE',
                 links: [
                   Link(
-                    href: 'http://example.com',
+                    href:
+                        'https://api.octopus.energy/v1/products/VAR-17-01-11/gas-tariffs/G-1R-VAR-17-01-11-C/standard-unit-rates/',
                     method: 'GET',
-                    rel: 'self',
+                    rel: 'standard_unit_rates',
                   ),
                 ],
-                onlineDiscountExcVat: 6.0,
-                onlineDiscountIncVat: 6.1,
+                onlineDiscountExcVat: 7.0,
+                onlineDiscountIncVat: 7.1,
               );
 
               final result = model.toJson();
 
               expect(
                 result['code'],
-                'G-1R-SILVER-2017-1-A',
+                'G-1R-VAR-17-01-11-C',
               );
 
               expect(
                 result['dual_fuel_discount_exc_vat'],
-                4.0,
+                8.0,
               );
 
               expect(
                 result['dual_fuel_discount_inc_vat'],
-                4.1,
+                8.1,
               );
 
               expect(
                 result['exit_fees_exc_vat'],
-                5.0,
+                9.0,
               );
 
               expect(
                 result['exit_fees_inc_vat'],
-                5.1,
+                9.1,
               );
 
               expect(
@@ -346,17 +362,21 @@ void main() {
 
               expect(
                 result['links'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
                 result['online_discount_exc_vat'],
-                6.0,
+                7.0,
               );
 
               expect(
                 result['online_discount_inc_vat'],
-                6.1,
+                7.1,
               );
 
               expect(

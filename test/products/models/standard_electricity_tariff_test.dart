@@ -68,12 +68,11 @@ void main() {
 
               expect(
                 result.links,
-                hasLength(1),
-              );
-
-              expect(
-                result.links.first,
-                isA<Link>(),
+                isA<List<Link>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -164,12 +163,11 @@ void main() {
 
               expect(
                 result.links,
-                hasLength(1),
-              );
-
-              expect(
-                result.links.first,
-                isA<Link>(),
+                isA<List<Link>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -269,12 +267,11 @@ void main() {
 
               expect(
                 result['links'],
-                hasLength(1),
-              );
-
-              expect(
-                (result['links'] as List).first,
-                isA<Map<String, dynamic>>(),
+                isA<List<Map<String, dynamic>>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -365,12 +362,11 @@ void main() {
 
               expect(
                 result['links'],
-                hasLength(1),
-              );
-
-              expect(
-                (result['links'] as List).first,
-                isA<Map<String, dynamic>>(),
+                isA<List<Map<String, dynamic>>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(

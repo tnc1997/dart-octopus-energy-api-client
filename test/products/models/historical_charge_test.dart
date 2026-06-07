@@ -13,10 +13,10 @@ void main() {
             () {
               final json = {
                 'payment_method': 'DIRECT_DEBIT',
-                'valid_from': '1970-01-01T00:00:00.000Z',
-                'valid_to': '1970-01-31T23:59:59.000Z',
-                'value_exc_vat': 10.5,
-                'value_inc_vat': 11.0,
+                'valid_from': '2018-05-16T22:30:00Z',
+                'valid_to': '2018-05-16T23:00:00Z',
+                'value_exc_vat': 11,
+                'value_inc_vat': 11.55,
               };
 
               final result = HistoricalCharge.fromJson(json);
@@ -28,22 +28,22 @@ void main() {
 
               expect(
                 result.validFrom,
-                DateTime.parse('1970-01-01T00:00:00.000Z'),
+                DateTime.parse('2018-05-16T22:30:00Z'),
               );
 
               expect(
                 result.validTo,
-                DateTime.parse('1970-01-31T23:59:59.000Z'),
+                DateTime.parse('2018-05-16T23:00:00Z'),
               );
 
               expect(
                 result.valueExcVat,
-                10.5,
+                11,
               );
 
               expect(
                 result.valueIncVat,
-                11.0,
+                11.55,
               );
             },
           );
@@ -52,8 +52,8 @@ void main() {
             'should return model from json with null values',
             () {
               final json = {
-                'value_exc_vat': 10.5,
-                'value_inc_vat': 11.0,
+                'value_exc_vat': 11,
+                'value_inc_vat': 11.55,
               };
 
               final result = HistoricalCharge.fromJson(json);
@@ -75,12 +75,12 @@ void main() {
 
               expect(
                 result.valueExcVat,
-                10.5,
+                11,
               );
 
               expect(
                 result.valueIncVat,
-                11.0,
+                11.55,
               );
             },
           );
@@ -95,10 +95,10 @@ void main() {
             () {
               final model = HistoricalCharge(
                 paymentMethod: 'DIRECT_DEBIT',
-                validFrom: DateTime.parse('1970-01-01T00:00:00.000Z'),
-                validTo: DateTime.parse('1970-01-31T23:59:59.000Z'),
-                valueExcVat: 10.5,
-                valueIncVat: 11.0,
+                validFrom: DateTime.parse('2018-05-16T22:30:00Z'),
+                validTo: DateTime.parse('2018-05-16T23:00:00Z'),
+                valueExcVat: 11,
+                valueIncVat: 11.55,
               );
 
               final result = model.toJson();
@@ -110,22 +110,22 @@ void main() {
 
               expect(
                 result['valid_from'],
-                '1970-01-01T00:00:00.000Z',
+                '2018-05-16T22:30:00.000Z',
               );
 
               expect(
                 result['valid_to'],
-                '1970-01-31T23:59:59.000Z',
+                '2018-05-16T23:00:00.000Z',
               );
 
               expect(
                 result['value_exc_vat'],
-                10.5,
+                11,
               );
 
               expect(
                 result['value_inc_vat'],
-                11.0,
+                11.55,
               );
             },
           );
@@ -134,8 +134,8 @@ void main() {
             'should serialize model with null values to json',
             () {
               final model = HistoricalCharge(
-                valueExcVat: 10.5,
-                valueIncVat: 11.0,
+                valueExcVat: 11,
+                valueIncVat: 11.55,
               );
 
               final result = model.toJson();
@@ -157,12 +157,12 @@ void main() {
 
               expect(
                 result['value_exc_vat'],
-                10.5,
+                11,
               );
 
               expect(
                 result['value_inc_vat'],
-                11.0,
+                11.55,
               );
             },
           );

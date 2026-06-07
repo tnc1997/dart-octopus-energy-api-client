@@ -26,12 +26,12 @@ void main() {
                     'direction': 'IMPORT',
                     'display_name': 'Flexible Tentacle',
                     'full_name': 'Flexible Tentacle Offer January 2017 v1',
-                    'is_business': false,
+                    'is_business': true,
                     'is_green': false,
-                    'is_prepay': false,
+                    'is_prepay': true,
                     'is_restricted': false,
-                    'is_tracker': false,
-                    'is_variable': true,
+                    'is_tracker': true,
+                    'is_variable': false,
                     'links': [
                       {
                         'href':
@@ -64,7 +64,11 @@ void main() {
 
               expect(
                 result.results,
-                hasLength(1),
+                isA<List<Products>>().having(
+                  (results) => results.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -85,12 +89,12 @@ void main() {
                     'direction': 'IMPORT',
                     'display_name': 'Flexible Tentacle',
                     'full_name': 'Flexible Tentacle Offer January 2017 v1',
-                    'is_business': false,
+                    'is_business': true,
                     'is_green': false,
-                    'is_prepay': false,
+                    'is_prepay': true,
                     'is_restricted': false,
-                    'is_tracker': false,
-                    'is_variable': true,
+                    'is_tracker': true,
+                    'is_variable': false,
                     'links': [
                       {
                         'href':
@@ -123,7 +127,11 @@ void main() {
 
               expect(
                 result.results,
-                hasLength(1),
+                isA<List<Products>>().having(
+                  (results) => results.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -150,12 +158,12 @@ void main() {
                     direction: Direction.import,
                     displayName: 'Flexible Tentacle',
                     fullName: 'Flexible Tentacle Offer January 2017 v1',
-                    isBusiness: false,
+                    isBusiness: true,
                     isGreen: false,
-                    isPrepay: false,
+                    isPrepay: true,
                     isRestricted: false,
-                    isTracker: false,
-                    isVariable: true,
+                    isTracker: true,
+                    isVariable: false,
                     links: [
                       Link(
                         href:
@@ -188,7 +196,11 @@ void main() {
 
               expect(
                 result['results'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (results) => results.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );
@@ -208,12 +220,12 @@ void main() {
                     direction: Direction.import,
                     displayName: 'Flexible Tentacle',
                     fullName: 'Flexible Tentacle Offer January 2017 v1',
-                    isBusiness: false,
+                    isBusiness: true,
                     isGreen: false,
-                    isPrepay: false,
+                    isPrepay: true,
                     isRestricted: false,
-                    isTracker: false,
-                    isVariable: true,
+                    isTracker: true,
+                    isVariable: false,
                     links: [
                       Link(
                         href:
@@ -246,7 +258,11 @@ void main() {
 
               expect(
                 result['results'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (results) => results.length,
+                  'length',
+                  1,
+                ),
               );
             },
           );

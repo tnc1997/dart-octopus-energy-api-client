@@ -21,12 +21,12 @@ void main() {
                 'direction': 'IMPORT',
                 'display_name': 'Flexible Tentacle',
                 'full_name': 'Flexible Tentacle Offer January 2017 v1',
-                'is_business': false,
+                'is_business': true,
                 'is_green': false,
-                'is_prepay': false,
+                'is_prepay': true,
                 'is_restricted': false,
-                'is_tracker': false,
-                'is_variable': true,
+                'is_tracker': true,
+                'is_variable': false,
                 'links': [
                   {
                     'href':
@@ -82,37 +82,41 @@ void main() {
 
               expect(
                 result.isBusiness,
-                false,
+                isTrue,
               );
 
               expect(
                 result.isGreen,
-                false,
+                isFalse,
               );
 
               expect(
                 result.isPrepay,
-                false,
+                isTrue,
               );
 
               expect(
                 result.isRestricted,
-                false,
+                isFalse,
               );
 
               expect(
                 result.isTracker,
-                false,
+                isTrue,
               );
 
               expect(
                 result.isVariable,
-                true,
+                isFalse,
               );
 
               expect(
                 result.links,
-                hasLength(1),
+                isA<List<Link>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -137,7 +141,7 @@ void main() {
                 'links': [
                   {
                     'href':
-                    'https://api.octopus.energy/v1/products/VAR-17-01-11/',
+                        'https://api.octopus.energy/v1/products/VAR-17-01-11/',
                     'method': 'GET',
                     'rel': 'self',
                   }
@@ -203,7 +207,7 @@ void main() {
 
               expect(
                 result.isRestricted,
-                false,
+                isFalse,
               );
 
               expect(
@@ -218,7 +222,11 @@ void main() {
 
               expect(
                 result.links,
-                hasLength(1),
+                isA<List<Link>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -245,12 +253,12 @@ void main() {
                 direction: Direction.import,
                 displayName: 'Flexible Tentacle',
                 fullName: 'Flexible Tentacle Offer January 2017 v1',
-                isBusiness: false,
+                isBusiness: true,
                 isGreen: false,
-                isPrepay: false,
+                isPrepay: true,
                 isRestricted: false,
-                isTracker: false,
-                isVariable: true,
+                isTracker: true,
+                isVariable: false,
                 links: [
                   Link(
                     href:
@@ -306,37 +314,41 @@ void main() {
 
               expect(
                 result['is_business'],
-                false,
+                isTrue,
               );
 
               expect(
                 result['is_green'],
-                false,
+                isFalse,
               );
 
               expect(
                 result['is_prepay'],
-                false,
+                isTrue,
               );
 
               expect(
                 result['is_restricted'],
-                false,
+                isFalse,
               );
 
               expect(
                 result['is_tracker'],
-                false,
+                isTrue,
               );
 
               expect(
                 result['is_variable'],
-                true,
+                isFalse,
               );
 
               expect(
                 result['links'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(
@@ -361,7 +373,7 @@ void main() {
                 links: [
                   Link(
                     href:
-                    'https://api.octopus.energy/v1/products/VAR-17-01-11/',
+                        'https://api.octopus.energy/v1/products/VAR-17-01-11/',
                     method: 'GET',
                     rel: 'self',
                   ),
@@ -427,7 +439,7 @@ void main() {
 
               expect(
                 result['is_restricted'],
-                false,
+                isFalse,
               );
 
               expect(
@@ -442,7 +454,11 @@ void main() {
 
               expect(
                 result['links'],
-                hasLength(1),
+                isA<List<Map<String, dynamic>>>().having(
+                  (links) => links.length,
+                  'length',
+                  1,
+                ),
               );
 
               expect(

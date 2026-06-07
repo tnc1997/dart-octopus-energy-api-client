@@ -19,14 +19,14 @@ void main() {
                 },
                 'dual_fuel_single_rate': {
                   'electricity_standard': 3100,
-                  'gas_standard': 12000,
+                  'gas_standard': 13000,
                 },
                 'electricity_dual_rate': {
-                  'electricity_day': 2436,
-                  'electricity_night': 1764,
+                  'electricity_day': 2536,
+                  'electricity_night': 1864,
                 },
                 'electricity_single_rate': {
-                  'electricity_standard': 3100,
+                  'electricity_standard': 3200,
                 },
               };
 
@@ -45,22 +45,22 @@ void main() {
                 result.dualFuelSingleRate,
                 {
                   'electricity_standard': 3100.0,
-                  'gas_standard': 12000.0,
+                  'gas_standard': 13000.0,
                 },
               );
 
               expect(
                 result.electricityDualRate,
                 {
-                  'electricity_day': 2436.0,
-                  'electricity_night': 1764.0,
+                  'electricity_day': 2536.0,
+                  'electricity_night': 1864.0,
                 },
               );
 
               expect(
                 result.electricitySingleRate,
                 {
-                  'electricity_standard': 3100.0,
+                  'electricity_standard': 3200.0,
                 },
               );
             },
@@ -82,14 +82,14 @@ void main() {
                 },
                 dualFuelSingleRate: {
                   'electricity_standard': 3100.0,
-                  'gas_standard': 12000.0,
+                  'gas_standard': 13000.0,
                 },
                 electricityDualRate: {
-                  'electricity_day': 2436.0,
-                  'electricity_night': 1764.0,
+                  'electricity_day': 2536.0,
+                  'electricity_night': 1864.0,
                 },
                 electricitySingleRate: {
-                  'electricity_standard': 3100.0,
+                  'electricity_standard': 3200.0,
                 },
               );
 
@@ -108,22 +108,22 @@ void main() {
                 result['dual_fuel_single_rate'],
                 {
                   'electricity_standard': 3100.0,
-                  'gas_standard': 12000.0,
+                  'gas_standard': 13000.0,
                 },
               );
 
               expect(
                 result['electricity_dual_rate'],
                 {
-                  'electricity_day': 2436.0,
-                  'electricity_night': 1764.0,
+                  'electricity_day': 2536.0,
+                  'electricity_night': 1864.0,
                 },
               );
 
               expect(
                 result['electricity_single_rate'],
                 {
-                  'electricity_standard': 3100.0,
+                  'electricity_standard': 3200.0,
                 },
               );
             },
