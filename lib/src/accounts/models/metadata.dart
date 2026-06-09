@@ -1,5 +1,9 @@
 class Metadata {
+  /// Key on which the metadata will be stored.
   String key;
+
+  /// A json object containing any arbitrary piece of data to store in relation
+  /// to the account.
   dynamic value;
 
   Metadata({
