@@ -1,8 +1,15 @@
 class BusinessTariffRenewalCommission {
+  /// Name of the affiliate organisation due the commission for this agreement.
   String affiliateOrganisationName;
+
+  /// Sub-domain of the affiliate link due the commission for this agreement.
   String? affiliateLinkSubdomain;
   int? fixedTpiFee;
+
+  /// Uplift in pence to be paid to the affiliate.
   double? standingChargeUplift;
+
+  /// Uplift in pence to be paid to the affiliate.
   double unitRateUplift;
 
   BusinessTariffRenewalCommission({
