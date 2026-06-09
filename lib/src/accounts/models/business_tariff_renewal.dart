@@ -1,6 +1,7 @@
 import 'business_tariff_renewal_agreement.dart';
 
 class BusinessTariffRenewal {
+  /// List of all agreements to be created to the given account.
   List<BusinessTariffRenewalAgreement> agreements;
 
   BusinessTariffRenewal({
