@@ -1,11 +1,23 @@
 import '../enums/payment_method.dart';
 
 class Payment {
+  /// The name associated with the bank account.
   String? accountName;
+
+  /// The bank account number.
   String? accountNumber;
+
+  /// The bank account sort code.
   String? accountSortCode;
+
+  /// The number of days to delay the payment for a bill triggered schedule.
   int? delayDays;
+
   PaymentMethod method;
+
+  /// The preferred day of the month for the payment request.
+  ///
+  /// Only required for 'MONTHLY_DIRECT_DEBIT' schedules.
   int? paymentDay;
 
   Payment({
