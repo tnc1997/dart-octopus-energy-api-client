@@ -2,8 +2,16 @@ import '../enums/bespoke_payment_method.dart';
 import '../enums/bespoke_rate_type.dart';
 
 class BespokeElectricityUnitRate {
+  /// The payment method for the rate.
   BespokePaymentMethod? paymentMethod;
+
+  /// The rate type of the unit rate.
+  ///
+  /// If the register_identifier is not provided, the rate type must be provided
+  /// instead.
   BespokeRateType? rateType;
+
+  /// The value in pence per kWh of the charge (excluding VAT).
   double unitRate;
 
   BespokeElectricityUnitRate({
