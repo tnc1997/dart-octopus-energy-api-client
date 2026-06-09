@@ -2,9 +2,19 @@ import '../../common/enums/bespoke_payment_method.dart';
 import '../../common/enums/bespoke_rate_type.dart';
 
 class BusinessTariffRenewalBespokeRegisterRate {
+  /// The payment method for the rate.
   BespokePaymentMethod? paymentMethod;
+
+  /// The rate type of the unit rate.
+  ///
+  /// If the register_identifier is not provided, the rate type must be provided
+  /// instead.
   BespokeRateType? rateType;
+
+  /// The identifier of the register to which this unit rate applies.
   String? registerIdentifier;
+
+  /// The value in pence per kWh of the charge (excluding VAT).
   double unitRate;
 
   BusinessTariffRenewalBespokeRegisterRate({
