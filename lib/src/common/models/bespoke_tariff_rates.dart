@@ -1,8 +1,18 @@
 import 'bespoke_electricity_unit_rate.dart';
 
 class BespokeTariffRates {
+  /// The value in pence per day of the charge (excluding VAT).
   double? standingCharge;
+
+  /// The value in pence per kWh of the charge (excluding VAT).
+  ///
+  /// This field should be used for gas meters.
   double? unitRate;
+
+  /// List of the value in pence per kWh of the charges (excluding VAT).
+  ///
+  /// For elec meters, the unit rates are provided on a per register basis in
+  /// this array.
   List<BespokeElectricityUnitRate>? unitRates;
 
   BespokeTariffRates({
