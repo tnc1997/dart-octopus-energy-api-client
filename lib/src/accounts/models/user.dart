@@ -3,16 +3,29 @@ import 'psr.dart';
 
 class User {
   CreditScoreData? creditScoreData;
+
   DateTime? dateOfBirth;
+
+  /// Cannot already be in use for an existing account.
   String email;
+
   String familyName;
+
   String givenName;
+
   String? label;
+
   String? landline;
+
   String? mobile;
+
   bool optedInForMarketing;
+
   bool? optedInToThirdParties;
+
+  /// Priority Services Register details for the user
   Psr? psr;
+
   String? title;
 
   User({
