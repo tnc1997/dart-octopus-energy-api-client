@@ -1,7 +1,14 @@
 class SampleConsumption {
+  /// Consumption type
   Map<String, double> dualFuelDualRate;
+
+  /// Consumption type
   Map<String, double> dualFuelSingleRate;
+
+  /// Consumption type
   Map<String, double> electricityDualRate;
+
+  /// Consumption type
   Map<String, double> electricitySingleRate;
 
   SampleConsumption({
