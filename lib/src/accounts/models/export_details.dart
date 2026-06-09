@@ -1,10 +1,18 @@
 import 'installation.dart';
 
 class ExportDetails {
+  /// The import MPAN.
   String? importMpan;
+
   List<Installation>? installations;
+
+  /// The email address of the site contact.
   String? siteContactEmail;
+
+  /// The name of the site contact.
   String? siteContactName;
+
+  /// The phone number of the site contact.
   String? siteContactPhone;
 
   ExportDetails({
