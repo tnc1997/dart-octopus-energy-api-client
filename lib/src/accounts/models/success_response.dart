@@ -1,7 +1,9 @@
 import 'password_reset.dart';
 
 class SuccessResponse {
+  /// Number of the newly created account
   String number;
+
   PasswordReset? passwordReset;
 
   SuccessResponse({
