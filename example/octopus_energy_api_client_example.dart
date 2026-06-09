@@ -1,19 +1,20 @@
-import 'dart:io';
+// ignore_for_file: unused_local_variable
 
-import 'package:octopus_energy_api_client/octopus_energy_api_client.dart';
+import 'package:octopus_energy_api_client/v1.dart';
 
 Future<void> main() async {
-  final client = clientViaApiKey(
-    Platform.environment['API_KEY']!,
-  );
+  // Your Octopus Energy API key.
+  final apiKey = 'sk_live_...';
 
-  final api = OctopusEnergyApiClient(
-    client: client,
-  );
+  // Obtain an HTTP client that authenticates every request with your API key.
+  final client = clientViaApiKey(apiKey);
 
-  final result = await api.accounts.getAccount(
-    Platform.environment['ACCOUNT_NUMBER']!,
-  );
+  // Create the API client for the v1 API.
+  final api = OctopusEnergyApiClient(client: client);
 
+  // Call an endpoint.
+  final account = await api.accounts.getAccount('A-1234ABCD');
+
+  // Release the underlying HTTP resources when you are done.
   client.close();
 }
