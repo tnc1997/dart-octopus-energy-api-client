@@ -1,7 +1,14 @@
 class SampleQuotes {
+  /// Annual cost (inc or exc)
   Map<String, double> dualFuelDualRate;
+
+  /// Annual cost (inc or exc)
   Map<String, double> dualFuelSingleRate;
+
+  /// Annual cost (inc or exc)
   Map<String, double> electricityDualRate;
+
+  /// Annual cost (inc or exc)
   Map<String, double> electricitySingleRate;
 
   SampleQuotes({
