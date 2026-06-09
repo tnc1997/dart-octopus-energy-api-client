@@ -1,9 +1,19 @@
 import 'business_tariff_renewal_bespoke_register_rate.dart';
 
 class BusinessTariffRenewalBespokeTariffRate {
+  /// Meter serial number to which the bespoke tariff applies
   String meterSerialNumber;
+
+  /// For elec meters, the unit rates are provided on a per register basis in
+  /// this array.
   List<BusinessTariffRenewalBespokeRegisterRate>? registers;
+
+  /// The value in pence per day of the charge (excluding VAT).
   double standingCharge;
+
+  /// The value in pence per kWh of the charge (excluding VAT).
+  ///
+  /// This field should be used for gas meters.
   double? unitRate;
 
   BusinessTariffRenewalBespokeTariffRate({
