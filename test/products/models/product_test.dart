@@ -17,7 +17,7 @@ void main() {
                 'brand': 'TENTACLE_ENERGY',
                 'code': 'VAR-17-01-11',
                 'description':
-                    'This great value 12 month fixed tariff guarantees…',
+                    'This great value 12 month fixed tariff guarantees value.',
                 'display_name': 'Flexible Tentacle',
                 'dual_register_electricity_tariffs': <String, dynamic>{
                   '_B': <String, dynamic>{
@@ -184,7 +184,7 @@ void main() {
 
               expect(
                 result.description,
-                'This great value 12 month fixed tariff guarantees…',
+                'This great value 12 month fixed tariff guarantees value.',
               );
 
               expect(
@@ -283,7 +283,7 @@ void main() {
                 'brand': 'TENTACLE_ENERGY',
                 'code': 'VAR-17-01-11',
                 'description':
-                    'This great value 12 month fixed tariff guarantees…',
+                    'This great value 12 month fixed tariff guarantees value.',
                 'display_name': 'Flexible Tentacle',
                 'dual_register_electricity_tariffs': <String, dynamic>{},
                 'full_name': 'Flexible Tentacle Offer January 2017 v1',
@@ -392,7 +392,7 @@ void main() {
 
               expect(
                 result.description,
-                'This great value 12 month fixed tariff guarantees…',
+                'This great value 12 month fixed tariff guarantees value.',
               );
 
               expect(
@@ -494,7 +494,7 @@ void main() {
                 brand: 'TENTACLE_ENERGY',
                 code: 'VAR-17-01-11',
                 description:
-                    'This great value 12 month fixed tariff guarantees…',
+                    'This great value 12 month fixed tariff guarantees value.',
                 displayName: 'Flexible Tentacle',
                 dualRegisterElectricityTariffs: {
                   '_B': {
@@ -659,7 +659,7 @@ void main() {
 
               expect(
                 result['description'],
-                'This great value 12 month fixed tariff guarantees…',
+                'This great value 12 month fixed tariff guarantees value.',
               );
 
               expect(
@@ -774,7 +774,7 @@ void main() {
                 brand: 'TENTACLE_ENERGY',
                 code: 'VAR-17-01-11',
                 description:
-                    'This great value 12 month fixed tariff guarantees…',
+                    'This great value 12 month fixed tariff guarantees value.',
                 displayName: 'Flexible Tentacle',
                 dualRegisterElectricityTariffs: {},
                 fullName: 'Flexible Tentacle Offer January 2017 v1',
@@ -881,7 +881,7 @@ void main() {
 
               expect(
                 result['description'],
-                'This great value 12 month fixed tariff guarantees…',
+                'This great value 12 month fixed tariff guarantees value.',
               );
 
               expect(
