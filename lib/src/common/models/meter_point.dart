@@ -6,19 +6,58 @@ import 'quote.dart';
 
 abstract class MeterPoint {
   Address? address;
+
+  /// If applicable, must contain two objects: one for direct debit bespoke and
+  /// another for non-direct debit bespoke rates. Cannot be used in conjunction
+  /// with 'bespoke_tariff_rates'.
   List<BespokePpsTariffRates>? bespokePpsTariffRates;
+
+  /// A json object containing bespoke tariff rates, if applicable.
+  ///
+  /// Cannot be used in conjunction with 'bespoke_pps_tariff_rates'.
   BespokeTariffRates? bespokeTariffRates;
+
+  /// The expected annual consumption for the standard register in kWh.
+  ///
+  /// Required if standard tariff.
   int? consumptionStandard;
+
   String? currentSupplierName;
+
   String? currentSupplierTariff;
+
   int? fixedTpiFee;
+
+  /// Whether a smart meter is installed. The default is 'false'.
   bool? hasSmartMeter;
+
+  /// The default is 'CREDIT', which represents any kind of traditional credit
+  /// meter or smart meter. This field is mandatory for traditional prepay
+  /// meters, for which the value 'PREPAYMENT' should be used.
   MeterType? meterType;
+
   DateTime? preferredSsd;
+
   Quote quote;
+
+  /// The ID of the market supply quoted product returned by the
+  /// 'QuoteNewMeterPoints' or 'QuoteNewMeterPointsOnBespokeProducts' mutation
+  /// which was selected by the customer for this meter point. Required if a
+  /// 'quote_request_code' is supplied.
   int? quotedProductId;
+
+  /// The amount to be added to the standing charge as commission (a string,
+  /// pence per day).
   double? standingChargeUplift;
+
+  /// The tariff code as stored by the supplier.
+  ///
+  /// Must match an available tariff on the 'sold_at' datetime for the
+  /// authenticating partner. Required if no 'quote_request_code' is supplied.
   String? tariffCode;
+
+  /// The amount to be added to the unit rate as commission (a string, pence per
+  /// kWh).
   double? unitRateUplift;
 
   MeterPoint({
