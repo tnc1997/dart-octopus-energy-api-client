@@ -1,4 +1,7 @@
 class Psr {
+  /// If true, indicates that the user should be signed up to the PSR but the
+  /// categories are unknown. Therefore the user requires contacting to
+  /// determine the categories.
   bool? requiresSignup;
 
   Psr({
