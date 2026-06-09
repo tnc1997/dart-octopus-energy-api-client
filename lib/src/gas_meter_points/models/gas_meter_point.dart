@@ -6,6 +6,7 @@ import '../../common/models/meter_point.dart';
 import '../../common/models/quote.dart';
 
 class GasMeterPoint extends MeterPoint {
+  /// The meter-point identifier.
   String? mprn;
 
   GasMeterPoint({
