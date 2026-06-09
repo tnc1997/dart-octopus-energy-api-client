@@ -1,4 +1,5 @@
 class Emails {
+  /// An array of one or more email addresses to send the email to.
   List<String> emails;
 
   Emails({
