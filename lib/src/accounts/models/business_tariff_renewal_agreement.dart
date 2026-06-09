@@ -2,11 +2,22 @@ import 'business_tariff_renewal_bespoke_tariff_rate.dart';
 import 'business_tariff_renewal_commission.dart';
 
 class BusinessTariffRenewalAgreement {
+  /// Bespoke tariff rates for the new agreement, if applicable.
   List<BusinessTariffRenewalBespokeTariffRate>? bespokeTariffRates;
+
+  /// Commission applicable to this tariff renewal.
   BusinessTariffRenewalCommission? commission;
+
+  /// MPRN or MPAN of the meter point getting a new agreement.
   String mpxn;
+
+  /// Tariff code for the new agreements.
   String tariffCode;
+
+  /// Date (inclusive) the new agreement is valid from.
   DateTime validFromDate;
+
+  /// Date (exclusive) the new agreement is valid to.
   DateTime? validToDate;
 
   BusinessTariffRenewalAgreement({
