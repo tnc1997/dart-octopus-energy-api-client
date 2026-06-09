@@ -3,20 +3,43 @@ import '../enums/direction.dart';
 
 class Products {
   DateTime availableFrom;
+
   DateTime? availableTo;
+
   String brand;
+
   String code;
+
+  /// This will be shown to customers during sign-up
   String description;
+
   Direction? direction;
+
+  /// This name will be shown to customers during sign-up
   String displayName;
+
   String fullName;
+
+  /// Is a business product?
   bool? isBusiness;
+
+  /// Is a green product?
   bool? isGreen;
+
   bool? isPrepay;
+
   bool isRestricted;
+
+  /// Is a tracker product?
   bool? isTracker;
+
+  /// Is variable?
   bool? isVariable;
+
+  /// Historical charges can be browsed using the provided URLs.
   List<Link> links;
+
+  /// Duration of agreements using this product in months
   int? term;
 
   Products({
