@@ -1,12 +1,28 @@
 import '../enums/business_type.dart';
 
 class Business {
+  /// The estimated annual turnover
+  ///
+  /// In pounds £ (GBP)
   int? annualTurnover;
+
   BusinessType businessType;
+
+  /// The head count of the business, i.e. number of staff.
   int? headCount;
+
+  /// Whether the business is exempt from paying CCL (Climate Change Levy).
   bool isCclExempt;
+
+  /// Whether the business is exempt from paying VAT.
   bool isVatExempt;
+
+  /// The name of the business.
   String name;
+
+  /// The registered number of the business.
+  ///
+  /// This field is required for 'LIMITED' businesses.
   String? number;
 
   Business({
