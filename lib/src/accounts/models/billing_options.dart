@@ -1,6 +1,11 @@
 class BillingOptions {
+  /// The length of the billing period in months.
   int? periodLength;
+
+  /// The day of the month for the billing period start.
   int? periodStartDay;
+
+  /// The month for the billing period start, for quarterly billing.
   int? periodStartMonth;
 
   BillingOptions({
