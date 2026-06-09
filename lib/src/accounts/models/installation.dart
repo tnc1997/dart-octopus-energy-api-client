@@ -1,10 +1,20 @@
 import '../enums/installation_technology_type.dart';
 
 class Installation {
+  /// The total capacity of the installation in kW.
   double capacityInKw;
+
+  /// The estimated annual generation of the installation in kWh.
   double estimatedAnnualGenerationInKwh;
+
+  /// The Feed-in Tariff ID.
   String? fitId;
+
+  /// The REGO accreditation number.
   String? regoId;
+
+  /// The technology type for the installation. If there are multiple
+  /// technologies at one site then provide multiple installations.
   InstallationTechnologyType technologyType;
 
   Installation({
