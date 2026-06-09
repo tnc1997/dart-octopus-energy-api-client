@@ -7,13 +7,35 @@ import '../../common/models/meter_point.dart';
 import '../../common/models/quote.dart';
 
 class ElectricityMeterPoint extends MeterPoint {
+  /// The expected annual consumption for the day/peak register in kWh.
+  ///
+  /// Required if eco7 or three-rate tariff.
   int? consumptionDay;
+
+  /// The expected annual consumption for the night/off-peak register in kWh.
+  ///
+  /// Required if eco7 or three-rate tariff.
   int? consumptionNight;
+
+  /// The expected annual consumption for the additional off-peak register in
+  /// kWh.
+  ///
+  /// Required if three-rate tariff.
   int? consumptionOffPeak;
+
+  /// The generation details for the meter-point.
   ExportDetails? exportDetails;
+
   String? gsp;
+
+  /// Whether the meter point should be enrolled as a half hourly meter point
+  ///
+  /// Required to start the CoS Gain correctly for half hourly customers.
   bool? isHalfHourly;
+
+  /// The meter-point identifier.
   String? mpan;
+
   int? profileClass;
 
   ElectricityMeterPoint({
