@@ -13,7 +13,7 @@ void main() {
             () {
               final json = <String, dynamic>{
                 'available_from': '2017-05-05T05:37:27Z',
-                'available_to': null,
+                'available_to': '2018-06-06T06:48:38Z',
                 'brand': 'TENTACLE_ENERGY',
                 'code': 'VAR-17-01-11',
                 'description':
@@ -169,7 +169,7 @@ void main() {
 
               expect(
                 result.availableTo,
-                isNull,
+                DateTime.parse('2018-06-06T06:48:38Z'),
               );
 
               expect(
@@ -491,6 +491,7 @@ void main() {
             () {
               final model = Product(
                 availableFrom: DateTime.parse('2017-05-05T05:37:27Z'),
+                availableTo: DateTime.parse('2018-06-06T06:48:38Z'),
                 brand: 'TENTACLE_ENERGY',
                 code: 'VAR-17-01-11',
                 description:
@@ -644,7 +645,7 @@ void main() {
 
               expect(
                 result['available_to'],
-                isNull,
+                '2018-06-06T06:48:38.000Z',
               );
 
               expect(
