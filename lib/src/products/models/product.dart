@@ -7,27 +7,55 @@ import 'standard_electricity_tariff.dart';
 
 class Product {
   DateTime availableFrom;
+
   DateTime? availableTo;
+
   String brand;
+
   String code;
+
+  /// This will be shown to customers during sign-up
   String description;
+
+  /// This name will be shown to customers during sign-up
   String displayName;
+
   Map<String, Map<String, Eco7ElectricityTariff>>
       dualRegisterElectricityTariffs;
+
   String fullName;
+
+  /// Is a business product?
   bool? isBusiness;
+
+  /// Is a green product?
   bool? isGreen;
+
   bool? isPrepay;
+
   bool isRestricted;
+
+  /// Is a tracker product?
   bool? isTracker;
+
+  /// Is variable?
   bool? isVariable;
+
+  /// Historical charges can be browsed using the provided URLs.
   List<Link> links;
+
   SampleConsumption sampleConsumption;
+
   SampleQuotes sampleQuotes;
+
   Map<String, Map<String, StandardElectricityTariff>>
       singleRegisterElectricityTariffs;
+
   Map<String, Map<String, GasTariff>> singleRegisterGasTariffs;
+
   DateTime tariffsActiveAt;
+
+  /// Duration of agreements using this product in months
   int? term;
 
   Product({
