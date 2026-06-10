@@ -210,11 +210,7 @@ void main() {
           test(
             'should return model from json with null values',
             () {
-              final json = {
-                'quote': {
-                  'annual_payment': 46576,
-                },
-              };
+              final json = <String, dynamic>{};
 
               final result = ElectricityMeterPoint.fromJson(json);
 
@@ -310,7 +306,7 @@ void main() {
 
               expect(
                 result.quote,
-                isA<Quote>(),
+                isNull,
               );
 
               expect(
@@ -542,11 +538,7 @@ void main() {
           test(
             'should serialize model with null values to json',
             () {
-              final model = ElectricityMeterPoint(
-                quote: Quote(
-                  annualPayment: 46576,
-                ),
-              );
+              final model = ElectricityMeterPoint();
 
               final result = model.toJson();
 
@@ -642,7 +634,7 @@ void main() {
 
               expect(
                 result['quote'],
-                isA<Map<String, dynamic>>(),
+                isNull,
               );
 
               expect(

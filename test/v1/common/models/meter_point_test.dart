@@ -13,7 +13,7 @@ class _MeterPoint extends MeterPoint {
     super.hasSmartMeter,
     super.meterType,
     super.preferredSsd,
-    required super.quote,
+    super.quote,
     super.quotedProductId,
     super.standingChargeUplift,
     super.tariffCode,
@@ -167,11 +167,7 @@ void main() {
           test(
             'should serialize model with null values to json',
             () {
-              final model = _MeterPoint(
-                quote: Quote(
-                  annualPayment: 46576,
-                ),
-              );
+              final model = _MeterPoint();
 
               final result = model.toJson();
 
@@ -227,7 +223,7 @@ void main() {
 
               expect(
                 result['quote'],
-                isA<Map<String, dynamic>>(),
+                isNull,
               );
 
               expect(
