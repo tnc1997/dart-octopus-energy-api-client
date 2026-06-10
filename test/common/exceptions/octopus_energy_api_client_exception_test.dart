@@ -108,7 +108,37 @@ void main() {
           }
 
           test(
-            'throws OctopusEnergyApiClientException with message when content-type is application/json and detail is not null',
+            'throws OctopusEnergyApiClientException with message when content-type is application/json and body is a string',
+            () {
+              const message = 'Something went wrong';
+
+              expect(
+                () {
+                  OctopusEnergyApiClientException.checkIsSuccessStatusCode(
+                    http.Response(
+                      json.encode(message),
+                      500,
+                      headers: {
+                        'content-type': 'application/json',
+                      },
+                    ),
+                  );
+                },
+                throwsA(
+                  isA<OctopusEnergyApiClientException>().having(
+                    (exception) {
+                      return exception.message;
+                    },
+                    'message',
+                    message,
+                  ),
+                ),
+              );
+            },
+          );
+
+          test(
+            'throws OctopusEnergyApiClientException with message when content-type is application/json and body is an object and detail is not null',
             () {
               const detail = 'Something went wrong';
 
@@ -142,7 +172,7 @@ void main() {
           );
 
           test(
-            'throws OctopusEnergyApiClientException without message when content-type is application/json and detail is undefined',
+            'throws OctopusEnergyApiClientException without message when content-type is application/json and body is an object and detail is undefined',
             () {
               expect(
                 () {
