@@ -32,6 +32,24 @@ class ProductsService {
     );
   }
 
+  Future<PaginatedHistoricalChargeList>
+      listElectricityTariffEvDeviceOffPeakUnitRates(
+    String productCode,
+    String tariffCode, {
+    int? page,
+    int? pageSize,
+    DateTime? periodFrom,
+    DateTime? periodTo,
+  }) {
+    return _listTariffUnitRates(
+      '/v1/products/$productCode/electricity-tariffs/$tariffCode/ev-device-off-peak-unit-rates/',
+      page: page,
+      pageSize: pageSize,
+      periodFrom: periodFrom,
+      periodTo: periodTo,
+    );
+  }
+
   Future<PaginatedHistoricalChargeList> listElectricityTariffNightUnitRates(
     String productCode,
     String tariffCode, {
