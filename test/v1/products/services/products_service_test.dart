@@ -221,6 +221,218 @@ void main() {
       );
 
       group(
+        'listElectricityTariffEvDeviceOffPeakUnitRates',
+        () {
+          test(
+            'includes query parameters when supplied',
+            () async {
+              late Uri url;
+
+              final service = ProductsService(
+                client: MockClient(
+                  (request) async {
+                    url = request.url;
+
+                    return http.Response(
+                      emptyPaginatedList,
+                      200,
+                    );
+                  },
+                ),
+              );
+
+              await service.listElectricityTariffEvDeviceOffPeakUnitRates(
+                'PROD',
+                'TARIFF',
+                page: 2,
+                pageSize: 100,
+                periodFrom: DateTime.parse('2017-05-05T05:37:27Z'),
+                periodTo: DateTime.parse('2018-06-06T06:48:38Z'),
+              );
+
+              expect(
+                url.queryParameters,
+                containsPair(
+                  'page',
+                  '2',
+                ),
+              );
+
+              expect(
+                url.queryParameters,
+                containsPair(
+                  'page_size',
+                  '100',
+                ),
+              );
+
+              expect(
+                url.queryParameters,
+                containsPair(
+                  'period_from',
+                  '2017-05-05T05:37:27.000Z',
+                ),
+              );
+
+              expect(
+                url.queryParameters,
+                containsPair(
+                  'period_to',
+                  '2018-06-06T06:48:38.000Z',
+                ),
+              );
+            },
+          );
+
+          test(
+            'omits query parameters when not supplied',
+            () async {
+              late Uri url;
+
+              final service = ProductsService(
+                client: MockClient(
+                  (request) async {
+                    url = request.url;
+
+                    return http.Response(
+                      emptyPaginatedList,
+                      200,
+                    );
+                  },
+                ),
+              );
+
+              await service.listElectricityTariffEvDeviceOffPeakUnitRates(
+                'PROD',
+                'TARIFF',
+              );
+
+              expect(
+                url.queryParameters,
+                isEmpty,
+              );
+            },
+          );
+
+          test(
+            'requests the ev device off peak unit rates path',
+            () async {
+              late Uri url;
+
+              final service = ProductsService(
+                client: MockClient(
+                  (request) async {
+                    url = request.url;
+
+                    return http.Response(
+                      emptyPaginatedList,
+                      200,
+                    );
+                  },
+                ),
+              );
+
+              await service.listElectricityTariffEvDeviceOffPeakUnitRates(
+                'PROD',
+                'TARIFF',
+              );
+
+              expect(
+                url.path,
+                '/v1/products/PROD/electricity-tariffs/TARIFF/ev-device-off-peak-unit-rates/',
+              );
+            },
+          );
+
+          test(
+            'returns a PaginatedHistoricalChargeList on success',
+            () async {
+              final service = ProductsService(
+                client: MockClient(
+                  (request) async => http.Response(
+                    emptyPaginatedList,
+                    200,
+                  ),
+                ),
+              );
+
+              final result =
+                  await service.listElectricityTariffEvDeviceOffPeakUnitRates(
+                'PROD',
+                'TARIFF',
+              );
+
+              expect(
+                result,
+                isA<PaginatedHistoricalChargeList>(),
+              );
+            },
+          );
+
+          test(
+            'throws with the detail message on a json error response',
+            () {
+              final service = ProductsService(
+                client: MockClient(
+                  (request) async => http.Response(
+                    json.encode({
+                      'detail': 'Not Found',
+                    }),
+                    404,
+                    headers: {
+                      'content-type': 'application/json',
+                    },
+                  ),
+                ),
+              );
+
+              expect(
+                () => service.listElectricityTariffEvDeviceOffPeakUnitRates(
+                  'PROD',
+                  'TARIFF',
+                ),
+                throwsA(
+                  isA<OctopusEnergyApiClientException>().having(
+                    (exception) => exception.message,
+                    'message',
+                    'Not Found',
+                  ),
+                ),
+              );
+            },
+          );
+
+          test(
+            'throws without a message on a non-json error response',
+            () {
+              final service = ProductsService(
+                client: MockClient(
+                  (request) async => http.Response(
+                    'Internal Server Error',
+                    500,
+                  ),
+                ),
+              );
+
+              expect(
+                () => service.listElectricityTariffEvDeviceOffPeakUnitRates(
+                  'PROD',
+                  'TARIFF',
+                ),
+                throwsA(
+                  isA<OctopusEnergyApiClientException>().having(
+                    (exception) => exception.message,
+                    'message',
+                    isNull,
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      );
+
+      group(
         'listElectricityTariffNightUnitRates',
         () {
           test(
