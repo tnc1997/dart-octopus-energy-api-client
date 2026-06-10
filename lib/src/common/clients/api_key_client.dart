@@ -35,14 +35,9 @@ class ApiKeyClient extends http.BaseClient {
       );
     }
 
-    return _inner.send(
-      http.Request(
-        request.method,
-        request.url,
-      )
-        ..headers.addAll(request.headers)
-        ..headers['authorization'] = 'Basic ${_codec.encode('$_apiKey:')}',
-    );
+    request.headers['authorization'] = 'Basic ${_codec.encode('$_apiKey:')}';
+
+    return _inner.send(request);
   }
 }
 

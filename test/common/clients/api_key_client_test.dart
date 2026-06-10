@@ -61,6 +61,33 @@ void main() {
           );
 
           test(
+            'preserves the request body',
+            () async {
+              await ApiKeyClient(
+                apiKey: apiKey,
+                inner: MockClient(
+                  (request) async {
+                    expect(
+                      request.body,
+                      '{"hello":"world"}',
+                    );
+
+                    return http.Response('', 200);
+                  },
+                ),
+              ).post(
+                Uri.https(
+                  'example.com',
+                ),
+                headers: {
+                  'content-type': 'application/json',
+                },
+                body: '{"hello":"world"}',
+              );
+            },
+          );
+
+          test(
             'throws ArgumentError if authorization header is already present',
             () async {
               expect(
