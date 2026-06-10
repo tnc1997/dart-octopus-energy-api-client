@@ -155,7 +155,7 @@ try {
 }
 ```
 
-## Services (v1)
+## Services
 
 The v1 `OctopusEnergyApiClient` exposes the following services. Each is created
 lazily on first access and reuses the client's `http.Client`.
@@ -170,3 +170,12 @@ lazily on first access and reuses the client's `http.Client`.
 | Products                 | `api.products`               | `listProducts`, `retrieveProduct`, `listElectricityTariffStandardUnitRates`, `listGasTariffStandardUnitRates` |
 | Quotes                   | `api.quotes`                 | `createQuote`, `shareQuoteViaEmail`                                                                           |
 | Voice                    | `api.voice`                  | `twilioEnqueueAudio`                                                                                          |
+
+## Models
+
+Model fields mirror what the API **actually returns**, which is not always what
+the published schema marks as `required`. A single model can serve both a request
+body and a response body, and responses routinely omit fields the request
+requires. Because of this, response fields are typed as nullable wherever the API
+may omit them — so treat a nullable field as genuinely optional and null-check it,
+even if the official schema lists it as required.
