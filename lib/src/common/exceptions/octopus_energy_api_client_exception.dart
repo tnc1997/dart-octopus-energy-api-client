@@ -27,7 +27,8 @@ class OctopusEnergyApiClientException implements Exception {
     http.Response response,
   ) {
     if (response.statusCode < 200 || response.statusCode >= 300) {
-      if (response.headers['content-type'] == 'application/json') {
+      if (response.headers['content-type']?.contains('application/json') ??
+          false) {
         final body = json.decode(response.body);
 
         throw OctopusEnergyApiClientException(
