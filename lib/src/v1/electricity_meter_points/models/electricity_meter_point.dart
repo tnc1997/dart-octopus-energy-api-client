@@ -57,7 +57,7 @@ class ElectricityMeterPoint extends MeterPoint {
     this.mpan,
     super.preferredSsd,
     this.profileClass,
-    required super.quote,
+    super.quote,
     super.quotedProductId,
     super.standingChargeUplift,
     super.tariffCode,
@@ -102,7 +102,9 @@ class ElectricityMeterPoint extends MeterPoint {
           ? DateTime.parse(json['preferred_ssd'] as String)
           : null,
       profileClass: (json['profile_class'] as num?)?.toInt(),
-      quote: Quote.fromJson(json['quote'] as Map<String, dynamic>),
+      quote: json['quote'] != null
+          ? Quote.fromJson(json['quote'] as Map<String, dynamic>)
+          : null,
       quotedProductId: (json['quoted_product_id'] as num?)?.toInt(),
       standingChargeUplift: json['standing_charge_uplift'] != null
           ? double.parse(json['standing_charge_uplift'] as String)
@@ -136,7 +138,7 @@ class ElectricityMeterPoint extends MeterPoint {
       'mpan': mpan,
       'preferred_ssd': preferredSsd?.toIso8601String(),
       'profile_class': profileClass,
-      'quote': quote.toJson(),
+      'quote': quote?.toJson(),
       'quoted_product_id': quotedProductId,
       'standing_charge_uplift': standingChargeUplift?.toString(),
       'tariff_code': tariffCode,

@@ -38,7 +38,7 @@ abstract class MeterPoint {
 
   DateTime? preferredSsd;
 
-  Quote quote;
+  Quote? quote;
 
   /// The ID of the market supply quoted product returned by the
   /// 'QuoteNewMeterPoints' or 'QuoteNewMeterPointsOnBespokeProducts' mutation
@@ -71,7 +71,7 @@ abstract class MeterPoint {
     this.hasSmartMeter,
     this.meterType,
     this.preferredSsd,
-    required this.quote,
+    this.quote,
     this.quotedProductId,
     this.standingChargeUplift,
     this.tariffCode,
@@ -91,7 +91,7 @@ abstract class MeterPoint {
       'has_smart_meter': hasSmartMeter,
       'meter_type': meterType?.toJson(),
       'preferred_ssd': preferredSsd?.toIso8601String(),
-      'quote': quote.toJson(),
+      'quote': quote?.toJson(),
       'quoted_product_id': quotedProductId,
       'standing_charge_uplift': standingChargeUplift?.toString(),
       'tariff_code': tariffCode,

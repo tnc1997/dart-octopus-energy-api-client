@@ -21,7 +21,7 @@ class GasMeterPoint extends MeterPoint {
     super.meterType,
     this.mprn,
     super.preferredSsd,
-    required super.quote,
+    super.quote,
     super.quotedProductId,
     super.standingChargeUplift,
     super.tariffCode,
@@ -56,7 +56,9 @@ class GasMeterPoint extends MeterPoint {
       preferredSsd: json['preferred_ssd'] != null
           ? DateTime.parse(json['preferred_ssd'] as String)
           : null,
-      quote: Quote.fromJson(json['quote'] as Map<String, dynamic>),
+      quote: json['quote'] != null
+          ? Quote.fromJson(json['quote'] as Map<String, dynamic>)
+          : null,
       quotedProductId: (json['quoted_product_id'] as num?)?.toInt(),
       standingChargeUplift: json['standing_charge_uplift'] != null
           ? double.parse(json['standing_charge_uplift'] as String)
@@ -83,7 +85,7 @@ class GasMeterPoint extends MeterPoint {
       'meter_type': meterType?.toJson(),
       'mprn': mprn,
       'preferred_ssd': preferredSsd?.toIso8601String(),
-      'quote': quote.toJson(),
+      'quote': quote?.toJson(),
       'quoted_product_id': quotedProductId,
       'standing_charge_uplift': standingChargeUplift?.toString(),
       'tariff_code': tariffCode,
