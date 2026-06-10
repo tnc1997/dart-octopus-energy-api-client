@@ -417,9 +417,6 @@ final electricityMeterPoint = <String, dynamic>{
   'mpan': '2000024512368',
   'preferred_ssd': '1970-01-01T00:00:00.000Z',
   'profile_class': 1,
-  'quote': {
-    'annual_payment': 46576,
-  },
   'quoted_product_id': 123,
   'standing_charge_uplift': '0.7',
   'tariff_code': 'E-1R-VAR-17-01-11-A',
