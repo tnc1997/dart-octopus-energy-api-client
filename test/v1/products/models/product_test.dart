@@ -361,7 +361,8 @@ void main() {
                           'rel': 'standing_charges',
                         }
                       ],
-                    }
+                    },
+                    'direct_debit_quarterly': <String, dynamic>{},
                   }
                 },
                 'single_register_gas_tariffs': <String, dynamic>{},
@@ -462,6 +463,14 @@ void main() {
               expect(
                 result.singleRegisterElectricityTariffs,
                 isNotEmpty,
+              );
+
+              expect(
+                result
+                    .singleRegisterElectricityTariffs['_A']![
+                        'direct_debit_quarterly']!
+                    .code,
+                isNull,
               );
 
               expect(

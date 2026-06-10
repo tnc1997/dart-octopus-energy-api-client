@@ -201,6 +201,83 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from an empty json object',
+            () {
+              // The products endpoint returns an empty object for a
+              // payment-method that has no tariff, e.g.
+              // 'direct_debit_quarterly': {}. Deserialization must not throw.
+              final result = GasTariff.fromJson(
+                <String, dynamic>{},
+              );
+
+              expect(
+                result.code,
+                isNull,
+              );
+
+              expect(
+                result.dualFuelDiscountExcVat,
+                isNull,
+              );
+
+              expect(
+                result.dualFuelDiscountIncVat,
+                isNull,
+              );
+
+              expect(
+                result.exitFeesExcVat,
+                isNull,
+              );
+
+              expect(
+                result.exitFeesIncVat,
+                isNull,
+              );
+
+              expect(
+                result.exitFeesType,
+                isNull,
+              );
+
+              expect(
+                result.links,
+                isNull,
+              );
+
+              expect(
+                result.onlineDiscountExcVat,
+                isNull,
+              );
+
+              expect(
+                result.onlineDiscountIncVat,
+                isNull,
+              );
+
+              expect(
+                result.standingChargeExcVat,
+                isNull,
+              );
+
+              expect(
+                result.standingChargeIncVat,
+                isNull,
+              );
+
+              expect(
+                result.standardUnitRateExcVat,
+                isNull,
+              );
+
+              expect(
+                result.standardUnitRateIncVat,
+                isNull,
+              );
+            },
+          );
         },
       );
 
