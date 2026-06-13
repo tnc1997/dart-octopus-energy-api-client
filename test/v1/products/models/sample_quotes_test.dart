@@ -65,6 +65,35 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with omitted rates',
+            () {
+              final json = <String, dynamic>{};
+
+              final result = SampleQuotes.fromJson(json);
+
+              expect(
+                result.dualFuelDualRate,
+                isNull,
+              );
+
+              expect(
+                result.dualFuelSingleRate,
+                isNull,
+              );
+
+              expect(
+                result.electricityDualRate,
+                isNull,
+              );
+
+              expect(
+                result.electricitySingleRate,
+                isNull,
+              );
+            },
+          );
         },
       );
 

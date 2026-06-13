@@ -85,6 +85,40 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with omitted fields',
+            () {
+              final json = <String, dynamic>{};
+
+              final result = Installation.fromJson(json);
+
+              expect(
+                result.capacityInKw,
+                isNull,
+              );
+
+              expect(
+                result.estimatedAnnualGenerationInKwh,
+                isNull,
+              );
+
+              expect(
+                result.fitId,
+                isNull,
+              );
+
+              expect(
+                result.regoId,
+                isNull,
+              );
+
+              expect(
+                result.technologyType,
+                isNull,
+              );
+            },
+          );
         },
       );
 

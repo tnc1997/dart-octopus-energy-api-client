@@ -1,38 +1,38 @@
 class SampleConsumption {
   /// Consumption type
-  Map<String, double> dualFuelDualRate;
+  Map<String, double>? dualFuelDualRate;
 
   /// Consumption type
-  Map<String, double> dualFuelSingleRate;
+  Map<String, double>? dualFuelSingleRate;
 
   /// Consumption type
-  Map<String, double> electricityDualRate;
+  Map<String, double>? electricityDualRate;
 
   /// Consumption type
-  Map<String, double> electricitySingleRate;
+  Map<String, double>? electricitySingleRate;
 
   SampleConsumption({
-    required this.dualFuelDualRate,
-    required this.dualFuelSingleRate,
-    required this.electricityDualRate,
-    required this.electricitySingleRate,
+    this.dualFuelDualRate,
+    this.dualFuelSingleRate,
+    this.electricityDualRate,
+    this.electricitySingleRate,
   });
 
   factory SampleConsumption.fromJson(
     Map<String, dynamic> json,
   ) {
     return SampleConsumption(
-      dualFuelDualRate: (json['dual_fuel_dual_rate'] as Map<String, dynamic>)
-          .map((k, e) => MapEntry(k, (e as num).toDouble())),
+      dualFuelDualRate: (json['dual_fuel_dual_rate'] as Map<String, dynamic>?)
+          ?.map((k, e) => MapEntry(k, (e as num).toDouble())),
       dualFuelSingleRate:
-          (json['dual_fuel_single_rate'] as Map<String, dynamic>)
-              .map((k, e) => MapEntry(k, (e as num).toDouble())),
+          (json['dual_fuel_single_rate'] as Map<String, dynamic>?)
+              ?.map((k, e) => MapEntry(k, (e as num).toDouble())),
       electricityDualRate:
-          (json['electricity_dual_rate'] as Map<String, dynamic>)
-              .map((k, e) => MapEntry(k, (e as num).toDouble())),
+          (json['electricity_dual_rate'] as Map<String, dynamic>?)
+              ?.map((k, e) => MapEntry(k, (e as num).toDouble())),
       electricitySingleRate:
-          (json['electricity_single_rate'] as Map<String, dynamic>)
-              .map((k, e) => MapEntry(k, (e as num).toDouble())),
+          (json['electricity_single_rate'] as Map<String, dynamic>?)
+              ?.map((k, e) => MapEntry(k, (e as num).toDouble())),
     );
   }
 

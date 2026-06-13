@@ -20,7 +20,7 @@ class Product {
   /// This name will be shown to customers during sign-up
   String displayName;
 
-  Map<String, Map<String, Eco7ElectricityTariff>>
+  Map<String, Map<String, Eco7ElectricityTariff>>?
       dualRegisterElectricityTariffs;
 
   String fullName;
@@ -44,14 +44,14 @@ class Product {
   /// Historical charges can be browsed using the provided URLs.
   List<Link> links;
 
-  SampleConsumption sampleConsumption;
+  SampleConsumption? sampleConsumption;
 
-  SampleQuotes sampleQuotes;
+  SampleQuotes? sampleQuotes;
 
-  Map<String, Map<String, StandardElectricityTariff>>
+  Map<String, Map<String, StandardElectricityTariff>>?
       singleRegisterElectricityTariffs;
 
-  Map<String, Map<String, GasTariff>> singleRegisterGasTariffs;
+  Map<String, Map<String, GasTariff>>? singleRegisterGasTariffs;
 
   DateTime tariffsActiveAt;
 
@@ -65,7 +65,7 @@ class Product {
     required this.code,
     required this.description,
     required this.displayName,
-    required this.dualRegisterElectricityTariffs,
+    this.dualRegisterElectricityTariffs,
     required this.fullName,
     this.isBusiness,
     this.isGreen,
@@ -74,10 +74,10 @@ class Product {
     this.isTracker,
     this.isVariable,
     required this.links,
-    required this.sampleConsumption,
-    required this.sampleQuotes,
-    required this.singleRegisterElectricityTariffs,
-    required this.singleRegisterGasTariffs,
+    this.sampleConsumption,
+    this.sampleQuotes,
+    this.singleRegisterElectricityTariffs,
+    this.singleRegisterGasTariffs,
     required this.tariffsActiveAt,
     this.term,
   });
@@ -95,8 +95,8 @@ class Product {
       description: json['description'] as String,
       displayName: json['display_name'] as String,
       dualRegisterElectricityTariffs:
-          (json['dual_register_electricity_tariffs'] as Map<String, dynamic>)
-              .map(
+          (json['dual_register_electricity_tariffs'] as Map<String, dynamic>?)
+              ?.map(
         (k, e) => MapEntry(
             k,
             (e as Map<String, dynamic>).map(
@@ -114,13 +114,16 @@ class Product {
       links: (json['links'] as List<dynamic>)
           .map((e) => Link.fromJson(e as Map<String, dynamic>))
           .toList(),
-      sampleConsumption: SampleConsumption.fromJson(
-          json['sample_consumption'] as Map<String, dynamic>),
-      sampleQuotes:
-          SampleQuotes.fromJson(json['sample_quotes'] as Map<String, dynamic>),
+      sampleConsumption: json['sample_consumption'] != null
+          ? SampleConsumption.fromJson(
+              json['sample_consumption'] as Map<String, dynamic>)
+          : null,
+      sampleQuotes: json['sample_quotes'] != null
+          ? SampleQuotes.fromJson(json['sample_quotes'] as Map<String, dynamic>)
+          : null,
       singleRegisterElectricityTariffs:
-          (json['single_register_electricity_tariffs'] as Map<String, dynamic>)
-              .map(
+          (json['single_register_electricity_tariffs'] as Map<String, dynamic>?)
+              ?.map(
         (k, e) => MapEntry(
             k,
             (e as Map<String, dynamic>).map(
@@ -131,7 +134,7 @@ class Product {
             )),
       ),
       singleRegisterGasTariffs:
-          (json['single_register_gas_tariffs'] as Map<String, dynamic>).map(
+          (json['single_register_gas_tariffs'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(
             k,
             (e as Map<String, dynamic>).map(
@@ -152,7 +155,7 @@ class Product {
       'code': code,
       'description': description,
       'display_name': displayName,
-      'dual_register_electricity_tariffs': dualRegisterElectricityTariffs.map(
+      'dual_register_electricity_tariffs': dualRegisterElectricityTariffs?.map(
         (k, e) => MapEntry(
           k,
           e.map((k, e) => MapEntry(k, e.toJson())),
@@ -166,16 +169,16 @@ class Product {
       'is_tracker': isTracker,
       'is_variable': isVariable,
       'links': links.map((e) => e.toJson()).toList(),
-      'sample_consumption': sampleConsumption.toJson(),
-      'sample_quotes': sampleQuotes.toJson(),
+      'sample_consumption': sampleConsumption?.toJson(),
+      'sample_quotes': sampleQuotes?.toJson(),
       'single_register_electricity_tariffs':
-          singleRegisterElectricityTariffs.map(
+          singleRegisterElectricityTariffs?.map(
         (k, e) => MapEntry(
           k,
           e.map((k, e) => MapEntry(k, e.toJson())),
         ),
       ),
-      'single_register_gas_tariffs': singleRegisterGasTariffs.map(
+      'single_register_gas_tariffs': singleRegisterGasTariffs?.map(
         (k, e) => MapEntry(
           k,
           e.map((k, e) => MapEntry(k, e.toJson())),

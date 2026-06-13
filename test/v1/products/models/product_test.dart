@@ -193,7 +193,7 @@ void main() {
               );
 
               expect(
-                result.dualRegisterElectricityTariffs['_B']![
+                result.dualRegisterElectricityTariffs!['_B']![
                     'direct_debit_monthly'],
                 isA<Eco7ElectricityTariff>(),
               );
@@ -253,13 +253,13 @@ void main() {
               );
 
               expect(
-                result.singleRegisterElectricityTariffs['_A']![
+                result.singleRegisterElectricityTariffs!['_A']![
                     'direct_debit_monthly'],
                 isA<StandardElectricityTariff>(),
               );
 
               expect(
-                result.singleRegisterGasTariffs['_C']!['direct_debit_monthly'],
+                result.singleRegisterGasTariffs!['_C']!['direct_debit_monthly'],
                 isA<GasTariff>(),
               );
 
@@ -467,7 +467,7 @@ void main() {
 
               expect(
                 result
-                    .singleRegisterElectricityTariffs['_A']![
+                    .singleRegisterElectricityTariffs!['_A']![
                         'direct_debit_quarterly']!
                     .code,
                 isNull,
@@ -485,6 +485,51 @@ void main() {
 
               expect(
                 result.term,
+                isNull,
+              );
+            },
+          );
+
+          test(
+            'should return model from json with omitted fields',
+            () {
+              final json = <String, dynamic>{
+                'available_from': '2017-05-05T05:37:27Z',
+                'brand': 'TENTACLE_ENERGY',
+                'code': 'VAR-17-01-11',
+                'description':
+                    'This great value 12 month fixed tariff guarantees value.',
+                'display_name': 'Flexible Tentacle',
+                'full_name': 'Flexible Tentacle Offer January 2017 v1',
+                'is_restricted': false,
+                'links': <dynamic>[],
+                'tariffs_active_at': '2018-06-06T06:48:38Z',
+              };
+
+              final result = Product.fromJson(json);
+
+              expect(
+                result.dualRegisterElectricityTariffs,
+                isNull,
+              );
+
+              expect(
+                result.sampleConsumption,
+                isNull,
+              );
+
+              expect(
+                result.sampleQuotes,
+                isNull,
+              );
+
+              expect(
+                result.singleRegisterElectricityTariffs,
+                isNull,
+              );
+
+              expect(
+                result.singleRegisterGasTariffs,
                 isNull,
               );
             },
