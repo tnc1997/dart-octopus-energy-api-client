@@ -9,10 +9,11 @@ void main() {
         'fromJson',
         () {
           test(
-            'should return model from json',
+            'should return model from json with a numeric consumption',
             () {
+              // The live API returns `consumption` as a JSON number.
               final json = {
-                'consumption': '0.063',
+                'consumption': 0.063,
                 'interval_end': '2018-05-19T00:00:00.000Z',
                 'interval_start': '2018-05-18T23:30:00.000Z',
               };
@@ -35,6 +36,25 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with a string consumption',
+            () {
+              // The schema declares `consumption` as a string; accept it too.
+              final json = {
+                'consumption': '0.063',
+                'interval_end': '2018-05-19T00:00:00.000Z',
+                'interval_start': '2018-05-18T23:30:00.000Z',
+              };
+
+              final result = Consumption.fromJson(json);
+
+              expect(
+                result.consumption,
+                0.063,
+              );
+            },
+          );
         },
       );
 
@@ -54,7 +74,7 @@ void main() {
 
               expect(
                 result['consumption'],
-                '0.063',
+                0.063,
               );
 
               expect(

@@ -174,8 +174,14 @@ lazily on first access and reuses the client's `http.Client`.
 ## Models
 
 Model fields mirror what the API **actually returns**, which is not always what
-the published schema marks as `required`. A single model can serve both a request
-body and a response body, and responses routinely omit fields the request
-requires. Because of this, response fields are typed as nullable wherever the API
-may omit them — so treat a nullable field as genuinely optional and null-check it,
-even if the official schema lists it as required.
+the published schema declares. Two consequences worth knowing as a consumer:
+
+- **Nullability.** A single model can serve both a request body and a response
+  body, and responses routinely omit fields the request requires. Response fields
+  are therefore typed as nullable wherever the API may omit them — so treat a
+  nullable field as genuinely optional and null-check it, even if the official
+  schema lists it as `required`.
+- **Numeric types.** Some numeric values the schema declares as strings are
+  returned as JSON numbers (for example `Consumption.consumption`, and the
+  `Installation` capacity/generation figures). Their `fromJson` accepts either
+  form, so you do not need to handle the wire-type difference yourself.

@@ -119,6 +119,31 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with numeric values',
+            () {
+              // A response may return the decimals as JSON numbers rather than
+              // the strings the schema declares.
+              final json = <String, dynamic>{
+                'capacity_in_kw': 4.0,
+                'estimated_annual_generation_in_kwh': 3500.0,
+                'technology_type': 'Solar',
+              };
+
+              final result = Installation.fromJson(json);
+
+              expect(
+                result.capacityInKw,
+                4.0,
+              );
+
+              expect(
+                result.estimatedAnnualGenerationInKwh,
+                3500.0,
+              );
+            },
+          );
         },
       );
 

@@ -29,14 +29,21 @@ class Installation {
     Map<String, dynamic> json,
   ) {
     return Installation(
-      capacityInKw: json['capacity_in_kw'] != null
-          ? double.parse(json['capacity_in_kw'] as String)
-          : null,
+      // The schema types these as decimal strings, but a response may return
+      // them as JSON numbers (as the consumption endpoint does). Accept both.
+      capacityInKw: json['capacity_in_kw'] == null
+          ? null
+          : json['capacity_in_kw'] is String
+              ? double.parse(json['capacity_in_kw'] as String)
+              : (json['capacity_in_kw'] as num).toDouble(),
       estimatedAnnualGenerationInKwh:
-          json['estimated_annual_generation_in_kwh'] != null
-              ? double.parse(
-                  json['estimated_annual_generation_in_kwh'] as String)
-              : null,
+          json['estimated_annual_generation_in_kwh'] == null
+              ? null
+              : json['estimated_annual_generation_in_kwh'] is String
+                  ? double.parse(
+                      json['estimated_annual_generation_in_kwh'] as String)
+                  : (json['estimated_annual_generation_in_kwh'] as num)
+                      .toDouble(),
       fitId: json['fit_id'] as String?,
       regoId: json['rego_id'] as String?,
       technologyType: json['technology_type'] != null

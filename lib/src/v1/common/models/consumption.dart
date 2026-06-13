@@ -13,7 +13,11 @@ class Consumption {
     Map<String, dynamic> json,
   ) {
     return Consumption(
-      consumption: double.parse(json['consumption'] as String),
+      // The schema declares `consumption` as a string, but the live API returns
+      // it as a JSON number. Accept both so neither form crashes.
+      consumption: json['consumption'] is String
+          ? double.parse(json['consumption'] as String)
+          : (json['consumption'] as num).toDouble(),
       intervalEnd: DateTime.parse(json['interval_end'] as String),
       intervalStart: DateTime.parse(json['interval_start'] as String),
     );
@@ -21,7 +25,7 @@ class Consumption {
 
   Map<String, dynamic> toJson() {
     return {
-      'consumption': consumption.toString(),
+      'consumption': consumption,
       'interval_end': intervalEnd.toIso8601String(),
       'interval_start': intervalStart.toIso8601String(),
     };
