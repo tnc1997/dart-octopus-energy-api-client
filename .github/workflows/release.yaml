@@ -1,0 +1,73 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  prepare:
+    name: Prepare package
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Read version
+        id: version
+        run: |
+          version=$(grep -E '^version:' pubspec.yaml | sed -E 's/^version:[[:space:]]*//')
+          if ! printf '%s' "$version" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+$'; then
+            echo "::error::pubspec.yaml version '$version' is not a valid semver (expected e.g. 1.0.0)."
+            exit 1
+          fi
+          if git rev-parse "v$version" >/dev/null 2>&1; then
+            echo "::error::Tag 'v$version' already exists. Bump the version in pubspec.yaml before releasing."
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Generate changelog
+        env:
+          OUTPUT: CHANGELOG.md
+        uses: orhun/git-cliff-action@v4
+        with:
+          args: --tag v${{ steps.version.outputs.version }}
+
+      - name: Commit changelog and create tag
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if ! git diff --quiet -- CHANGELOG.md; then
+            git add CHANGELOG.md
+            git commit -m 'chore(release): prepare for v${{ steps.version.outputs.version }}'
+            git push origin main
+          fi
+          git tag 'v${{ steps.version.outputs.version }}'
+          git push origin 'v${{ steps.version.outputs.version }}'
+
+  publish:
+    name: Publish package
+    needs: prepare
+    permissions:
+      id-token: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: v${{ needs.prepare.outputs.version }}
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Publish package
+        run: dart pub publish --force
