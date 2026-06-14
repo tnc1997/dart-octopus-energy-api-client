@@ -16,3 +16,10 @@ dev_dependencies:
 funding:
   - https://buymeacoffee.com/tnc1997
   - https://ko-fi.com/tnc1997
+
+topics:
+  - api
+  - client
+  - http
+  - http-client
+  - rest
