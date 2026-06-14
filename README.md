@@ -53,7 +53,7 @@ two versions shared a single set of types, every such change would be a breaking
 tangled mess.
 
 To keep the versions cleanly separated, this package exposes **one importable
-library per API version**, plus a small shared library for the pieces that never
+library per API version**, plus a small common library for the pieces that never
 change between versions. You choose which version(s) to import, and Dart's
 `import ... as` prefixes keep them from colliding.
 
@@ -61,8 +61,8 @@ change between versions. You choose which version(s) to import, and Dart's
 
 | Import                                                             | What it contains                                                                                                                                                                                     |
 |--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `package:octopus_energy_api_client/octopus_energy_api_client.dart` | **Shared infrastructure only.** Version-independent plumbing: `clientViaApiKey`, the exception type, and the API host constant. It contains **no models and no client** — those belong to a version. |
-| `package:octopus_energy_api_client/v1.dart`                        | **The complete v1 SDK.** The v1 `OctopusEnergyApiClient`, every v1 service, and every v1 model and enum — plus a re-export of the shared infrastructure above, so a single import is enough.         |
+| `package:octopus_energy_api_client/octopus_energy_api_client.dart` | **Common infrastructure only.** Version-independent plumbing: `clientViaApiKey`, the exception type, and the API host constant. It contains **no models and no client** — those belong to a version. |
+| `package:octopus_energy_api_client/v1.dart`                        | **The complete v1 SDK.** The v1 `OctopusEnergyApiClient`, every v1 service, and every v1 model and enum — plus a re-export of the common infrastructure above, so a single import is enough.         |
 | `package:octopus_energy_api_client/v2.dart`                        | **The complete v2 SDK** (planned). The same shape as `v1.dart`, for the v2 API.                                                                                                                      |
 
 Everything under `lib/src/` is private implementation detail; only the libraries
@@ -86,7 +86,7 @@ final meterPoint = await api.electricityMeterPoints.getElectricityMeterPoint('12
 ### Using More Than One Version
 
 When you need two API versions in the same file, import each version's library with
-a prefix and import the shared infrastructure once, unprefixed:
+a prefix and import the common infrastructure once, unprefixed:
 
 ```dart
 import 'package:octopus_energy_api_client/octopus_energy_api_client.dart';
@@ -121,11 +121,11 @@ Some consequences worth knowing:
 - **Each version has its own client.** There is no single object that spans
   versions; you create one `OctopusEnergyApiClient` per version. Pass them the same
   `http.Client` (as above) so authentication and connection pooling are shared.
-- **The shared library carries no client.** Importing
+- **The common library carries no client.** Importing
   `package:octopus_energy_api_client/octopus_energy_api_client.dart` on its own gives
   you `clientViaApiKey` and the exception type, but not a client — that is
   intentional. Reach for a version library (`v1.dart`) to get a client.
-- **`clientViaApiKey` lives in the shared library** and is re-exported by every
+- **`clientViaApiKey` lives in the common library** and is re-exported by every
   version library, so `clientViaApiKey`, `v1.clientViaApiKey`, and
   `v2.clientViaApiKey` all refer to the same helper.
 
@@ -145,7 +145,7 @@ client in tests. Remember to `close()` the HTTP client when you are finished.
 ## Errors
 
 Unsuccessful responses throw an `OctopusEnergyApiClientException`, which is
-available from both the shared library and every version library:
+available from both the common library and every version library:
 
 ```dart
 try {
