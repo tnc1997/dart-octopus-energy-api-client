@@ -13,8 +13,6 @@ class Consumption {
     Map<String, dynamic> json,
   ) {
     return Consumption(
-      // The schema declares `consumption` as a string, but the live API returns
-      // it as a JSON number. Accept both so neither form crashes.
       consumption: json['consumption'] is String
           ? double.parse(json['consumption'] as String)
           : (json['consumption'] as num).toDouble(),
