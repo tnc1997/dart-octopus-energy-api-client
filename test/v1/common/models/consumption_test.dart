@@ -9,11 +9,10 @@ void main() {
         'fromJson',
         () {
           test(
-            'should return model from json with a numeric consumption',
-            () {
-              // The live API returns `consumption` as a JSON number.
+            'should return model from json',
+                () {
               final json = {
-                'consumption': 0.063,
+                'consumption': '0.063',
                 'interval_end': '2018-05-19T00:00:00.000Z',
                 'interval_start': '2018-05-18T23:30:00.000Z',
               };
@@ -38,11 +37,12 @@ void main() {
           );
 
           test(
-            'should return model from json with a string consumption',
+            'should return model from json with numeric values',
             () {
-              // The schema declares `consumption` as a string; accept it too.
+              // A response may return the decimals as JSON numbers rather than
+              // the strings the schema declares.
               final json = {
-                'consumption': '0.063',
+                'consumption': 0.063,
                 'interval_end': '2018-05-19T00:00:00.000Z',
                 'interval_start': '2018-05-18T23:30:00.000Z',
               };
