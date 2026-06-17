@@ -62,6 +62,24 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model with null validTo from json with an empty string',
+            () {
+              final json = {
+                'tariff_code': 'E-1R-VAR-17-01-11-A',
+                'valid_from': '2018-05-16T22:30:00Z',
+                'valid_to': '',
+              };
+
+              final result = AccountAgreement.fromJson(json);
+
+              expect(
+                result.validTo,
+                isNull,
+              );
+            },
+          );
         },
       );
 

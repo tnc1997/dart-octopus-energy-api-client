@@ -15,7 +15,7 @@ class AccountAgreement {
     return AccountAgreement(
       tariffCode: json['tariff_code'] as String,
       validFrom: DateTime.parse(json['valid_from'] as String),
-      validTo: json['valid_to'] != null
+      validTo: json['valid_to']?.isNotEmpty == true
           ? DateTime.parse(json['valid_to'] as String)
           : null,
     );
