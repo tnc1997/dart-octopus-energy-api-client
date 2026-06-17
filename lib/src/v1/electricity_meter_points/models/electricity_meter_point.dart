@@ -98,7 +98,7 @@ class ElectricityMeterPoint extends MeterPoint {
           ? MeterType.fromJson(json['meter_type'] as String)
           : null,
       mpan: json['mpan'] as String?,
-      preferredSsd: json['preferred_ssd'] != null
+      preferredSsd: json['preferred_ssd']?.isNotEmpty == true
           ? DateTime.parse(json['preferred_ssd'] as String)
           : null,
       profileClass: (json['profile_class'] as num?)?.toInt(),
@@ -106,13 +106,17 @@ class ElectricityMeterPoint extends MeterPoint {
           ? Quote.fromJson(json['quote'] as Map<String, dynamic>)
           : null,
       quotedProductId: (json['quoted_product_id'] as num?)?.toInt(),
-      standingChargeUplift: json['standing_charge_uplift'] != null
-          ? double.parse(json['standing_charge_uplift'] as String)
-          : null,
+      standingChargeUplift: json['standing_charge_uplift'] is num
+          ? (json['standing_charge_uplift'] as num).toDouble()
+          : (json['standing_charge_uplift'] as String?)?.isNotEmpty == true
+              ? double.parse(json['standing_charge_uplift'] as String)
+              : null,
       tariffCode: json['tariff_code'] as String?,
-      unitRateUplift: json['unit_rate_uplift'] != null
-          ? double.parse(json['unit_rate_uplift'] as String)
-          : null,
+      unitRateUplift: json['unit_rate_uplift'] is num
+          ? (json['unit_rate_uplift'] as num).toDouble()
+          : (json['unit_rate_uplift'] as String?)?.isNotEmpty == true
+              ? double.parse(json['unit_rate_uplift'] as String)
+              : null,
     );
   }
 

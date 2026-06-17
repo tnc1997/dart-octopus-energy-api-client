@@ -330,6 +330,203 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with numeric values',
+            () {
+              final json = {
+                'standing_charge_uplift': 1.23,
+                'unit_rate_uplift': 4.56,
+              };
+
+              final result = ElectricityMeterPoint.fromJson(json);
+
+              expect(
+                result.standingChargeUplift,
+                1.23,
+              );
+
+              expect(
+                result.unitRateUplift,
+                4.56,
+              );
+            },
+          );
+
+          test(
+            'should return model with null preferredSsd from json with an empty string',
+            () {
+              final json = {
+                'address': {
+                  'address_line_1': '87 Doveys Close',
+                  'address_line_2': 'Address Line 2',
+                  'address_line_3': 'Address Line 3',
+                  'county': 'Hampshire',
+                  'delivery_point_identifier': '1234567890',
+                  'postcode': 'BH24 4BP',
+                  'town': 'Ringwood',
+                },
+                'bespoke_pps_tariff_rates': [
+                  {
+                    'payment_method': 'NDD',
+                    'standing_charge': '0.1',
+                    'unit_rate': '0.2',
+                    'unit_rates': [
+                      {
+                        'payment_method': 'DD',
+                        'rate_type': 'STANDARD',
+                        'unit_rate': '0.3',
+                      }
+                    ],
+                  }
+                ],
+                'bespoke_tariff_rates': {
+                  'standing_charge': '0.4',
+                  'unit_rate': '0.5',
+                  'unit_rates': [
+                    {
+                      'payment_method': 'PP',
+                      'rate_type': 'OFF_PEAK',
+                      'unit_rate': '0.6',
+                    }
+                  ],
+                },
+                'consumption_day': 1000,
+                'consumption_night': 500,
+                'consumption_off_peak': 200,
+                'consumption_standard': 3100,
+                'current_supplier_name': 'SUP',
+                'current_supplier_tariff': 'SUP-123',
+                'export_details': {
+                  'import_mpan': '1234567890123',
+                  'installations': [
+                    {
+                      'capacity_in_kw': '4.0',
+                      'estimated_annual_generation_in_kwh': '3500.0',
+                      'fit_id': 'FIT123',
+                      'rego_id': 'REGO456',
+                      'technology_type': 'Solar',
+                    }
+                  ],
+                  'site_contact_email': 'chris@example.com',
+                  'site_contact_name': 'Chris Johnson',
+                  'site_contact_phone': '0123456789',
+                },
+                'fixed_tpi_fee': 100,
+                'gsp': '_H',
+                'has_smart_meter': false,
+                'is_half_hourly': true,
+                'meter_type': 'CREDIT',
+                'mpan': '2000024512368',
+                'preferred_ssd': '',
+                'profile_class': 1,
+                'quote': {
+                  'annual_payment': 46576,
+                },
+                'quoted_product_id': 123,
+                'standing_charge_uplift': '0.7',
+                'tariff_code': 'E-1R-VAR-17-01-11-A',
+                'unit_rate_uplift': '0.8',
+              };
+
+              final result = ElectricityMeterPoint.fromJson(json);
+
+              expect(
+                result.preferredSsd,
+                isNull,
+              );
+            },
+          );
+
+          test(
+            'should return model with null standingChargeUplift and unitRateUplift from json with an empty string',
+            () {
+              final json = {
+                'address': {
+                  'address_line_1': '87 Doveys Close',
+                  'address_line_2': 'Address Line 2',
+                  'address_line_3': 'Address Line 3',
+                  'county': 'Hampshire',
+                  'delivery_point_identifier': '1234567890',
+                  'postcode': 'BH24 4BP',
+                  'town': 'Ringwood',
+                },
+                'bespoke_pps_tariff_rates': [
+                  {
+                    'payment_method': 'NDD',
+                    'standing_charge': '0.1',
+                    'unit_rate': '0.2',
+                    'unit_rates': [
+                      {
+                        'payment_method': 'DD',
+                        'rate_type': 'STANDARD',
+                        'unit_rate': '0.3',
+                      }
+                    ],
+                  }
+                ],
+                'bespoke_tariff_rates': {
+                  'standing_charge': '0.4',
+                  'unit_rate': '0.5',
+                  'unit_rates': [
+                    {
+                      'payment_method': 'PP',
+                      'rate_type': 'OFF_PEAK',
+                      'unit_rate': '0.6',
+                    }
+                  ],
+                },
+                'consumption_day': 1000,
+                'consumption_night': 500,
+                'consumption_off_peak': 200,
+                'consumption_standard': 3100,
+                'current_supplier_name': 'SUP',
+                'current_supplier_tariff': 'SUP-123',
+                'export_details': {
+                  'import_mpan': '1234567890123',
+                  'installations': [
+                    {
+                      'capacity_in_kw': '4.0',
+                      'estimated_annual_generation_in_kwh': '3500.0',
+                      'fit_id': 'FIT123',
+                      'rego_id': 'REGO456',
+                      'technology_type': 'Solar',
+                    }
+                  ],
+                  'site_contact_email': 'chris@example.com',
+                  'site_contact_name': 'Chris Johnson',
+                  'site_contact_phone': '0123456789',
+                },
+                'fixed_tpi_fee': 100,
+                'gsp': '_H',
+                'has_smart_meter': false,
+                'is_half_hourly': true,
+                'meter_type': 'CREDIT',
+                'mpan': '2000024512368',
+                'preferred_ssd': '1970-01-01T00:00:00.000Z',
+                'profile_class': 1,
+                'quote': {
+                  'annual_payment': 46576,
+                },
+                'quoted_product_id': 123,
+                'standing_charge_uplift': '',
+                'tariff_code': 'E-1R-VAR-17-01-11-A',
+                'unit_rate_uplift': '',
+              };
+
+              final result = ElectricityMeterPoint.fromJson(json);
+
+              expect(
+                result.standingChargeUplift,
+                isNull,
+              );
+
+              expect(
+                result.unitRateUplift,
+                isNull,
+              );
+            },
+          );
         },
       );
 
