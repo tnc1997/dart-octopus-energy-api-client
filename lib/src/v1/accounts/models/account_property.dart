@@ -46,7 +46,7 @@ class AccountProperty {
           .toList(),
       id: (json['id'] as num).toInt(),
       movedInAt: DateTime.parse(json['moved_in_at'] as String),
-      movedOutAt: json['moved_out_at'] != null
+      movedOutAt: json['moved_out_at']?.isNotEmpty == true
           ? DateTime.parse(json['moved_out_at'] as String)
           : null,
       postcode: json['postcode'] as String?,

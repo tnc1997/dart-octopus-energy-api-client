@@ -166,6 +166,40 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model with null movedOutAt from json with an empty string',
+            () {
+              final json = {
+                'address_line_1': '87 Doveys Close',
+                'address_line_2': 'Address Line 2',
+                'address_line_3': 'Address Line 3',
+                'county': 'Hampshire',
+                'electricity_meter_points': [
+                  {
+                    'mpan': '2000024512368',
+                  }
+                ],
+                'gas_meter_points': [
+                  {
+                    'mprn': '3016362107',
+                  }
+                ],
+                'id': 12345,
+                'moved_in_at': '1970-01-01T00:00:00.000Z',
+                'moved_out_at': '',
+                'postcode': 'BH24 4BP',
+                'town': 'Ringwood',
+              };
+
+              final result = AccountProperty.fromJson(json);
+
+              expect(
+                result.movedOutAt,
+                isNull,
+              );
+            },
+          );
         },
       );
 
