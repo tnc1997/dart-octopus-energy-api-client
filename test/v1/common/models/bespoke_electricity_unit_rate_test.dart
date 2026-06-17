@@ -39,9 +39,7 @@ void main() {
           test(
             'should return model from json with null values',
             () {
-              final json = {
-                'unit_rate': '12.6',
-              };
+              final json = <String, dynamic>{};
 
               final result = BespokeElectricityUnitRate.fromJson(json);
 
@@ -57,7 +55,53 @@ void main() {
 
               expect(
                 result.unitRate,
+                isNull,
+              );
+            },
+          );
+
+          test(
+            'should return model from json with numeric values',
+            () {
+              final json = {
+                'payment_method': 'DD',
+                'rate_type': 'STANDARD',
+                'unit_rate': 12.6,
+              };
+
+              final result = BespokeElectricityUnitRate.fromJson(json);
+
+              expect(
+                result.paymentMethod,
+                BespokePaymentMethod.dd,
+              );
+
+              expect(
+                result.rateType,
+                BespokeRateType.standard,
+              );
+
+              expect(
+                result.unitRate,
                 12.6,
+              );
+            },
+          );
+
+          test(
+            'should return model with null unitRate from json with an empty string',
+            () {
+              final json = {
+                'payment_method': 'DD',
+                'rate_type': 'STANDARD',
+                'unit_rate': '',
+              };
+
+              final result = BespokeElectricityUnitRate.fromJson(json);
+
+              expect(
+                result.unitRate,
+                isNull,
               );
             },
           );

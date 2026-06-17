@@ -12,12 +12,12 @@ class BespokeElectricityUnitRate {
   BespokeRateType? rateType;
 
   /// The value in pence per kWh of the charge (excluding VAT).
-  double unitRate;
+  double? unitRate;
 
   BespokeElectricityUnitRate({
     this.paymentMethod,
     this.rateType,
-    required this.unitRate,
+    this.unitRate,
   });
 
   factory BespokeElectricityUnitRate.fromJson(
@@ -30,7 +30,11 @@ class BespokeElectricityUnitRate {
       rateType: json['rate_type'] != null
           ? BespokeRateType.fromJson(json['rate_type'] as String)
           : null,
-      unitRate: double.parse(json['unit_rate'] as String),
+      unitRate: json['unit_rate'] is num
+          ? (json['unit_rate'] as num).toDouble()
+          : (json['unit_rate'] as String?)?.isNotEmpty == true
+              ? double.parse(json['unit_rate'] as String)
+              : null,
     );
   }
 
@@ -38,7 +42,7 @@ class BespokeElectricityUnitRate {
     return {
       'payment_method': paymentMethod?.toJson(),
       'rate_type': rateType?.toJson(),
-      'unit_rate': unitRate.toString(),
+      'unit_rate': unitRate?.toString(),
     };
   }
 }
