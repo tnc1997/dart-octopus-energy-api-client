@@ -239,6 +239,161 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with numeric values',
+            () {
+              final json = {
+                'standing_charge_uplift': 1.23,
+                'unit_rate_uplift': 4.56,
+              };
+
+              final result = GasMeterPoint.fromJson(json);
+
+              expect(
+                result.standingChargeUplift,
+                1.23,
+              );
+
+              expect(
+                result.unitRateUplift,
+                4.56,
+              );
+            },
+          );
+
+          test(
+            'should return model with null preferredSsd from json with an empty string',
+            () {
+              final json = {
+                'address': {
+                  'address_line_1': '87 Doveys Close',
+                  'address_line_2': 'Address Line 2',
+                  'address_line_3': 'Address Line 3',
+                  'county': 'Hampshire',
+                  'delivery_point_identifier': '1234567890',
+                  'postcode': 'BH24 4BP',
+                  'town': 'Ringwood',
+                },
+                'bespoke_pps_tariff_rates': [
+                  {
+                    'payment_method': 'NDD',
+                    'standing_charge': '0.1',
+                    'unit_rate': '0.2',
+                    'unit_rates': [
+                      {
+                        'payment_method': 'DD',
+                        'rate_type': 'STANDARD',
+                        'unit_rate': '0.3',
+                      }
+                    ],
+                  }
+                ],
+                'bespoke_tariff_rates': {
+                  'standing_charge': '0.4',
+                  'unit_rate': '0.5',
+                  'unit_rates': [
+                    {
+                      'payment_method': 'PP',
+                      'rate_type': 'OFF_PEAK',
+                      'unit_rate': '0.6',
+                    }
+                  ],
+                },
+                'consumption_standard': 12500,
+                'current_supplier_name': 'SUP',
+                'current_supplier_tariff': 'SUP-123',
+                'fixed_tpi_fee': 100,
+                'has_smart_meter': false,
+                'meter_type': 'CREDIT',
+                'mprn': '3016362107',
+                'preferred_ssd': '',
+                'quote': {
+                  'annual_payment': 44961,
+                },
+                'quoted_product_id': 123,
+                'standing_charge_uplift': '0.7',
+                'tariff_code': 'G-1R-VAR-17-01-11-A',
+                'unit_rate_uplift': '0.8',
+              };
+
+              final result = GasMeterPoint.fromJson(json);
+
+              expect(
+                result.preferredSsd,
+                isNull,
+              );
+            },
+          );
+
+          test(
+            'should return model with null standingChargeUplift and unitRateUplift from json with an empty string',
+            () {
+              final json = {
+                'address': {
+                  'address_line_1': '87 Doveys Close',
+                  'address_line_2': 'Address Line 2',
+                  'address_line_3': 'Address Line 3',
+                  'county': 'Hampshire',
+                  'delivery_point_identifier': '1234567890',
+                  'postcode': 'BH24 4BP',
+                  'town': 'Ringwood',
+                },
+                'bespoke_pps_tariff_rates': [
+                  {
+                    'payment_method': 'NDD',
+                    'standing_charge': '0.1',
+                    'unit_rate': '0.2',
+                    'unit_rates': [
+                      {
+                        'payment_method': 'DD',
+                        'rate_type': 'STANDARD',
+                        'unit_rate': '0.3',
+                      }
+                    ],
+                  }
+                ],
+                'bespoke_tariff_rates': {
+                  'standing_charge': '0.4',
+                  'unit_rate': '0.5',
+                  'unit_rates': [
+                    {
+                      'payment_method': 'PP',
+                      'rate_type': 'OFF_PEAK',
+                      'unit_rate': '0.6',
+                    }
+                  ],
+                },
+                'consumption_standard': 12500,
+                'current_supplier_name': 'SUP',
+                'current_supplier_tariff': 'SUP-123',
+                'fixed_tpi_fee': 100,
+                'has_smart_meter': false,
+                'meter_type': 'CREDIT',
+                'mprn': '3016362107',
+                'preferred_ssd': '1970-01-01T00:00:00.000Z',
+                'quote': {
+                  'annual_payment': 44961,
+                },
+                'quoted_product_id': 123,
+                'standing_charge_uplift': '',
+                'tariff_code': 'G-1R-VAR-17-01-11-A',
+                'unit_rate_uplift': '',
+              };
+
+              final result = GasMeterPoint.fromJson(json);
+
+              expect(
+                result.standingChargeUplift,
+                isNull,
+              );
+
+              expect(
+                result.unitRateUplift,
+                isNull,
+              );
+            },
+          );
         },
       );
 
