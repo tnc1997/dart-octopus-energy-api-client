@@ -6,7 +6,7 @@ class Agreement {
   String tariffCode;
 
   /// Date (inclusive) the new agreement is valid from.
-  DateTime validFromDate;
+  DateTime? validFromDate;
 
   /// Date (exclusive) the new agreement is valid to.
   DateTime? validToDate;
@@ -15,6 +15,7 @@ class Agreement {
     required this.mpxn,
     required this.tariffCode,
     required this.validFromDate,
+    this.validFromDate,
     this.validToDate,
   });
 
@@ -26,6 +27,10 @@ class Agreement {
       tariffCode: json['tariff_code'] as String,
       validFromDate: DateTime.parse(json['valid_from_date'] as String),
       validToDate: json['valid_to_date'] != null
+      validFromDate: json['valid_from_date']?.isNotEmpty == true
+          ? DateTime.parse(json['valid_from_date'] as String)
+          : null,
+      validToDate: json['valid_to_date']?.isNotEmpty == true
           ? DateTime.parse(json['valid_to_date'] as String)
           : null,
     );
@@ -35,7 +40,7 @@ class Agreement {
     return {
       'mpxn': mpxn,
       'tariff_code': tariffCode,
-      'valid_from_date': validFromDate.toIso8601String(),
+      'valid_from_date': validFromDate?.toIso8601String(),
       'valid_to_date': validToDate?.toIso8601String(),
     };
   }

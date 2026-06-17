@@ -65,7 +65,31 @@ void main() {
 
               expect(
                 result.validFromDate,
-                DateTime.parse('2019-12-01'),
+                isNull,
+              );
+
+              expect(
+                result.validToDate,
+                isNull,
+              );
+            },
+          );
+
+          test(
+            'should return model with null validFromDate and validToDate from json with an empty string',
+            () {
+              final json = {
+                'mpxn': '1013004420117',
+                'tariff_code': 'E-1R-SOME-PRODUCT-J',
+                'valid_from_date': '',
+                'valid_to_date': '',
+              };
+
+              final result = Agreement.fromJson(json);
+
+              expect(
+                result.validFromDate,
+                isNull,
               );
 
               expect(
