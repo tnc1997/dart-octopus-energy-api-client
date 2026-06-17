@@ -3,7 +3,7 @@ import 'bespoke_electricity_unit_rate.dart';
 
 class BespokePpsTariffRates {
   /// The payment method for the rate.
-  BespokePaymentMethod paymentMethod;
+  BespokePaymentMethod? paymentMethod;
 
   /// The value in pence per day of the charge (excluding VAT).
   double? standingCharge;
@@ -20,7 +20,7 @@ class BespokePpsTariffRates {
   List<BespokeElectricityUnitRate>? unitRates;
 
   BespokePpsTariffRates({
-    required this.paymentMethod,
+    this.paymentMethod,
     this.standingCharge,
     this.unitRate,
     this.unitRates,
@@ -30,14 +30,19 @@ class BespokePpsTariffRates {
     Map<String, dynamic> json,
   ) {
     return BespokePpsTariffRates(
-      paymentMethod:
-          BespokePaymentMethod.fromJson(json['payment_method'] as String),
-      standingCharge: json['standing_charge'] != null
-          ? double.parse(json['standing_charge'] as String)
+      paymentMethod: json['payment_method'] != null
+          ? BespokePaymentMethod.fromJson(json['payment_method'] as String)
           : null,
-      unitRate: json['unit_rate'] != null
-          ? double.parse(json['unit_rate'] as String)
-          : null,
+      standingCharge: json['standing_charge'] is num
+          ? (json['standing_charge'] as num).toDouble()
+          : (json['standing_charge'] as String?)?.isNotEmpty == true
+              ? double.parse(json['standing_charge'] as String)
+              : null,
+      unitRate: json['unit_rate'] is num
+          ? (json['unit_rate'] as num).toDouble()
+          : (json['unit_rate'] as String?)?.isNotEmpty == true
+              ? double.parse(json['unit_rate'] as String)
+              : null,
       unitRates: (json['unit_rates'] as List<dynamic>?)
           ?.map((e) =>
               BespokeElectricityUnitRate.fromJson(e as Map<String, dynamic>))
@@ -47,7 +52,7 @@ class BespokePpsTariffRates {
 
   Map<String, dynamic> toJson() {
     return {
-      'payment_method': paymentMethod.toJson(),
+      'payment_method': paymentMethod?.toJson(),
       'standing_charge': standingCharge?.toString(),
       'unit_rate': unitRate?.toString(),
       'unit_rates': unitRates?.map((e) => e.toJson()).toList(),

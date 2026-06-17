@@ -55,15 +55,13 @@ void main() {
           test(
             'should return model from json with null values',
             () {
-              final json = {
-                'payment_method': 'DD',
-              };
+              final json = <String, dynamic>{};
 
               final result = BespokePpsTariffRates.fromJson(json);
 
               expect(
                 result.paymentMethod,
-                BespokePaymentMethod.dd,
+                isNull,
               );
 
               expect(
@@ -78,6 +76,80 @@ void main() {
 
               expect(
                 result.unitRates,
+                isNull,
+              );
+            },
+          );
+
+          test(
+            'should return model from json with numeric values',
+            () {
+              final json = {
+                'payment_method': 'DD',
+                'standing_charge': 25.0,
+                'unit_rate': 15.0,
+                'unit_rates': [
+                  {
+                    'payment_method': 'DD',
+                    'rate_type': 'STANDARD',
+                    'unit_rate': 10.5,
+                  },
+                ],
+              };
+
+              final result = BespokePpsTariffRates.fromJson(json);
+
+              expect(
+                result.paymentMethod,
+                BespokePaymentMethod.dd,
+              );
+
+              expect(
+                result.standingCharge,
+                25.0,
+              );
+
+              expect(
+                result.unitRate,
+                15.0,
+              );
+
+              expect(
+                result.unitRates,
+                isA<List<BespokeElectricityUnitRate>>().having(
+                  (unitRates) => unitRates.length,
+                  'length',
+                  1,
+                ),
+              );
+            },
+          );
+
+          test(
+            'should return model with null standingCharge and unitRate from json with an empty string',
+            () {
+              final json = {
+                'payment_method': 'DD',
+                'standing_charge': '',
+                'unit_rate': '',
+                'unit_rates': [
+                  {
+                    'payment_method': 'DD',
+                    'rate_type': 'STANDARD',
+                    'unit_rate': '10.5',
+                  },
+                ],
+              };
+
+              final result = BespokePpsTariffRates.fromJson(json);
+
+              expect(
+                result.standingCharge,
+                isNull,
+              );
+
+              expect(
+                result.unitRate,
                 isNull,
               );
             },
