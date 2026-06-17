@@ -84,6 +84,31 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model with null validFrom and validTo from json with an empty string',
+            () {
+              final json = {
+                'payment_method': 'DIRECT_DEBIT',
+                'valid_from': '',
+                'valid_to': '',
+                'value_exc_vat': 11,
+                'value_inc_vat': 11.55,
+              };
+
+              final result = HistoricalCharge.fromJson(json);
+
+              expect(
+                result.validFrom,
+                isNull,
+              );
+
+              expect(
+                result.validTo,
+                isNull,
+              );
+            },
+          );
         },
       );
 

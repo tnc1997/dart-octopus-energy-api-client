@@ -18,10 +18,10 @@ class HistoricalCharge {
   ) {
     return HistoricalCharge(
       paymentMethod: json['payment_method'] as String?,
-      validFrom: json['valid_from'] != null
+      validFrom: json['valid_from']?.isNotEmpty == true
           ? DateTime.parse(json['valid_from'] as String)
           : null,
-      validTo: json['valid_to'] != null
+      validTo: json['valid_to']?.isNotEmpty == true
           ? DateTime.parse(json['valid_to'] as String)
           : null,
       valueExcVat: (json['value_exc_vat'] as num).toDouble(),
