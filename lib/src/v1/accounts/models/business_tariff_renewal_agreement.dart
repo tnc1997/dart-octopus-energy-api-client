@@ -44,7 +44,7 @@ class BusinessTariffRenewalAgreement {
       mpxn: json['mpxn'] as String,
       tariffCode: json['tariff_code'] as String,
       validFromDate: DateTime.parse(json['valid_from_date'] as String),
-      validToDate: json['valid_to_date'] != null
+      validToDate: json['valid_to_date']?.isNotEmpty == true
           ? DateTime.parse(json['valid_to_date'] as String)
           : null,
     );

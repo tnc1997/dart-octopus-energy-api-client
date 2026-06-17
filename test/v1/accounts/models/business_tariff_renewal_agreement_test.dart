@@ -108,6 +108,35 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model with null validToDate from json with an empty string',
+            () {
+              final json = {
+                'bespoke_tariff_rates': [
+                  {
+                    'meter_serial_number': 'Z16N389556',
+                    'standing_charge': '3.25',
+                  }
+                ],
+                'commission': {
+                  'affiliate_organisation_name': 'Some Partner',
+                  'unit_rate_uplift': '1.00',
+                },
+                'mpxn': '1013004420117',
+                'tariff_code': 'E-1R-SOME-PRODUCT-J',
+                'valid_from_date': '2019-12-01',
+                'valid_to_date': '',
+              };
+
+              final result = BusinessTariffRenewalAgreement.fromJson(json);
+
+              expect(
+                result.validToDate,
+                isNull,
+              );
+            },
+          );
         },
       );
 
