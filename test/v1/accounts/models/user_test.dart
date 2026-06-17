@@ -168,6 +168,38 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model with null dateOfBirth from json with an empty string',
+            () {
+              final json = {
+                'credit_score_data': {
+                  'risk_bracket': 'LOW',
+                  'score': 700,
+                },
+                'date_of_birth': '',
+                'email': 'chris@example.com',
+                'family_name': 'Johnson',
+                'given_name': 'Chris',
+                'label': 'Home',
+                'landline': '02084459876',
+                'mobile': '07742628216',
+                'opted_in_for_marketing': true,
+                'opted_in_to_third_parties': false,
+                'psr': {
+                  'requires_signup': true,
+                },
+                'title': 'Dr',
+              };
+
+              final result = User.fromJson(json);
+
+              expect(
+                result.dateOfBirth,
+                isNull,
+              );
+            },
+          );
         },
       );
 

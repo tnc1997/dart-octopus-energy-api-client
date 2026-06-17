@@ -51,7 +51,7 @@ class User {
           ? CreditScoreData.fromJson(
               json['credit_score_data'] as Map<String, dynamic>)
           : null,
-      dateOfBirth: json['date_of_birth'] != null
+      dateOfBirth: json['date_of_birth']?.isNotEmpty == true
           ? DateTime.parse(json['date_of_birth'] as String)
           : null,
       email: json['email'] as String,
