@@ -29,19 +29,20 @@ class Installation {
     Map<String, dynamic> json,
   ) {
     return Installation(
-      capacityInKw: json['capacity_in_kw'] != null
-          ? json['capacity_in_kw'] is String
+      capacityInKw: json['capacity_in_kw'] is num
+          ? (json['capacity_in_kw'] as num).toDouble()
+          : (json['capacity_in_kw'] as String?)?.isNotEmpty == true
               ? double.parse(json['capacity_in_kw'] as String)
-              : (json['capacity_in_kw'] as num).toDouble()
-          : null,
+              : null,
       estimatedAnnualGenerationInKwh:
-          json['estimated_annual_generation_in_kwh'] != null
-              ? json['estimated_annual_generation_in_kwh'] is String
+          json['estimated_annual_generation_in_kwh'] is num
+              ? (json['estimated_annual_generation_in_kwh'] as num).toDouble()
+              : (json['estimated_annual_generation_in_kwh'] as String?)
+                          ?.isNotEmpty ==
+                      true
                   ? double.parse(
                       json['estimated_annual_generation_in_kwh'] as String)
-                  : (json['estimated_annual_generation_in_kwh'] as num)
-                      .toDouble()
-              : null,
+                  : null,
       fitId: json['fit_id'] as String?,
       regoId: json['rego_id'] as String?,
       technologyType: json['technology_type'] != null

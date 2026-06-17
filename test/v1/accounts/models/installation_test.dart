@@ -88,7 +88,7 @@ void main() {
 
           test(
             'should return model from json with numeric values',
-                () {
+            () {
               // A response may return the decimals as JSON numbers rather than
               // the strings the schema declares.
               final json = <String, dynamic>{
@@ -140,6 +140,31 @@ void main() {
 
               expect(
                 result.technologyType,
+                isNull,
+              );
+            },
+          );
+
+          test(
+            'should return model with null capacityInKw and estimatedAnnualGenerationInKwh from json with an empty string',
+            () {
+              final json = {
+                'capacity_in_kw': '',
+                'estimated_annual_generation_in_kwh': '',
+                'fit_id': 'FIT123',
+                'rego_id': 'REGO456',
+                'technology_type': 'Solar',
+              };
+
+              final result = Installation.fromJson(json);
+
+              expect(
+                result.capacityInKw,
+                isNull,
+              );
+
+              expect(
+                result.estimatedAnnualGenerationInKwh,
                 isNull,
               );
             },
