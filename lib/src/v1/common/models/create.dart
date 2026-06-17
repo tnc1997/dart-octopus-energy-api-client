@@ -221,7 +221,7 @@ class Create {
       payment: json['payment'] != null
           ? Payment.fromJson(json['payment'] as Map<String, dynamic>)
           : null,
-      preferredSsd: json['preferred_ssd'] != null
+      preferredSsd: json['preferred_ssd']?.isNotEmpty == true
           ? DateTime.parse(json['preferred_ssd'] as String)
           : null,
       previousBillingAddress: json['previous_billing_address'] != null
@@ -255,7 +255,7 @@ class Create {
               json['smart_onboarding_product_type'] as String,
             )
           : null,
-      soldAt: json['sold_at'] != null
+      soldAt: json['sold_at']?.isNotEmpty == true
           ? DateTime.parse(json['sold_at'] as String)
           : null,
       source: AccountSource.fromJson(json['source'] as String),

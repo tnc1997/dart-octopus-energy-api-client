@@ -456,6 +456,119 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model with null preferredSsd and soldAt from json with an empty string',
+            () {
+              final json = {
+                'account_reference': 'REF123',
+                'account_type': 'DOMESTIC',
+                'affiliate': {
+                  'affiliate_link_subdomain': 'affiliate',
+                  'organization_name': 'Organization',
+                  'signup_reward_code': 'REWARD123',
+                },
+                'billing_address': {
+                  'address_line_1': '87 Doveys Close',
+                  'address_line_2': 'Address Line 2',
+                  'address_line_3': 'Address Line 3',
+                  'county': 'Hampshire',
+                  'postcode': 'BH24 4BP',
+                  'town': 'Ringwood',
+                },
+                'billing_options': {
+                  'period_length': 1,
+                  'period_start_day': 2,
+                  'period_start_month': 3,
+                },
+                'brand_code': 'OCTOPUS_ENERGY',
+                'business': {
+                  'annual_turnover': 100000,
+                  'business_type': 'LIMITED',
+                  'head_count': 10,
+                  'is_ccl_exempt': true,
+                  'is_vat_exempt': false,
+                  'name': 'Business Name',
+                  'number': '87654321',
+                },
+                'deposit': {
+                  'amount': 100,
+                  'key': 'KEY',
+                  'reason': 'REASON',
+                },
+                'electricity_meter_points': [
+                  {
+                    'mpan': '2000024512368',
+                    'quote': {
+                      'annual_payment': 46576,
+                    },
+                  }
+                ],
+                'gas_meter_points': [
+                  {
+                    'mprn': '3016362107',
+                    'quote': {
+                      'annual_payment': 44961,
+                    },
+                  }
+                ],
+                'is_change_of_tenancy': false,
+                'metadata': [
+                  {
+                    'key': 'metadata_key',
+                    'value': 'VALUE',
+                  }
+                ],
+                'payment': {
+                  'account_name': 'Chris Johnson',
+                  'account_number': '12345678',
+                  'account_sort_code': '111111',
+                  'delay_days': 0,
+                  'method': 'MONTHLY_DIRECT_DEBIT',
+                  'payment_day': 1,
+                },
+                'preferred_ssd': '',
+                'previous_billing_address': {
+                  'address_line_1': '123 Fake St',
+                  'postcode': 'EF5 6GH',
+                },
+                'promo_reward_code': 'PROMO123',
+                'quote_code': '1981fd3936cc4cfda70b2e697347b885',
+                'quote_request_code': 'REQUEST123',
+                'reference': '12067-056785',
+                'referral_code': 'some-referral-123',
+                'requires_postal_comms': true,
+                'sales_channel': 'DIRECT',
+                'sales_subchannel': 'SUBCHANNEL',
+                'signup_reward_code': 'SIGNUP123',
+                'smart_meter_interest': 'SMETS2_INTEREST_INTERESTED',
+                'smart_meter_read_permission': 'HALF_HOURLY',
+                'smart_onboarding_product_type': 'AGILE',
+                'sold_at': '',
+                'source': 'INTERNET',
+                'users': [
+                  {
+                    'email': 'chris@example.com',
+                    'family_name': 'Johnson',
+                    'given_name': 'Chris',
+                    'opted_in_for_marketing': false,
+                  },
+                ],
+              };
+
+              final result = Create.fromJson(json);
+
+              expect(
+                result.preferredSsd,
+                isNull,
+              );
+
+              expect(
+                result.soldAt,
+                isNull,
+              );
+            },
+          );
         },
       );
 
