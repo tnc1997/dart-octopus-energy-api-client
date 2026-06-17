@@ -61,7 +61,7 @@ class QuoteTil {
       estimatedAnnualCost: (json['estimated_annual_cost'] as num?)?.toDouble(),
       exitFees: (json['exit_fees'] as num?)?.toDouble(),
       paymentMethod: json['payment_method'] as String?,
-      priceGuaranteedUntil: json['price_guaranteed_until'] != null
+      priceGuaranteedUntil: json['price_guaranteed_until']?.isNotEmpty == true
           ? DateTime.parse(json['price_guaranteed_until'] as String)
           : null,
       standingCharge: (json['standing_charge'] as num?)?.toDouble(),

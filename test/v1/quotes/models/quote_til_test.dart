@@ -246,6 +246,22 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model with null priceGuaranteedUntil from json with an empty string',
+            () {
+              final json = {
+                'price_guaranteed_until': '',
+              };
+
+              final result = QuoteTil.fromJson(json);
+
+              expect(
+                result.priceGuaranteedUntil,
+                isNull,
+              );
+            },
+          );
         },
       );
 
