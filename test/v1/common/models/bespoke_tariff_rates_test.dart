@@ -69,6 +69,73 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with numeric values',
+            () {
+              final json = {
+                'standing_charge': 13.25,
+                'unit_rate': 3.25,
+                'unit_rates': [
+                  {
+                    'payment_method': 'DD',
+                    'rate_type': 'STANDARD',
+                    'unit_rate': 12.6,
+                  },
+                ],
+              };
+
+              final result = BespokeTariffRates.fromJson(json);
+
+              expect(
+                result.standingCharge,
+                13.25,
+              );
+
+              expect(
+                result.unitRate,
+                3.25,
+              );
+
+              expect(
+                result.unitRates,
+                isA<List<BespokeElectricityUnitRate>>().having(
+                  (unitRates) => unitRates.length,
+                  'length',
+                  1,
+                ),
+              );
+            },
+          );
+
+          test(
+            'should return model with null standingCharge and unitRate from json with an empty string',
+            () {
+              final json = {
+                'standing_charge': '',
+                'unit_rate': '',
+                'unit_rates': [
+                  {
+                    'payment_method': 'DD',
+                    'rate_type': 'STANDARD',
+                    'unit_rate': '12.6',
+                  },
+                ],
+              };
+
+              final result = BespokeTariffRates.fromJson(json);
+
+              expect(
+                result.standingCharge,
+                isNull,
+              );
+
+              expect(
+                result.unitRate,
+                isNull,
+              );
+            },
+          );
         },
       );
 

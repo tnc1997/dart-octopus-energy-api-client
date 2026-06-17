@@ -25,12 +25,16 @@ class BespokeTariffRates {
     Map<String, dynamic> json,
   ) {
     return BespokeTariffRates(
-      standingCharge: json['standing_charge'] != null
-          ? double.parse(json['standing_charge'] as String)
-          : null,
-      unitRate: json['unit_rate'] != null
-          ? double.parse(json['unit_rate'] as String)
-          : null,
+      standingCharge: json['standing_charge'] is num
+          ? (json['standing_charge'] as num).toDouble()
+          : (json['standing_charge'] as String?)?.isNotEmpty == true
+              ? double.parse(json['standing_charge'] as String)
+              : null,
+      unitRate: json['unit_rate'] is num
+          ? (json['unit_rate'] as num).toDouble()
+          : (json['unit_rate'] as String?)?.isNotEmpty == true
+              ? double.parse(json['unit_rate'] as String)
+              : null,
       unitRates: (json['unit_rates'] as List<dynamic>?)
           ?.map((e) =>
               BespokeElectricityUnitRate.fromJson(e as Map<String, dynamic>))
