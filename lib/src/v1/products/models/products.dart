@@ -66,7 +66,7 @@ class Products {
   ) {
     return Products(
       availableFrom: DateTime.parse(json['available_from'] as String),
-      availableTo: json['available_to'] != null
+      availableTo: json['available_to']?.isNotEmpty == true
           ? DateTime.parse(json['available_to'] as String)
           : null,
       brand: json['brand'] as String,

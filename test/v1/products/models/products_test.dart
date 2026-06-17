@@ -235,6 +235,45 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model with null availableTo from json with an empty string',
+            () {
+              final json = {
+                'available_from': '2017-05-05T05:37:27Z',
+                'available_to': '',
+                'brand': 'TENTACLE_ENERGY',
+                'code': 'VAR-17-01-11',
+                'description':
+                    'This great value 12 month fixed tariff guarantees value.',
+                'direction': 'IMPORT',
+                'display_name': 'Flexible Tentacle',
+                'full_name': 'Flexible Tentacle Offer January 2017 v1',
+                'is_business': true,
+                'is_green': false,
+                'is_prepay': true,
+                'is_restricted': false,
+                'is_tracker': true,
+                'is_variable': false,
+                'links': [
+                  {
+                    'href':
+                        'https://api.octopus.energy/v1/products/VAR-17-01-11/',
+                    'method': 'GET',
+                    'rel': 'self',
+                  }
+                ],
+                'term': 12,
+              };
+
+              final result = Products.fromJson(json);
+
+              expect(
+                result.availableTo,
+                isNull,
+              );
+            },
+          );
         },
       );
 
