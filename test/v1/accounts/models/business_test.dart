@@ -14,11 +14,18 @@ void main() {
               final json = {
                 'annual_turnover': 575000,
                 'business_type': 'LIMITED',
+                'credit_reference_id': 'CRA-998877',
                 'head_count': 25,
                 'is_ccl_exempt': true,
                 'is_vat_exempt': false,
                 'name': 'Acme Corporation Limited',
                 'number': '09263424',
+                'phone_number': '+44 1425 123456',
+                'proprietor': {
+                  'email_address': 'chris@example.com',
+                  'first_name': 'Chris',
+                  'last_name': 'Johnson',
+                },
               };
 
               final result = Business.fromJson(json);
@@ -31,6 +38,11 @@ void main() {
               expect(
                 result.businessType,
                 BusinessType.limited,
+              );
+
+              expect(
+                result.creditReferenceId,
+                'CRA-998877',
               );
 
               expect(
@@ -56,6 +68,16 @@ void main() {
               expect(
                 result.number,
                 '09263424',
+              );
+
+              expect(
+                result.phoneNumber,
+                '+44 1425 123456',
+              );
+
+              expect(
+                result.proprietor,
+                isA<Proprietor>(),
               );
             },
           );
@@ -83,6 +105,11 @@ void main() {
               );
 
               expect(
+                result.creditReferenceId,
+                isNull,
+              );
+
+              expect(
                 result.headCount,
                 isNull,
               );
@@ -106,6 +133,16 @@ void main() {
                 result.number,
                 isNull,
               );
+
+              expect(
+                result.phoneNumber,
+                isNull,
+              );
+
+              expect(
+                result.proprietor,
+                isNull,
+              );
             },
           );
         },
@@ -120,11 +157,18 @@ void main() {
               final model = Business(
                 annualTurnover: 575000,
                 businessType: BusinessType.limited,
+                creditReferenceId: 'CRA-998877',
                 headCount: 25,
                 isCclExempt: true,
                 isVatExempt: false,
                 name: 'Acme Corporation Limited',
                 number: '09263424',
+                phoneNumber: '+44 1425 123456',
+                proprietor: Proprietor(
+                  emailAddress: 'chris@example.com',
+                  firstName: 'Chris',
+                  lastName: 'Johnson',
+                ),
               );
 
               final result = model.toJson();
@@ -137,6 +181,11 @@ void main() {
               expect(
                 result['business_type'],
                 'LIMITED',
+              );
+
+              expect(
+                result['credit_reference_id'],
+                'CRA-998877',
               );
 
               expect(
@@ -162,6 +211,16 @@ void main() {
               expect(
                 result['number'],
                 '09263424',
+              );
+
+              expect(
+                result['phone_number'],
+                '+44 1425 123456',
+              );
+
+              expect(
+                result['proprietor'],
+                isA<Map<String, dynamic>>(),
               );
             },
           );
@@ -189,6 +248,11 @@ void main() {
               );
 
               expect(
+                result['credit_reference_id'],
+                isNull,
+              );
+
+              expect(
                 result['head_count'],
                 isNull,
               );
@@ -210,6 +274,16 @@ void main() {
 
               expect(
                 result['number'],
+                isNull,
+              );
+
+              expect(
+                result['phone_number'],
+                isNull,
+              );
+
+              expect(
+                result['proprietor'],
                 isNull,
               );
             },

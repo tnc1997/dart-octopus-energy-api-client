@@ -36,6 +36,8 @@ export 'src/v1/accounts/models/export_details.dart';
 export 'src/v1/accounts/models/installation.dart';
 export 'src/v1/accounts/models/password_reset.dart';
 export 'src/v1/accounts/models/payment.dart';
+export 'src/v1/accounts/models/proprietor.dart';
+export 'src/v1/accounts/models/proprietor_address.dart';
 export 'src/v1/accounts/models/psr.dart';
 export 'src/v1/accounts/models/success_response.dart';
 export 'src/v1/accounts/models/user.dart';
