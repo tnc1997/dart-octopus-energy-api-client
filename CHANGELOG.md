@@ -1,0 +1,373 @@
+## [1.0.0] - 2026-06-18
+
+### 🚀 Features
+
+- Add get account endpoint
+- Add create account endpoint
+- Add renew business tariff endpoint
+- *(electricity-meter-points)* Add get electricity meter point endpoint
+- *(electricity-meter-points)* Add list electricity meter consumption endpoint
+- *(gas-meter-points)* Add list gas meter consumption endpoint
+- *(industry)* Add list industry grid supply points endpoint
+- *(ivr-support)* Add minimal twilio enqueue endpoint
+- *(products)* Add list products endpoint
+- *(products)* Add retrieve product endpoint
+- *(products)* Add list electricity tariff day unit rates endpoint
+- *(products)* Add list electricity tariff night unit rates endpoint
+- *(products)* Add list electricity tariff standard unit rates endpoint
+- *(products)* Add list electricity tariff standing charges endpoint
+- *(products)* Add list gas tariff standard unit rates endpoint
+- *(products)* Add list gas tariff standing charges endpoint
+- *(quotes)* Add create quote endpoint
+- *(quotes)* Add share quote via email endpoint
+- *(voice)* Add twilio enqueue audio endpoint
+- *(products)* Add list electricity tariff ev device off-peak unit rates endpoint
+- *(products)* Add list electricity tariff ev device peak unit rates endpoint
+
+### 🐛 Bug Fixes
+
+- Organize and update package exports
+- *(products)* Convert deserialization json key name casing
+- *(products)* Update model field nullability
+- Update meter point quote nullability
+- *(products)* Update model field nullability
+- *(common)* Handle string body in check is success status code
+- *(common)* Add charset to condition in check is success status code
+- *(common)* Api key client send omits request body
+- Make applicability-dependent response fields nullable
+- Accept numeric values for string-typed numeric fields
+- *(accounts)* Handle empty strings in account agreement model
+- *(accounts)* Handle empty strings in account property model
+- *(accounts)* Handle empty strings in agreement model
+- *(accounts)* Handle empty strings in business tariff renewal agreement model
+- *(common)* Handle empty strings in create model
+- *(common)* Handle empty strings in bespoke electricity unit rate model
+- *(common)* Handle empty strings in bespoke pps tariff rates model
+- *(common)* Handle empty strings in bespoke tariff rates model
+- *(electricity-meter-points)* Handle empty strings in electricity meter point model
+- *(gas-meter-points)* Handle empty strings in gas meter point model
+- *(products)* Handle empty strings in historical charge model
+- *(accounts)* Handle empty strings in installation model
+- *(products)* Handle empty strings in product model
+- *(products)* Handle empty strings in products model
+- *(quotes)* Handle empty strings in quote til model
+- *(accounts)* Handle empty strings in user model
+- *(accounts)* Update model field nullability
+- *(common)* Update model field nullability
+- *(quotes)* Update model field nullability
+
+### 💼 Other
+
+- Tighten dart sdk version constraint
+
+### 🚜 Refactor
+
+- Remove test file
+- Add authority uri constant
+- Add octopus energy api client exception
+- Add octopus energy api client
+- Add meter point model
+- Rename meter point model
+- Add gas meter point meter model
+- Add electricity meter point meter model
+- Add register model
+- Add agreement model
+- Add meter point model
+- Add gas meter point model
+- Add electricity meter point model
+- Add property model
+- Add account model
+- Add api key client
+- Add accounts service
+- Add octopus energy api client example
+- Add detail to octopus energy api client exception
+- Add address model
+- Add affiliate model
+- Add account type enum
+- Add account source enum
+- Add bespoke payment method enum
+- Add bespoke rate type enum
+- Add brand code enum
+- Add business type enum
+- Add credit risk bracket enum
+- Add meter type enum
+- Add payment method enum
+- Add sales channel enum
+- Add smart onboarding product type enum
+- Add bespoke electricity unit rate model
+- Add bespoke pps tariff rates model
+- Add bespoke tariff rates model
+- Add billing options model
+- Add business model
+- Add credit score data model
+- Add deposit model
+- Add payment model
+- Add psr model
+- Add quote model
+- Add user model
+- Update gas meter point model
+- Add installation technology type enum
+- Add installation model
+- Add export details model
+- Update electricity meter point model
+- Update meter point model
+- Add smart meter interest enum
+- Add smart meter read permission enum
+- Add metadata model
+- Add create model
+- Add password reset model
+- Add success response model
+- Update agreement model
+- Add agreements created model
+- Add business tariff renewal commission model
+- Add business tariff renewal bespoke register rate model
+- Add business tariff renewal bespoke tariff rate model
+- Add business tariff renewal agreement model
+- Add business tariff renewal model
+- Add account prefix to register model
+- Add account prefix to agreement model
+- Add account prefix to meter point meter model
+- Add account prefix to meter point model
+- Add account prefix to electricity meter point meter model
+- Add account prefix to electricity meter point model
+- Add account prefix to gas meter point meter model
+- Add account prefix to gas meter point model
+- Add account prefix to property model
+- Update account model
+- Update create model
+- Update meter point model
+- Alphabetize package exports
+- Add accounts service to client
+- Update gas meter point model
+- Update electricity meter point model
+- *(common)* Move meter point models and enums
+- *(common)* Add consumption model
+- *(common)* Add paginated consumption list model
+- *(electricity-meter-points)* Add service
+- *(electricity-meter-points)* Add service to client
+- *(electricity-meter-points)* Add service
+- *(gas-meter-points)* Add service
+- *(gas-meter-points)* Add service to client
+- *(gas-meter-points)* Add service
+- *(industry)* Add grid supply point model
+- *(industry)* Add paginated grid supply point list model
+- *(industry)* Add service
+- *(ivr-support)* Add service
+- *(common)* Add link model
+- *(products)* Add eco 7 electricity tariff model
+- *(products)* Add gas tariff model
+- *(products)* Add historical charge model
+- *(products)* Add paginated historical charge list model
+- *(products)* Add standard electricity tariff model
+- *(products)* Add sample consumption model
+- *(products)* Add sample quotes model
+- *(products)* Add products model
+- *(products)* Add paginated products list model
+- *(products)* Add product model
+- *(products)* Add service
+- *(products)* Add direction enum
+- *(quotes)* Add emails model
+- *(quotes)* Add quote til model
+- *(quotes)* Add quote product model
+- *(quotes)* Add quote created model
+- *(quotes)* Add service
+- *(common)* Move create model
+- *(voice)* Add service
+- *(industry)* Add service to client
+- *(ivr-support)* Add service to client
+- *(products)* Add service to client
+- *(quotes)* Add service to client
+- *(voice)* Add service to client
+- Simplify forwarding constructors using super parameters
+- Apply directive ordering conventions
+- *(accounts)* Add fixed tpi fee to serialization
+- *(accounts)* Replace null forgiving operator
+- *(common)* Retype bespoke electricity unit rate unit rate
+- *(common)* Retype bespoke pps tariff rates unit rate
+- *(common)* Retype bespoke tariff rates unit rate
+- *(common)* Add parse decimal function
+- Convert decimal properties from string to double
+- Replace parse decimal usages with double parse
+- *(common)* Remove parse decimal function
+- [**breaking**] Reorganize package to distinct per-version libraries
+- *(common)* Update consumption model
+- *(accounts)* Update installation model
+- *(common)* Update bespoke rate type enum
+- *(accounts)* Add proprietor address model
+- *(accounts)* Add proprietor model
+- *(accounts)* Update business model
+- *(quotes)* Update emails model
+- *(products)* Add four rate ev electricity tariff model
+- *(products)* Update product model
+- *(accounts)* Update smart onboarding product type enum
+
+### 📚 Documentation
+
+- *(accounts)* Condense renew business tariff
+- Add getting started
+- *(accounts)* Add affiliate model
+- *(accounts)* Add agreement model
+- *(accounts)* Add billing options model
+- *(accounts)* Add business model
+- *(accounts)* Add business tariff renewal model
+- *(accounts)* Add business tariff renewal agreement model
+- *(accounts)* Add business tariff renewal bespoke register rate model
+- *(accounts)* Add business tariff renewal bespoke tariff rate model
+- *(accounts)* Add business tariff renewal commission model
+- *(accounts)* Add export details model
+- *(accounts)* Add installation model
+- *(accounts)* Add metadata model
+- *(accounts)* Add payment model
+- *(accounts)* Add psr model
+- *(accounts)* Add success response model
+- *(accounts)* Add user model
+- *(common)* Add bespoke electricity unit rate model
+- *(common)* Add bespoke pps tariff rates model
+- *(common)* Add bespoke tariff rates model
+- *(common)* Add create model
+- *(common)* Add meter point model
+- *(common)* Add quote model
+- *(electricity-meter-points)* Add electricity meter point model
+- *(gas-meter-points)* Add gas meter point model
+- *(products)* Add product model
+- *(products)* Add products model
+- *(products)* Add sample consumption model
+- *(products)* Add sample quotes model
+- *(quotes)* Add emails model
+- *(products)* Update model field nullability
+- Reword "shared" to "common" in readme
+- Add contributing guidelines
+- *(common)* Add bespoke payment method enum
+- *(common)* Add bespoke rate type enum
+- *(accounts)* Add brand code enum
+- *(accounts)* Add credit risk bracket enum
+- *(accounts)* Add installation technology type enum
+- *(common)* Add meter type enum
+- *(accounts)* Add payment method enum
+- *(accounts)* Add sales channel enum
+- *(accounts)* Add smart meter interest enum
+- *(accounts)* Add smart meter read permission enum
+- *(accounts)* Add smart onboarding product type enum
+
+### 🎨 Styling
+
+- Add trailing commas
+- Dart format
+- Dart format
+
+### 🧪 Testing
+
+- Add account source enum
+- Add account type enum
+- Add bespoke payment method enum
+- Add bespoke rate type enum
+- Add brand code enum
+- Add business type enum
+- Add credit risk bracket enum
+- Add meter type enum
+- Add payment method enum
+- Add sales channel enum
+- Add smart onboarding product type enum
+- Add installation technology type enum
+- Add smart meter interest enum
+- Add smart meter read permission enum
+- *(products)* Add direction enum
+- Reorganize enums into folder by feature
+- *(common)* Add api key client
+- *(common)* Add octopus energy api client exception
+- *(common)* Add address model
+- *(common)* Add bespoke electricity unit rate model
+- *(common)* Add bespoke pps tariff rates model
+- *(common)* Add bespoke tariff rates model
+- *(common)* Add parse decimal function
+- *(common)* Add consumption model
+- *(common)* Add create model
+- *(common)* Add link model
+- *(common)* Add meter point model
+- *(common)* Add paginated consumption list model
+- *(common)* Add quote model
+- *(common)* Update address model
+- *(accounts)* Add account agreement model
+- *(accounts)* Add account electricity meter point meter model
+- *(accounts)* Add account electricity meter point model
+- *(accounts)* Add account gas meter point meter model
+- *(accounts)* Add account gas meter point model
+- *(accounts)* Add account property model
+- *(accounts)* Add account register model
+- *(accounts)* Add account model
+- *(accounts)* Add affiliate model
+- *(accounts)* Add agreement model
+- *(accounts)* Add agreements created model
+- *(accounts)* Add billing options model
+- *(accounts)* Add business tariff renewal agreement model
+- *(accounts)* Add business tariff renewal bespoke register rate model
+- *(accounts)* Add business tariff renewal bespoke tariff rate model
+- *(accounts)* Add business tariff renewal commission model
+- *(accounts)* Add business tariff renewal model
+- *(accounts)* Add business model
+- *(accounts)* Add credit score data model
+- *(accounts)* Add deposit model
+- *(accounts)* Add export details model
+- *(accounts)* Add installation model
+- *(accounts)* Add metadata model
+- *(accounts)* Add password reset model
+- *(accounts)* Add payment model
+- *(accounts)* Add psr model
+- *(accounts)* Add success response model
+- *(accounts)* Add user model
+- *(electricity-meter-points)* Add electricity meter point model
+- *(gas-meter-points)* Add gas meter point model
+- *(industry)* Add grid supply point model
+- *(products)* Add eco 7 electricity tariff model
+- *(products)* Add gas tariff model
+- *(products)* Add historical charge model
+- *(products)* Add paginated historical charge list model
+- *(products)* Add paginated products list model
+- *(products)* Add product model
+- *(products)* Add products model
+- *(products)* Add sample consumption model
+- *(products)* Add sample quotes model
+- *(products)* Add standard electricity tariff model
+- *(accounts)* Align test data with schema examples
+- *(common)* Align test data with schema examples
+- *(electricity-meter-points)* Align test data with schema examples
+- *(gas-meter-points)* Align test data with schema examples
+- *(industry)* Align test data with schema examples
+- *(products)* Align test data with schema examples
+- *(accounts)* Add service
+- *(electricity-meter-points)* Add service
+- *(gas-meter-points)* Add service
+- *(industry)* Add service
+- *(ivr-support)* Add service
+- *(products)* Add service
+- *(quotes)* Add service
+- *(voice)* Add service
+- *(accounts)* Add account meter point meter model
+- *(accounts)* Add account meter point model
+- *(industry)* Add paginated grid supply point list model
+- *(quotes)* Add emails model
+- *(quotes)* Add quote created model
+- *(quotes)* Add quote product model
+- *(quotes)* Add quote til model
+- *(products)* Update description value
+- *(products)* Update available to value
+- Add octopus energy api client
+- *(products)* Add list electricity tariff ev device off-peak unit rates endpoint
+- *(products)* Add list electricity tariff ev device peak unit rates endpoint
+- Update meter point quote nullability
+- *(products)* Update model field nullability
+- Update meter point quote nullability
+- Add opt-in integration test suite
+- *(common)* Update consumption model
+- *(accounts)* Update installation model
+
+### ⚙️ Miscellaneous Tasks
+
+- Initial commit
+- Update license
+- Add directives ordering linter rule
+- Add pull request workflow
+- Add release workflow
+- Add funding metadata to pubspec
+- Add topics metadata to pubspec
+- Add issue tracker metadata to pubspec
