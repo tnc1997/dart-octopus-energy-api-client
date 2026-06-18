@@ -1,3 +1,7 @@
+/// The technology type for the installation.
+///
+/// If there are multiple technologies at one site then provide multiple
+/// installations.
 enum InstallationTechnologyType {
   ad,
   bioDieselOil,
