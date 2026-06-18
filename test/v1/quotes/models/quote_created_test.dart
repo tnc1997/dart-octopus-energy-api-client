@@ -43,6 +43,28 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with null values',
+            () {
+              final result = QuoteCreated.fromJson(<String, dynamic>{});
+
+              expect(
+                result.code,
+                isNull,
+              );
+
+              expect(
+                result.gsp,
+                isNull,
+              );
+
+              expect(
+                result.products,
+                isNull,
+              );
+            },
+          );
         },
       );
 
@@ -81,6 +103,30 @@ void main() {
                   'length',
                   1,
                 ),
+              );
+            },
+          );
+
+          test(
+            'should serialize model with null values to json',
+            () {
+              final model = QuoteCreated();
+
+              final result = model.toJson();
+
+              expect(
+                result['code'],
+                isNull,
+              );
+
+              expect(
+                result['gsp'],
+                isNull,
+              );
+
+              expect(
+                result['products'],
+                isNull,
               );
             },
           );

@@ -80,11 +80,7 @@ void main() {
           test(
             'should return model from json with null values',
             () {
-              final json = {
-                'id': 17,
-              };
-
-              final result = QuoteProduct.fromJson(json);
+              final result = QuoteProduct.fromJson(<String, dynamic>{});
 
               expect(
                 result.annualAmount,
@@ -123,7 +119,7 @@ void main() {
 
               expect(
                 result.id,
-                17,
+                isNull,
               );
 
               expect(
@@ -210,9 +206,7 @@ void main() {
           test(
             'should serialize model with null values to json',
             () {
-              final model = QuoteProduct(
-                id: 17,
-              );
+              final model = QuoteProduct();
 
               final result = model.toJson();
 
@@ -253,7 +247,7 @@ void main() {
 
               expect(
                 result['id'],
-                17,
+                isNull,
               );
 
               expect(

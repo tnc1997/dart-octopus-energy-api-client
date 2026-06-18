@@ -8,7 +8,7 @@ class QuoteProduct {
   QuoteTil? electricityTil;
   String? fullName;
   QuoteTil? gasTil;
-  int id;
+  int? id;
   double? monthlyAmount;
 
   QuoteProduct({
@@ -19,7 +19,7 @@ class QuoteProduct {
     this.electricityTil,
     this.fullName,
     this.gasTil,
-    required this.id,
+    this.id,
     this.monthlyAmount,
   });
 
@@ -38,7 +38,7 @@ class QuoteProduct {
       gasTil: json['gas_til'] != null
           ? QuoteTil.fromJson(json['gas_til'] as Map<String, dynamic>)
           : null,
-      id: (json['id'] as num).toInt(),
+      id: (json['id'] as num?)?.toInt(),
       monthlyAmount: (json['monthly_amount'] as num?)?.toDouble(),
     );
   }
