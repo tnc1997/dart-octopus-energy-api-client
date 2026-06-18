@@ -1,6 +1,12 @@
+/// The payment method for the rate.
 enum BespokePaymentMethod {
+  /// Direct Debit.
   dd,
+
+  /// Non-Direct Debit.
   ndd,
+
+  /// Prepayment.
   pp;
 
   factory BespokePaymentMethod.fromJson(
