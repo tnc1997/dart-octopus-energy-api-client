@@ -1,5 +1,6 @@
 import '../../common/models/link.dart';
 import 'eco_7_electricity_tariff.dart';
+import 'four_rate_ev_electricity_tariff.dart';
 import 'gas_tariff.dart';
 import 'sample_consumption.dart';
 import 'sample_quotes.dart';
@@ -22,6 +23,9 @@ class Product {
 
   Map<String, Map<String, Eco7ElectricityTariff>>?
       dualRegisterElectricityTariffs;
+
+  Map<String, Map<String, FourRateEvElectricityTariff>>?
+      fourRateEvElectricityTariffs;
 
   String fullName;
 
@@ -66,6 +70,7 @@ class Product {
     required this.description,
     required this.displayName,
     this.dualRegisterElectricityTariffs,
+    this.fourRateEvElectricityTariffs,
     required this.fullName,
     this.isBusiness,
     this.isGreen,
@@ -102,6 +107,18 @@ class Product {
             (e as Map<String, dynamic>).map(
               (k, e) => MapEntry(
                   k, Eco7ElectricityTariff.fromJson(e as Map<String, dynamic>)),
+            )),
+      ),
+      fourRateEvElectricityTariffs:
+          (json['four_rate_ev_electricity_tariffs'] as Map<String, dynamic>?)
+              ?.map(
+        (k, e) => MapEntry(
+            k,
+            (e as Map<String, dynamic>).map(
+              (k, e) => MapEntry(
+                  k,
+                  FourRateEvElectricityTariff.fromJson(
+                      e as Map<String, dynamic>)),
             )),
       ),
       fullName: json['full_name'] as String,
@@ -156,6 +173,12 @@ class Product {
       'description': description,
       'display_name': displayName,
       'dual_register_electricity_tariffs': dualRegisterElectricityTariffs?.map(
+        (k, e) => MapEntry(
+          k,
+          e.map((k, e) => MapEntry(k, e.toJson())),
+        ),
+      ),
+      'four_rate_ev_electricity_tariffs': fourRateEvElectricityTariffs?.map(
         (k, e) => MapEntry(
           k,
           e.map((k, e) => MapEntry(k, e.toJson())),

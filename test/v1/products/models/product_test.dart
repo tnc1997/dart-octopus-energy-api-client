@@ -47,6 +47,30 @@ void main() {
                     }
                   }
                 },
+                'four_rate_ev_electricity_tariffs': <String, dynamic>{
+                  '_D': <String, dynamic>{
+                    'direct_debit_monthly': <String, dynamic>{
+                      'code': 'E-4R-VAR-17-01-11-D',
+                      'standing_charge_exc_vat': 23.0,
+                      'standing_charge_inc_vat': 23.1,
+                      'online_discount_exc_vat': 10.0,
+                      'online_discount_inc_vat': 10.1,
+                      'dual_fuel_discount_exc_vat': 11.0,
+                      'dual_fuel_discount_inc_vat': 11.1,
+                      'exit_fees_exc_vat': 12.0,
+                      'exit_fees_inc_vat': 12.1,
+                      'exit_fees_type': 'NONE',
+                      'links': <dynamic>[
+                        {
+                          'href':
+                              'https://api.octopus.energy/v1/products/VAR-17-01-11/electricity-tariffs/E-4R-VAR-17-01-11-D/standard-unit-rates/',
+                          'method': 'GET',
+                          'rel': 'standard_unit_rates',
+                        }
+                      ],
+                    }
+                  }
+                },
                 'full_name': 'Flexible Tentacle Offer January 2017 v1',
                 'is_business': true,
                 'is_green': false,
@@ -196,6 +220,12 @@ void main() {
                 result.dualRegisterElectricityTariffs!['_B']![
                     'direct_debit_monthly'],
                 isA<Eco7ElectricityTariff>(),
+              );
+
+              expect(
+                result.fourRateEvElectricityTariffs!['_D']![
+                    'direct_debit_monthly'],
+                isA<FourRateEvElectricityTariff>(),
               );
 
               expect(
@@ -612,6 +642,30 @@ void main() {
                     )
                   }
                 },
+                fourRateEvElectricityTariffs: {
+                  '_D': {
+                    'direct_debit_monthly': FourRateEvElectricityTariff(
+                      code: 'E-4R-VAR-17-01-11-D',
+                      dualFuelDiscountExcVat: 11.0,
+                      dualFuelDiscountIncVat: 11.1,
+                      exitFeesExcVat: 12.0,
+                      exitFeesIncVat: 12.1,
+                      exitFeesType: 'NONE',
+                      links: [
+                        Link(
+                          href:
+                              'https://api.octopus.energy/v1/products/VAR-17-01-11/electricity-tariffs/E-4R-VAR-17-01-11-D/standard-unit-rates/',
+                          method: 'GET',
+                          rel: 'standard_unit_rates',
+                        ),
+                      ],
+                      onlineDiscountExcVat: 10.0,
+                      onlineDiscountIncVat: 10.1,
+                      standingChargeExcVat: 23.0,
+                      standingChargeIncVat: 23.1,
+                    )
+                  }
+                },
                 fullName: 'Flexible Tentacle Offer January 2017 v1',
                 isBusiness: true,
                 isGreen: false,
@@ -762,6 +816,17 @@ void main() {
 
               expect(
                 (result['dual_register_electricity_tariffs'] as Map)['_B']
+                    ['direct_debit_monthly'],
+                isA<Map<String, dynamic>>(),
+              );
+
+              expect(
+                result['four_rate_ev_electricity_tariffs'],
+                isNotEmpty,
+              );
+
+              expect(
+                (result['four_rate_ev_electricity_tariffs'] as Map)['_D']
                     ['direct_debit_monthly'],
                 isA<Map<String, dynamic>>(),
               );
