@@ -2,12 +2,12 @@ import 'password_reset.dart';
 
 class SuccessResponse {
   /// Number of the newly created account
-  String number;
+  String? number;
 
   PasswordReset? passwordReset;
 
   SuccessResponse({
-    required this.number,
+    this.number,
     this.passwordReset,
   });
 
@@ -15,7 +15,7 @@ class SuccessResponse {
     Map<String, dynamic> json,
   ) {
     return SuccessResponse(
-      number: json['number'] as String,
+      number: json['number'] as String?,
       passwordReset: json['password_reset'] != null
           ? PasswordReset.fromJson(
               json['password_reset'] as Map<String, dynamic>)

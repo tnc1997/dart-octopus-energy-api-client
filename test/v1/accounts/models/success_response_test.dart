@@ -36,15 +36,11 @@ void main() {
           test(
             'should return model from json with null values',
             () {
-              final json = {
-                'number': 'A-12341234',
-              };
-
-              final result = SuccessResponse.fromJson(json);
+              final result = SuccessResponse.fromJson(<String, dynamic>{});
 
               expect(
                 result.number,
-                'A-12341234',
+                isNull,
               );
 
               expect(
@@ -87,15 +83,13 @@ void main() {
           test(
             'should serialize model with null values to json',
             () {
-              final model = SuccessResponse(
-                number: 'A-12341234',
-              );
+              final model = SuccessResponse();
 
               final result = model.toJson();
 
               expect(
                 result['number'],
-                'A-12341234',
+                isNull,
               );
 
               expect(

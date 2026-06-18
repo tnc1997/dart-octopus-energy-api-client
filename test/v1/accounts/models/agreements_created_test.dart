@@ -40,6 +40,23 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with null values',
+            () {
+              final result = AgreementsCreated.fromJson(<String, dynamic>{});
+
+              expect(
+                result.accountNumber,
+                isNull,
+              );
+
+              expect(
+                result.agreements,
+                isNull,
+              );
+            },
+          );
         },
       );
 
@@ -75,6 +92,25 @@ void main() {
                   'length',
                   1,
                 ),
+              );
+            },
+          );
+
+          test(
+            'should serialize model with null values to json',
+                () {
+              final model = AgreementsCreated();
+
+              final result = model.toJson();
+
+              expect(
+                result['account_number'],
+                isNull,
+              );
+
+              expect(
+                result['agreements'],
+                isNull,
               );
             },
           );

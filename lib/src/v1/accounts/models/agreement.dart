@@ -1,9 +1,9 @@
 class Agreement {
   /// MPRN or MPAN of the meter point getting a new agreement.
-  String mpxn;
+  String? mpxn;
 
   /// Tariff code for the new agreements.
-  String tariffCode;
+  String? tariffCode;
 
   /// Date (inclusive) the new agreement is valid from.
   DateTime? validFromDate;
@@ -12,9 +12,8 @@ class Agreement {
   DateTime? validToDate;
 
   Agreement({
-    required this.mpxn,
-    required this.tariffCode,
-    required this.validFromDate,
+    this.mpxn,
+    this.tariffCode,
     this.validFromDate,
     this.validToDate,
   });
@@ -23,10 +22,8 @@ class Agreement {
     Map<String, dynamic> json,
   ) {
     return Agreement(
-      mpxn: json['mpxn'] as String,
-      tariffCode: json['tariff_code'] as String,
-      validFromDate: DateTime.parse(json['valid_from_date'] as String),
-      validToDate: json['valid_to_date'] != null
+      mpxn: json['mpxn'] as String?,
+      tariffCode: json['tariff_code'] as String?,
       validFromDate: json['valid_from_date']?.isNotEmpty == true
           ? DateTime.parse(json['valid_from_date'] as String)
           : null,

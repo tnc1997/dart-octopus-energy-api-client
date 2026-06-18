@@ -1,18 +1,18 @@
 class PasswordReset {
-  String token;
-  String userId;
+  String? token;
+  String? userId;
 
   PasswordReset({
-    required this.token,
-    required this.userId,
+    this.token,
+    this.userId,
   });
 
   factory PasswordReset.fromJson(
     Map<String, dynamic> json,
   ) {
     return PasswordReset(
-      token: json['token'] as String,
-      userId: json['user_id'] as String,
+      token: json['token'] as String?,
+      userId: json['user_id'] as String?,
     );
   }
 

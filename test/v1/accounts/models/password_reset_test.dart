@@ -29,6 +29,23 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with null values',
+            () {
+              final result = PasswordReset.fromJson(<String, dynamic>{});
+
+              expect(
+                result.token,
+                isNull,
+              );
+
+              expect(
+                result.userId,
+                isNull,
+              );
+            },
+          );
         },
       );
 
@@ -53,6 +70,25 @@ void main() {
               expect(
                 result['user_id'],
                 'user_pk_b64_encoded',
+              );
+            },
+          );
+
+          test(
+            'should serialize model with null values to json',
+                () {
+              final model = PasswordReset();
+
+              final result = model.toJson();
+
+              expect(
+                result['token'],
+                isNull,
+              );
+
+              expect(
+                result['user_id'],
+                isNull,
               );
             },
           );

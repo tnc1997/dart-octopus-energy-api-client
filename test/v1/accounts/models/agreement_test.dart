@@ -45,22 +45,16 @@ void main() {
           test(
             'should return model from json with null values',
             () {
-              final json = {
-                'mpxn': '1013004420117',
-                'tariff_code': 'E-1R-SOME-PRODUCT-J',
-                'valid_from_date': '2019-12-01',
-              };
-
-              final result = Agreement.fromJson(json);
+              final result = Agreement.fromJson(<String, dynamic>{});
 
               expect(
                 result.mpxn,
-                '1013004420117',
+                isNull,
               );
 
               expect(
                 result.tariffCode,
-                'E-1R-SOME-PRODUCT-J',
+                isNull,
               );
 
               expect(
@@ -141,27 +135,23 @@ void main() {
           test(
             'should serialize model with null values to json',
             () {
-              final model = Agreement(
-                mpxn: '1013004420117',
-                tariffCode: 'E-1R-SOME-PRODUCT-J',
-                validFromDate: DateTime.parse('2019-12-01'),
-              );
+              final model = Agreement();
 
               final result = model.toJson();
 
               expect(
                 result['mpxn'],
-                '1013004420117',
+                isNull,
               );
 
               expect(
                 result['tariff_code'],
-                'E-1R-SOME-PRODUCT-J',
+                isNull,
               );
 
               expect(
                 result['valid_from_date'],
-                '2019-12-01T00:00:00.000',
+                isNull,
               );
 
               expect(
