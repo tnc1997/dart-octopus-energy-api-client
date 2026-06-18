@@ -1,3 +1,6 @@
+/// The default is 'CREDIT', which represents any kind of traditional credit
+/// meter or smart meter. This field is mandatory for traditional prepay meters,
+/// for which the value 'PREPAYMENT' should be used.
 enum MeterType {
   credit,
   prepayment;
