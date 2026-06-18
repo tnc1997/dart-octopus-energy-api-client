@@ -1,12 +1,34 @@
+/// A code to indicate which type of smart tariff the customer is meant to
+/// onboard onto.
+///
+/// This is a restricted option. Please get in touch for information on whether
+/// this can be enabled and what the allowed options are.
 enum SmartOnboardingProductType {
+  /// Agile.
   agile,
+
+  /// Aira Zero.
   airaZero,
+
+  /// Cosy Octopus.
   cosyOctopus,
+
+  /// Go Green.
   goGreen,
+
+  /// Intelligent Octopus.
   intelligentOctopus,
+
+  /// Octopus Flux.
   octopusFlux,
+
+  /// Octopus Go.
   octopusGo,
+
+  /// Tesla Import.
   teslaImport,
+
+  /// Tracker.
   tracker;
 
   factory SmartOnboardingProductType.fromJson(
