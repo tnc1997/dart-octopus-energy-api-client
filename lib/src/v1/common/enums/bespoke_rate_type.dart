@@ -1,26 +1,79 @@
+/// The rate type of the unit rate.
+///
+/// If the register_identifier is not provided, the rate type must be provided
+/// instead.
 enum BespokeRateType {
+  /// Capacity Market rate (pence per day) for business tariffs.
   capacityMarket,
+
+  /// Day (or peak) rate (pence per kWh).
   eco7Day,
+
+  /// Night (or off-peak) rate (pence per kWh).
   eco7Night,
+
+  /// Electric vehicle device rate (pence per kWh) for sub-meter billing.
   evDevice,
+
+  /// Electric vehicle device off-peak rate (pence per kWh) for sub-meter
+  /// billing.
   evDeviceOffPeak,
+
+  /// Electric vehicle device peak rate (pence per kWh) for sub-meter billing.
   evDevicePeak,
+
+  /// Hourly Matching Credit Guarantee Advance rate (pence per kWh) for business
+  /// tariffs.
   hmcGuaranteeAdvance,
+
+  /// Hourly Matching Credit Guarantee Full rate (pence per kWh) for business
+  /// tariffs.
   hmcGuaranteeFull,
+
+  /// Nuclear RAB rate (pence per day) for business tariffs.
   nuclearRab,
+
+  /// Additional off-peak rate for three-rate tariffs (pence per kWh).
   offPeak,
+
+  /// Off peak weekend rate (pence per kWh) for business tariffs.
   offPeakWeekends,
+
+  /// Peak rate (pence per kWh) for business tariffs.
   peak,
+
+  /// Standard rate (pence per kWh).
   standard,
+
+  /// Summer rate (pence per kWh) for business tariffs.
   summer,
+
+  /// Summer off-peak rate (pence per kWh) for two-rate tariffs.
   summerOffPeak,
+
+  /// Summer peak rate (pence per kWh) for two-rate tariffs.
   summerPeak,
+
+  /// A rate that applies during summer, weekends and off-peak in winter periods
+  /// (pence per kWh) for business tariffs.
   summerWeekendsOffPeakWinter,
+
+  /// TNUoS rate (pence per day) for business tariffs.
   tnuos,
+
+  /// Weekday rate (pence per kWh) for business tariffs.
   weekday,
+
+  /// Weekend rate (pence per kWh) for business tariffs.
   weekendsOther,
+
+  /// Winter rate (pence per kWh) for business tariffs.
   winter,
+
+  /// Winter off-peak rate (pence per kWh) for two-rate tariffs.
   winterOffPeak,
+
+  /// Winter peak rate (pence per kWh) for two-rate tariffs.
   winterPeak;
 
   factory BespokeRateType.fromJson(
