@@ -1,3 +1,8 @@
+/// A code to specify the account should be for a particular brand.
+///
+/// This is only required when creating an account in an instance with multiple
+/// brands and for which the requested brand is not the default brand of that
+/// instance.
 enum BrandCode {
   coopEnergy,
   londonPower,
