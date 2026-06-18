@@ -25,6 +25,9 @@ enum SmartOnboardingProductType {
   /// Octopus Go.
   octopusGo,
 
+  /// Snug.
+  snug,
+
   /// Tesla Import.
   teslaImport,
 
@@ -49,6 +52,8 @@ enum SmartOnboardingProductType {
         return SmartOnboardingProductType.octopusFlux;
       case 'OCTOPUS_GO':
         return SmartOnboardingProductType.octopusGo;
+      case 'SNUG':
+        return SmartOnboardingProductType.snug;
       case 'TESLA_IMPORT':
         return SmartOnboardingProductType.teslaImport;
       case 'TRACKER':
@@ -74,6 +79,8 @@ enum SmartOnboardingProductType {
         return 'OCTOPUS_FLUX';
       case SmartOnboardingProductType.octopusGo:
         return 'OCTOPUS_GO';
+      case SmartOnboardingProductType.snug:
+        return 'SNUG';
       case SmartOnboardingProductType.teslaImport:
         return 'TESLA_IMPORT';
       case SmartOnboardingProductType.tracker:
