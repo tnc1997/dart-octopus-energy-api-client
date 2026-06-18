@@ -1,26 +1,71 @@
 enum SalesChannel {
+  /// Acquisition.
   acquisition,
+
+  /// Aggregator.
   aggregator,
+
+  /// Broker.
   broker,
+
+  /// Current Account.
   currentAccount,
+
+  /// Debt collection agency.
   debtCollectionAgency,
+
+  /// Digital telesales.
   digiTelesales,
+
+  /// Direct.
   direct,
+
+  /// Events.
   events,
+
+  /// Field sales.
   fieldSales,
+
+  /// Gift of kit.
   giftOfKit,
+
+  /// High referrer.
   highReferrer,
+
+  /// Landlord.
   landlord,
+
+  /// Move in.
   moveIn,
+
+  /// New tenant.
   newTenant,
+
+  /// Octopus Trusted Partners.
   octopusTrustedPartners,
+
+  /// Parent power.
   parentPower,
+
+  /// Partnerships.
   partnerships,
+
+  /// People power.
   peoplePower,
+
+  /// Price comparison.
   priceComparison,
+
+  /// Supplier of last resort.
   supplierOfLastResort,
+
+  /// Telesales.
   telesales,
+
+  /// Workplace pop-up.
   workplacePopUp,
+
+  /// Works with octopus.
   worksWithOctopus;
 
   factory SalesChannel.fromJson(
