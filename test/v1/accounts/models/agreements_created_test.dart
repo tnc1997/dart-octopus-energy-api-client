@@ -98,7 +98,7 @@ void main() {
 
           test(
             'should serialize model with null values to json',
-                () {
+            () {
               final model = AgreementsCreated();
 
               final result = model.toJson();

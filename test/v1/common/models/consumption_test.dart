@@ -10,7 +10,7 @@ void main() {
         () {
           test(
             'should return model from json',
-                () {
+            () {
               final json = {
                 'consumption': '0.063',
                 'interval_end': '2018-05-19T00:00:00.000Z',

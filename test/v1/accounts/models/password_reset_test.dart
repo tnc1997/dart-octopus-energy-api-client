@@ -76,7 +76,7 @@ void main() {
 
           test(
             'should serialize model with null values to json',
-                () {
+            () {
               final model = PasswordReset();
 
               final result = model.toJson();
