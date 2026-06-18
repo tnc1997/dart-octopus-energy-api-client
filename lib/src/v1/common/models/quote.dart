@@ -4,17 +4,17 @@ class Quote {
   /// This value must be provided in pence. For business quotes, the price is
   /// exclusive of VAT, while for non-business quotes, it should be inclusive of
   /// VAT.
-  int annualPayment;
+  int? annualPayment;
 
   Quote({
-    required this.annualPayment,
+    this.annualPayment,
   });
 
   factory Quote.fromJson(
     Map<String, dynamic> json,
   ) {
     return Quote(
-      annualPayment: (json['annual_payment'] as num).toInt(),
+      annualPayment: (json['annual_payment'] as num?)?.toInt(),
     );
   }
 

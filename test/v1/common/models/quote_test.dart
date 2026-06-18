@@ -23,6 +23,18 @@ void main() {
               );
             },
           );
+
+          test(
+            'should return model from json with null values',
+            () {
+              final result = Quote.fromJson(<String, dynamic>{});
+
+              expect(
+                result.annualPayment,
+                isNull,
+              );
+            },
+          );
         },
       );
 
@@ -41,6 +53,20 @@ void main() {
               expect(
                 result['annual_payment'],
                 46576,
+              );
+            },
+          );
+
+          test(
+            'should serialize model with null values to json',
+            () {
+              final model = Quote();
+
+              final result = model.toJson();
+
+              expect(
+                result['annual_payment'],
+                isNull,
               );
             },
           );
