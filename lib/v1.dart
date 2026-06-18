@@ -67,6 +67,7 @@ export 'src/v1/ivr_support/services/ivr_support_service.dart';
 export 'src/v1/octopus_energy_api_client_base.dart';
 export 'src/v1/products/enums/direction.dart';
 export 'src/v1/products/models/eco_7_electricity_tariff.dart';
+export 'src/v1/products/models/four_rate_ev_electricity_tariff.dart';
 export 'src/v1/products/models/gas_tariff.dart';
 export 'src/v1/products/models/historical_charge.dart';
 export 'src/v1/products/models/paginated_historical_charge_list.dart';
