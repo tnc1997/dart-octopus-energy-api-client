@@ -1,6 +1,13 @@
+/// The read permission frequency the occupier grants to meter readings from
+/// smart meters.
 enum SmartMeterReadPermission {
+  /// Daily.
   daily,
+
+  /// Half-hourly.
   halfHourly,
+
+  /// Monthly.
   monthly;
 
   factory SmartMeterReadPermission.fromJson(
