@@ -1,7 +1,14 @@
 enum CreditRiskBracket {
+  /// High.
   high,
+
+  /// Low.
   low,
+
+  /// Medium.
   mid,
+
+  /// Unknown.
   unknown;
 
   factory CreditRiskBracket.fromJson(
