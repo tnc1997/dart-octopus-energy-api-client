@@ -1,6 +1,11 @@
 enum PaymentMethod {
+  /// POROB Direct Debit Schedule.
   billTriggeredDirectDebit,
+
+  /// Monthly Direct Debit.
   monthlyDirectDebit,
+
+  /// POROB schedule, payment initiated by the customer.
   monthlyDirectPayment;
 
   factory PaymentMethod.fromJson(
