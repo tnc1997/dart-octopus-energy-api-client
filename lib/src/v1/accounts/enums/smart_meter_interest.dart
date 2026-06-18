@@ -1,7 +1,15 @@
+/// The occupier’s interest in installing a smart meter.
 enum SmartMeterInterest {
+  /// Interested.
   smets2InterestInterested,
+
+  /// No interest at the moment, ask again later.
   smets2InterestNotAtTheMoment,
+
+  /// Not Interested.
   smets2InterestNotInterested,
+
+  /// Priority.
   smets2InterestPriority;
 
   factory SmartMeterInterest.fromJson(
